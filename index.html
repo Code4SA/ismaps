@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Informal Settlement Matrix</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+
+    <!-- tutorial docs -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css"> -->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <!-- script type="text/javascript" src="http://fast.fonts.net/jsapi/b6470a43-5105-49d3-95ae-75217a436bf8.js"></script> -->
+
+    <!-- Nokia Maps API -->
+    <script src="http://api.maps.nokia.com/2.1.1/jsl.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- include cartodb.js library -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+
+  </head>
+
+  <body>
+    
+    <!-- Placeholder for headline and introductory text -->
+    <div id="heading">
+        <h1>IS Matrix</h1>
+    </div>
+
+    <div id="introduction">
+
+    <p>Description</p>
+
+    </div>
+
+    <!-- Map Start -->
+    <div id="map">
+    <div class="legends"></div>
+
+    <!-- Basemap toggle menu -->
+      <div id='selector_menu'>
+        <select id='selector'>
+          <option value='satellite'>Satellite Day - Nokia</option>
+          <option value='positron'>Positron - Light</option>
+        </select>
+      </div>
+
+    </div>
+    <!-- Map End -->
+
+    <!-- Dashboard Start -->
+    <div id="dashboard">
+        
+        <h1 class="Title Title--xs">Dashboard</h1>
+        <p>Layer controls</p>
+    
+    <div id="buttons">
+      
+      <button id="sublayer0" class="Btn Btn--l Btn--blue">
+      <span>Upgrade Category</span>
+      </button>
+
+      <button id="sublayer1" class="Btn Btn--l Btn--blue">
+      <span>Temporary Sanitation</span>
+      </button>
+      
+      <button id="sublayer2" class="Btn Btn--l Btn--blue">
+      <span>Age</span>
+      </button>
+
+      <button id="sublayer3" class="Btn Btn--l Btn--blue">
+      <span>Structure Count</span>
+      </button>
+
+    </div>
+
+    </div>
+    <!-- Dashboard End -->
+
+    <!-- Data Source and Credits Start -->
+
+    <div id="datasource">
+
+    <h2>Data Sources</h2>
+    <p>The data used to generate this map was obtained from the City of Cape Town in 2015. Some information was obtained from sources and others through access to information requests.</p>
+
+    </div>
+
+    <div id="credits">
+
+    <p>This map of informal settlements in Cape Town is the result of a collaboration between NU, SJC, IBP and Code for South Africa. For further information and comment please contact axolile@sjc.org.za or jared@nu.org.za . Insert Logos.</p>
+
+    </div>
+
+    <!-- Data Source and Credits End -->
+
+    <!-- Script Start -->
+    <script src="js/map-control.js"></script>
+
+  </body>
+</html>

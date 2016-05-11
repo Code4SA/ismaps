@@ -1,0 +1,42 @@
+      html, body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Open Sans', sans;
+      }
+      #map {
+        height: 67%;
+        padding: 0;
+        margin: 0;
+      }
+      #dashboard {
+        height: 33%;
+        padding: 25px;
+        margin: 0;
+        border-top: 2px solid #333;
+      }
+      #dash {
+        margin: 25px 0;
+        width: 400px;
+      }
+      button {
+        margin-right: 10px;
+        background: transparent;
+      }
+      p {
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
+      #heading {
+        text-align: center;
+        font-size: 30px;
+      }
+      #buttons { z-index: 5; }
+
+      /* Basemap toggle menu */
+      #selector_menu{
+        position: absolute;
+        top: 20px;
+        left: 50px;
+        z-index: 9000;
+      }
+
