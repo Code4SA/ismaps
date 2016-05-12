@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
     <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css"> -->
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
@@ -28,7 +29,7 @@
     
     <!-- Placeholder for headline and introductory text -->
     <div id="heading">
-        <h1>IS Matrix</h1>
+        <p>IS Matrix</p>
     </div>
 
     <div id="introduction">
@@ -39,7 +40,6 @@
 
     <!-- Map Start -->
     <div id="map">
-    <div class="legends"></div>
 
     <!-- Basemap toggle menu -->
       <div id='selector_menu'>
@@ -49,36 +49,26 @@
         </select>
       </div>
 
+<ul id="layer-select">
+  <li id="sublayer0" class="btn btn-default">Upgrade Category</li>
+  <li id="sublayer1" class="btn btn-default">Temporary Sanitation</li>
+  <li id="sublayer2" class="btn btn-default">Age</li>
+  <li id="sublayer3" class="btn btn-default">Structure Count</li>
+</ul>
+
+
     </div>
     <!-- Map End -->
 
     <!-- Dashboard Start -->
-    <div id="dashboard">
-        
-        <h1 class="Title Title--xs">Dashboard</h1>
-        <p>Layer controls</p>
-    
-    <div id="buttons">
-      
-      <button id="sublayer0" class="Btn Btn--l Btn--blue">
-      <span>Upgrade Category</span>
-      </button>
-
-      <button id="sublayer1" class="Btn Btn--l Btn--blue">
-      <span>Temporary Sanitation</span>
-      </button>
-      
-      <button id="sublayer2" class="Btn Btn--l Btn--blue">
-      <span>Age</span>
-      </button>
-
-      <button id="sublayer3" class="Btn Btn--l Btn--blue">
-      <span>Structure Count</span>
-      </button>
-
+    <div id="dashboard" class="hidden">
+        <h1>Dashboard</h1>    
+        <p>Name</p>
+        <p id="is_cluster"></p>
+        <p id="pocket_alias"></p>
+        <p id="ratio_hhs_toilets"></p>
     </div>
 
-    </div>
     <!-- Dashboard End -->
 
     <!-- Data Source and Credits Start -->
@@ -99,7 +89,9 @@
     <!-- Data Source and Credits End -->
 
     <!-- Script Start -->
-    <script src="js/map-control.js"></script>
 
   </body>
+
+  <script src="js/map-control.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 </html>
