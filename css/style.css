@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
       html, body {
         height: 100%;
         margin: 0;
@@ -5,13 +9,8 @@
       }
       #map {
         width: 100%;
-        height: 67%;
+        height: 60%;
         padding: 0;
-        margin: 0;
-      }
-      #dashboard {
-        height: 33%;
-        padding: 25px;
         margin: 0;
       }
       #dash {
@@ -22,13 +21,10 @@
         margin-right: 10px;
         background: transparent;
       }
-      p {
-        font-size: 17px;
-        margin-bottom: 10px;
-      }
-      #heading {
+      h1 {
         text-align: center;
-        font-size: 30px;
+        font-family: 'Amatic SC', cursive;
+        font-size: 4em;
       }
 
       /* Basemap toggle menu */
@@ -46,4 +42,40 @@
         z-index: 9000;
       }
 
-      
+      .btn {
+        font-family: 'Open Sans';
+        font-size: 13px;
+      }
+
+      div.cartodb-legend {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        right: 50px;
+
+      }
+
+      div.cartodb-legend ul li, div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
+        font-family: 'Open Sans';
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: none;
+        color: #333;
+      }
+
+      div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
+        line-height: 6px;
+      }
+
+      .category {
+        margin-bottom: 0px;
+      }
+
+      #footer {
+        background-color: #EFEFEF;
+        margin-top: 10px;
+      }
+
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
