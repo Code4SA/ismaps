@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Informal Settlement Matrix</title>
+    <title>Cape Town Informal Settlement Map</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
@@ -10,32 +10,20 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
     <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- link rel="stylesheet" href="http://academy.cartodb.com/css/cdbui.css"> -->
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-    <!-- script type="text/javascript" src="http://fast.fonts.net/jsapi/b6470a43-5105-49d3-95ae-75217a436bf8.js"></script> -->
-
-    <!-- Nokia Maps API -->
-    <script src="http://api.maps.nokia.com/2.1.1/jsl.js" type="text/javascript" charset="utf-8"></script>
-
-    <!-- include cartodb.js library -->
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
 
   <body>
-    
-    <!-- Placeholder for headline and introductory text -->
-    <div id="heading">
-        <p>IS Matrix</p>
+  <div class="row">
+  <div class="col-md-12">
+    <h1>Cape Town Informal Settlement Map</h1>
+
+    <p>Our Constitution guarantees all residents in Cape Town the right to adequate housing and access to water, basic sanitation as well as dignity, safety and security.  There are around 437 informal settlements in Cape Town ranging from 3 homes to nearly 8000 homes. This map helps you to find out on what land they are located, how old they are, what basic services are currently being provided and what constraints currently preventing them being upgraded.</p>
+
+    <p>Explore the map with the layers to see trends across the city. Click on an informal settlement pocket to see further information</p>
     </div>
-
-    <div id="introduction">
-
-    <p>Description</p>
-
     </div>
 
     <!-- Map Start -->
@@ -44,8 +32,8 @@
     <!-- Basemap toggle menu -->
       <div id='selector_menu'>
         <select id='selector'>
-          <option value='satellite'>Satellite Day - Nokia</option>
           <option value='positron'>Positron - Light</option>
+          <option value='satellite'>Satellite Day - Nokia</option>
         </select>
       </div>
 
@@ -54,6 +42,7 @@
   <li id="sublayer1" class="btn btn-default">Temporary Sanitation</li>
   <li id="sublayer2" class="btn btn-default">Age</li>
   <li id="sublayer3" class="btn btn-default">Structure Count</li>
+  <li id="sublayer4" class="btn btn-default">Housing Density</li>
 </ul>
 
 
@@ -61,31 +50,28 @@
     <!-- Map End -->
 
     <!-- Dashboard Start -->
-    <div id="dashboard" class="hidden">
-        <h1>Dashboard</h1>    
-        <p>Name</p>
-        <p id="is_cluster"></p>
-        <p id="pocket_alias"></p>
+    <div id="dashboard" class="row hidden">
+    <div class="col-md-6">
+        <h2 id="pocket_name"></h2>
+        <p class="category"><b>Cluster</b></p>
+        <p id="is_cluster"></p>                   
+        <p class="category"><b>Ratio hhs toilets</b></p>
         <p id="ratio_hhs_toilets"></p>
+        <p class="category"><b>Ward councillor</b></p>
+        <p id="ward_councillor"></p> 
+    </div>  
     </div>
 
     <!-- Dashboard End -->
 
     <!-- Data Source and Credits Start -->
 
-    <div id="datasource">
-
-    <h2>Data Sources</h2>
-    <p>The data used to generate this map was obtained from the City of Cape Town in 2015. Some information was obtained from sources and others through access to information requests.</p>
-
+    <div class="row" id="footer">
+    <div class="col-md-12">
+    <p style="margin-top: 10px;">The data used to generate this map was obtained from the City of Cape Town in 2015. Some information was obtained from sources and others through access to information requests.</p>
+    <p>This map of informal settlements in Cape Town is the result of a collaboration between <a href="http://nu.org.za/">Ndifuna Ukwazi</a>, <a href="http://www.sjc.org.za/">Social Justice Coalition</a>, <a href="http://www.internationalbudget.org/">International Budget Partnership</a>, and <a href="http://www.code4sa.org/">Code for South Africa</a>. For further information and comment please contact <a href="mailto:axolile@sjc.org.za">axolile@sjc.org.za</a> or <a href="mailto:jared@nu.org.za">jared@nu.org.za</a>.</p>
     </div>
-
-    <div id="credits">
-
-    <p>This map of informal settlements in Cape Town is the result of a collaboration between NU, SJC, IBP and Code for South Africa. For further information and comment please contact axolile@sjc.org.za or jared@nu.org.za . Insert Logos.</p>
-
     </div>
-
     <!-- Data Source and Credits End -->
 
     <!-- Script Start -->
@@ -93,5 +79,9 @@
   </body>
 
   <script src="js/map-control.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="http://api.maps.nokia.com/2.1.1/jsl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 </html>

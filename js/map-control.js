@@ -15,25 +15,21 @@ window.onload = function() {
             sql: "SELECT * FROM is_matrix_epsg4326_region",
             // IS Region -- Upgrade Category
             cartocss: '#is_matrix_epsg4326_region {polygon-opacity: 1;line-color: #FFCC00;line-width: 1;line-opacity: 1;} #is_matrix_epsg4326_region[upgrade_category="City land. Can be upgraded"] {polygon-fill: #A6CEE3;}#is_matrix_epsg4326_region[upgrade_category="National land. Can be upgraded"] {polygon-fill: #1F78B4;}#is_matrix_epsg4326_region[upgrade_category="Provincial land. Can be upgraded"] {polygon-fill: #B2DF8A;}#is_matrix_epsg4326_region[upgrade_category="Some constraints. May need to be relocated"] {polygon-fill: #33A02C;}',
-            interactivity: "is_cluster, pocket_alias",
         }, 
         {
             sql: "SELECT * FROM is_matrix_epsg4326_region",
             // IS Region -- Temporary Sanitation
             cartocss: '#is_matrix_epsg4326_region{polygon-fill: #FFFFB2;polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#is_matrix_epsg4326_region [ temporary_sanitation <= 100] {polygon-fill: #003973;line-color: #00fbff;line-width: 1;line-opacity: 1;}#is_matrix_epsg4326_region [ temporary_sanitation <= 80] {polygon-fill: #225ea8;line-color: #00fbff;line-width: 1;line-opacity: 1}#is_matrix_epsg4326_region [ temporary_sanitation <= 60] {polygon-fill: #1d91c0;line-color: #00fbff;line-width: 1;line-opacity: 1}#is_matrix_epsg4326_region [ temporary_sanitation <= 40] {polygon-fill: #41b6c4;line-color: #00fbff;line-width: 1;line-opacity: 1}#is_matrix_epsg4326_region [ temporary_sanitation <= 20] {polygon-fill: #7fcdbb;line-color: #00fbff;line-width: 1;line-opacity: 1}',
-            interactivity: "is_cluster, pocket_alias",
         }, 
         {
             sql: "SELECT * FROM is_matrix_epsg4326_region",
             // IS Region -- Age
             cartocss: '#is_matrix_epsg4326_region {polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#is_matrix_epsg4326_region[age_of_pocket="0 - 5 years"] {polygon-fill: #B40903;}#is_matrix_epsg4326_region[age_of_pocket="10 - 15 years"] {polygon-fill: #FFA300;}#is_matrix_epsg4326_region[age_of_pocket="15 - 20 years"] {polygon-fill: #A53ED5;}#is_matrix_epsg4326_region[age_of_pocket="5 - 10 years"] {polygon-fill: #FF5C00;}#is_matrix_epsg4326_region[age_of_pocket="> 20 years"] {polygon-fill: #0F3B82;}',
-            interactivity: "is_cluster, pocket_alias",
         }, 
         {
             sql: "SELECT * FROM is_matrix_epsg4326_region",
             // IS Region -- Structure Count
             cartocss: '#is_matrix_epsg4326_region{polygon-fill: #F2D2D3;polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#is_matrix_epsg4326_region [ structure_count <= 7963] {polygon-fill: #67000d;line-color: #d60000;line-width: 1;line-opacity: 1}#is_matrix_epsg4326_region [ structure_count <= 6370.4] {polygon-fill: #a50f15;line-color: #d60000;line-width: 1;line-opacity: 1}#is_matrix_epsg4326_region [ structure_count <= 4777.799999999999] {polygon-fill: #cb181d;line-color: #d60000;line-width: 1;line-opacity: 1}#is_matrix_epsg4326_region [ structure_count <= 3185.2] {polygon-fill: #ef3b2c;line-color: #d60000;line-width: 1;line-opacity: 1}#is_matrix_epsg4326_region [ structure_count <= 1592.6] {polygon-fill: #fb6a4a;line-color: #d60000;line-width: 1;line-opacity: 1}',
-            interactivity: "is_cluster, pocket_alias",
         }]
     }
     
@@ -41,14 +37,12 @@ window.onload = function() {
     var sublayers = [];
     
     // Basemap pull tiles
-    var basemap1 = L.tileLayer('https://maps.nlp.nokia.com/maptiler/v2/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8?lg=eng&token=61YWYROufLu_f8ylE0vn0Q&app_id=qIWDkliFCtLntLma2e6O', {
-        attribution: 'Nokia'
+        var basemap2 = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: 'CartoDB'
     }).addTo(map_object);
     // add new basemap option
-    var basemap2 = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-        attribution: 'CartoDB'
-    
-    
+    var basemap1 = L.tileLayer('https://maps.nlp.nokia.com/maptiler/v2/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8?lg=eng&token=61YWYROufLu_f8ylE0vn0Q&app_id=qIWDkliFCtLntLma2e6O', {
+      attribution: 'Nokia'
     });
     
     
@@ -78,15 +72,17 @@ window.onload = function() {
         for (var i = 0; i < 4; i++) {
             sublayer = layer.getSubLayer(i);
             sublayer.setInteraction(true);
-            sublayer.setInteractivity('is_cluster,pocket_alias,ratio_hhs_toilets');
+            sublayer.setInteractivity('is_cluster,pocket_name,ratio_hhs_toilets,area__ha,ward_councillor');
             console.log("num layers", layer.getSubLayerCount());
             
             sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
                 $('#dashboard').removeClass("hidden")
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
-                $("#is_cluster").text(data.is_cluster);
-                $("#pocket_alias").text(data.pocket_alias);
+                $("#pocket_name").text(data.pocket_name);                
+                $("#ward_councillor").text(data.ward_councillor);                                
                 $("#ratio_hhs_toilets").text(data.ratio_hhs_toilets);
+                $("#is_cluster").text(data.is_cluster);
+                $("#area_ha").text(data.area_ha);
             });
         }
         var legend = new cdb.geo.ui.Legend({
