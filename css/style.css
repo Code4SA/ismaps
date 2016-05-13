@@ -30,8 +30,8 @@
       /* Basemap toggle menu */
       #basemap-select{
         position: absolute;
-        top: 15px;
-        left: 50px;
+        bottom: 10px;
+        left: 10px;
         z-index: 9000;
       }
 
@@ -96,4 +96,28 @@
       .row {
         margin-left: 0;
         margin-right: 0;
+      }
+
+      .cartodb-logo {
+        visibility: hidden;
+      }
+
+      .leaflet-bar {
+        box-shadow: none;
+        border: 1px solid #ccc;        
+      }
+
+      .leaflet-bar a:first-child {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+
+      .leaflet-bar a:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }        
+
+      h4 {
+        text-align: center;
+        margin-top: 20px;
       }
