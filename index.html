@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -30,19 +30,17 @@
     <div id="map">
 
     <!-- Basemap toggle menu -->
-      <div id='selector_menu'>
-        <select id='selector'>
-          <option value='positron'>Positron - Light</option>
-          <option value='satellite'>Satellite Day - Nokia</option>
-        </select>
+      <div id="selector">
+          <div id="base-map" class="btn btn-default"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map</div>
+          <div id="base-satellite" class="btn btn-default"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> Satellite</div>
       </div>
 
 <ul id="layer-select">
-  <li id="sublayer0" class="btn btn-default">Upgrade Category</li>
-  <li id="sublayer1" class="btn btn-default">Temporary Sanitation</li>
-  <li id="sublayer2" class="btn btn-default">Age</li>
-  <li id="sublayer3" class="btn btn-default">Structure Count</li>
-  <li id="sublayer4" class="btn btn-default">Housing Density</li>
+  <li id="sublayer0" class="btn btn-default"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Structure count</li>
+  <li id="sublayer1" class="btn btn-default"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age of pocket</li>
+  <li id="sublayer2" class="btn btn-default"><i class="fa fa-tint" aria-hidden="true"></i> Temporary sanitation</li>
+  <li id="sublayer3" class="btn btn-default"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
+  <li id="sublayer4" class="btn btn-default"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Housing Density</li>
 </ul>
 
 
@@ -54,11 +52,13 @@
     <div class="col-md-6">
         <h2 id="pocket_name"></h2>
         <p class="category"><b>Cluster</b></p>
-        <p id="is_cluster"></p>                   
-        <p class="category"><b>Ratio hhs toilets</b></p>
-        <p id="ratio_hhs_toilets"></p>
+        <p id="is_cluster"></p>       
+        <p class="category"><b>Size in hectares</b></p>      
+        <p id="area_ha"></p>                    
+        <p class="category"><b>Ratio of toilets to dwellings</b></p>
+        <p id="ratio_toilets_dwellings"></p>
         <p class="category"><b>Ward councillor</b></p>
-        <p id="ward_councillor"></p> 
+        <p id="ward_councillor"></p>
     </div>  
     </div>
 
