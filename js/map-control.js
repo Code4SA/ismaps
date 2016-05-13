@@ -77,7 +77,7 @@ window.onload = function() {
         for (var i = 0; i < 5; i++) {
             sublayer = layer.getSubLayer(i);
             sublayer.setInteraction(true);
-            sublayer.setInteractivity('pocket_name, ward_councillor, ratio_toilets_dwellings, is_cluster, area_ha');
+            sublayer.setInteractivity('pocket_name, ward_councillor, ratio_toilets_dwellings, is_cluster, area_ha, ward_id');
             console.log("num layers", layer.getSubLayerCount());
             
             sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
@@ -88,6 +88,7 @@ window.onload = function() {
                 $("#ratio_toilets_dwellings").text(data.ratio_toilets_dwellings);
                 $("#is_cluster").text(data.is_cluster);
                 $("#area_ha").text(data.area_ha);
+                $("#ward_id").text(data.ward_id);                
             });
         }
         var densityLegend = new cdb.geo.ui.Legend.Density({
@@ -135,7 +136,7 @@ window.onload = function() {
     
     // Add button events Sublayer 0 - Structure count
     var sublayer0Shown = true;
-    $("#sublayer0").on('click', function() {
+    $(".select-sublayer0").on('click', function() {
         sublayers[1].hide();
         sublayers[2].hide();
         sublayers[3].hide();
@@ -152,7 +153,7 @@ window.onload = function() {
     
     // Add button events Sublayer 1 - Age of pocket
     var sublayer1Shown = true;
-    $("#sublayer1").on('click', function() {
+    $(".select-sublayer1").on('click', function() {
         sublayers[0].hide();
         sublayers[2].hide();
         sublayers[3].hide();
@@ -190,7 +191,7 @@ window.onload = function() {
     
     // Add button events Sublayer 2 - Temporary sanitation
     var sublayer2Shown = true;
-    $("#sublayer2").on('click', function() {
+    $(".select-sublayer2").on('click', function() {
         sublayers[0].hide();
         sublayers[1].hide();
         sublayers[3].hide();
@@ -208,7 +209,7 @@ window.onload = function() {
     
     // Add button events Sublayer 3 - Upgrade category
     var sublayer3Shown = true;
-    $("#sublayer3").on('click', function() {
+    $(".select-sublayer3").on('click', function() {
         sublayers[0].hide();
         sublayers[2].hide();
         sublayers[1].hide();
@@ -217,6 +218,7 @@ window.onload = function() {
         $('.cartodb-legend').addClass("hidden")
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
+            title: "Test",            
             data: [
             {
                 name: "City land. Can be upgraded",
@@ -240,7 +242,7 @@ window.onload = function() {
     });
     // Add button events Sublayer 4 - Housing density
     var sublayer4Shown = true;
-    $("#sublayer4").on('click', function() {
+    $(".select-sublayer4").on('click', function() {
         sublayers[0].hide();
         sublayers[2].hide();
         sublayers[1].hide();
@@ -255,5 +257,24 @@ window.onload = function() {
         $('#map').append(densityLegend.render().el);
     });
 
+$("#layer-select > .btn").click(function(){
+    $("#layer-select > .btn").removeClass("active");
+    $(this).addClass("active");
+});
+
+$("#layer-select-mobile > .btn").click(function(){
+    $("#layer-select-mobile > .btn").removeClass("active");
+    $(this).addClass("active");
+});
+
+$("#layer-select-tiny > .btn").click(function(){
+    $("#layer-select-tiny > .btn").removeClass("active");
+    $(this).addClass("active");
+});
+
+$("#basemap-select > .btn").click(function(){
+    $("#basemap-select > .btn").removeClass("active");
+    $(this).addClass("active");
+});
 }
 //closes function

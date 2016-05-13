@@ -22,26 +22,42 @@
 
     <p>Our Constitution guarantees all residents in Cape Town the right to adequate housing and access to water, basic sanitation as well as dignity, safety and security.  There are around 437 informal settlements in Cape Town ranging from 3 homes to nearly 8000 homes. This map helps you to find out on what land they are located, how old they are, what basic services are currently being provided and what constraints currently preventing them being upgraded.</p>
 
-    <p>Explore the map with the layers to see trends across the city. Click on an informal settlement pocket to see further information</p>
+    <p>Explore the map with the layers to see trends across the city. Click on an informal settlement pocket to see further information.</p>
     </div>
     </div>
+
+<ul id="layer-select-tiny" class="hidden-md hidden-lg hidden-sm">
+  <li class="btn btn-block btn-default select-sublayer0"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Structure count</li>
+  <li class="btn btn-block btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age of pocket</li>
+  <li class="btn btn-block btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary sanitation</li>
+  <li class="btn btn-block btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
+  <li class="btn btn-block btn-default active select-sublayer4"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Housing Density</li>
+</ul>
+
+<ul id="layer-select-mobile" class="hidden-md hidden-lg hidden-xs">
+  <li class="btn btn-default select-sublayer0"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Structure count</li>
+  <li class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age of pocket</li>
+  <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary sanitation</li>
+  <li class="btn btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
+  <li class="btn btn-default active select-sublayer4"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Housing Density</li>
+</ul>
 
     <!-- Map Start -->
     <div id="map">
 
+<ul id="layer-select" class="hidden-sm hidden-xs">
+  <li class="btn btn-default select-sublayer0"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Structure count</li>
+  <li class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age of pocket</li>
+  <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary sanitation</li>
+  <li class="btn btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
+  <li class="btn btn-default active select-sublayer4"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Housing Density</li>
+</ul>
+
     <!-- Basemap toggle menu -->
-      <div id="selector">
-          <div id="base-map" class="btn btn-default"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map</div>
+      <div id="basemap-select">
+          <div id="base-map" class="btn btn-default active"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map</div>
           <div id="base-satellite" class="btn btn-default"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> Satellite</div>
       </div>
-
-<ul id="layer-select">
-  <li id="sublayer0" class="btn btn-default"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Structure count</li>
-  <li id="sublayer1" class="btn btn-default"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age of pocket</li>
-  <li id="sublayer2" class="btn btn-default"><i class="fa fa-tint" aria-hidden="true"></i> Temporary sanitation</li>
-  <li id="sublayer3" class="btn btn-default"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
-  <li id="sublayer4" class="btn btn-default"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Housing Density</li>
-</ul>
 
 
     </div>
@@ -53,12 +69,14 @@
         <h2 id="pocket_name"></h2>
         <p class="category"><b>Cluster</b></p>
         <p id="is_cluster"></p>       
-        <p class="category"><b>Size in hectares</b></p>      
+        <p class="category"><b>Size in km<sup>2</sup></b></p>      
         <p id="area_ha"></p>                    
         <p class="category"><b>Ratio of toilets to dwellings</b></p>
         <p id="ratio_toilets_dwellings"></p>
         <p class="category"><b>Ward councillor</b></p>
         <p id="ward_councillor"></p>
+        <p class="category"><b>Ward ID</b></p>
+        <p id="ward_id"></p>        
     </div>  
     </div>
 
@@ -79,8 +97,7 @@
   </body>
 
   <script src="js/map-control.js"></script>
-  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://api.maps.nokia.com/2.1.1/jsl.js" type="text/javascript" charset="utf-8"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
