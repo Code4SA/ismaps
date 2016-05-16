@@ -15,22 +15,22 @@ window.onload = function() {
             sql: "SELECT * FROM is_matrix_epsg4326_region_1",
             // IS Region -- Structure count
             cartocss: '#is_matrix_epsg4326_region_1{polygon-fill: #F2D2D3;polygon-opacity: 1;  line-color: #FFF;  line-width: 0.5;  line-opacity: 1;} #is_matrix_epsg4326_region_1 [ structure_count <= 7963] {polygon-fill: #67000d;  line-color: #FFF;  line-width: 0.5;  line-opacity: 1}#is_matrix_epsg4326_region_1 [ structure_count <= 6370.4] {   polygon-fill: #a50f15;  line-color: #FFF;  line-width: 0.5;  line-opacity: 1}#is_matrix_epsg4326_region_1 [ structure_count <= 4777.799999999999] {   polygon-fill: #cb181d;  line-color: #FFF;  line-width: 0.5;  line-opacity: 1}#is_matrix_epsg4326_region_1 [ structure_count <= 3185.2] {   polygon-fill: #ef3b2c;  line-color: #FFF;  line-width: 0.5;  line-opacity: 1}#is_matrix_epsg4326_region_1 [ structure_count <= 1592.6] {   polygon-fill: #fb6a4a;  line-color: #FFF;  line-width: 0.5;  line-opacity: 1}',
-        },
+        }, 
         {
             sql: "SELECT * FROM is_matrix_epsg4326_region_1",
             // IS Region -- Age of pocket
             cartocss: '#is_matrix_epsg4326_region_1 {   polygon-opacity: 1;   line-color: #FFF;   line-width: 0.5;   line-opacity: 1;}#is_matrix_epsg4326_region_1[age_of_pocket="0 - 5 years"] {   polygon-fill: #b40903;}#is_matrix_epsg4326_region_1[age_of_pocket="10 - 15 years"] {   polygon-fill: #ffa300;}#is_matrix_epsg4326_region_1[age_of_pocket="15 - 20 years"] {   polygon-fill: #a53ed5;}#is_matrix_epsg4326_region_1[age_of_pocket="5 - 10 years"] {   polygon-fill: #ff5c00;}#is_matrix_epsg4326_region_1[age_of_pocket="> 20 years"] {   polygon-fill: #0f3b82;}'
-        },
+        }, 
         {
             sql: "SELECT * FROM is_matrix_epsg4326_region_1",
             // IS Region -- Temporary sanitation
             cartocss: '#is_matrix_epsg4326_region_1{polygon-fill: #FFFFB2;  polygon-opacity: 1;  line-color: #FFF;  line-width: 0.5;  line-opacity: 1;} #is_matrix_epsg4326_region_1 [ temp_sanitation <= 100] {   polygon-fill: #BD0026;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 80] {   polygon-fill: #F03B20;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 60] {   polygon-fill: #FD8D3C;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 40] {   polygon-fill: #FECC5C;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 20] {   polygon-fill: #FFFFB2;}'
-        },
+        }, 
         {
             sql: "SELECT * FROM is_matrix_epsg4326_region_1",
             // IS Region -- Upgrade category
-            cartocss: '#is_matrix_epsg4326_region_1 {   polygon-opacity: 1;   line-color: #FFF;   line-width: 0.5;   line-opacity: 1;} #is_matrix_epsg4326_region_1[upgrade_category="City land. Can be upgraded"] {   polygon-fill: #A6CEE3;}#is_matrix_epsg4326_region_1[upgrade_category="National land. Can be upgraded"] {   polygon-fill: #1F78B4;} #is_matrix_epsg4326_region_1[upgrade_category="Provincial land. Can be upgraded"] {   polygon-fill: #B2DF8A;}#is_matrix_epsg4326_region_1[upgrade_category="Some constraints. May need to be relocated"] {   polygon-fill: #33A02C;}'        
-        },
+            cartocss: '#is_matrix_epsg4326_region_1 {   polygon-opacity: 1;   line-color: #FFF;   line-width: 0.5;   line-opacity: 1;} #is_matrix_epsg4326_region_1[upgrade_category="City land. Can be upgraded"] {   polygon-fill: #A6CEE3;}#is_matrix_epsg4326_region_1[upgrade_category="National land. Can be upgraded"] {   polygon-fill: #1F78B4;} #is_matrix_epsg4326_region_1[upgrade_category="Provincial land. Can be upgraded"] {   polygon-fill: #B2DF8A;}#is_matrix_epsg4326_region_1[upgrade_category="Some constraints. May need to be relocated"] {   polygon-fill: #33A02C;}'
+        }, 
         {
             sql: "SELECT * FROM is_matrix_epsg4326_region_1",
             // IS Region -- Housing density
@@ -42,12 +42,12 @@ window.onload = function() {
     var sublayers = [];
     
     // Basemap pull tiles
-        var basemap2 = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    var basemap2 = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
         attribution: 'CartoDB'
     }).addTo(map_object);
     // add new basemap option
     var basemap1 = L.tileLayer('https://maps.nlp.nokia.com/maptiler/v2/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8?lg=eng&token=61YWYROufLu_f8ylE0vn0Q&app_id=qIWDkliFCtLntLma2e6O', {
-      attribution: 'Nokia'
+        attribution: 'Nokia'
     });
     
     
@@ -77,23 +77,27 @@ window.onload = function() {
         for (var i = 0; i < 5; i++) {
             sublayer = layer.getSubLayer(i);
             sublayer.setInteraction(true);
-            sublayer.setInteractivity('pocket_name, ward_councillor, ratio_toilets_dwellings, is_cluster, area_ha, ward_id, toilets_container, toilets_chemical, toilets_full_flush, toilets_other, toilets_portable, cns_waterbodies, cns_private_land, cns_metro_roads, cns_servitude, cns_biodiversity_core1, cns_biodiversity_core2, cns_power_lines, cns_railway, cns_landfill_1, cns_landfill_2, cns_flood_prone, cns_irt, cns_noise_zones, cns_heritage, cns_koeberg');
+            sublayer.setInteractivity('pocket_name, ratio_toilets_dwellings, is_cluster, area_ha, ward_id, toilets_container, toilets_chemical, toilets_full_flush, toilets_other, toilets_portable, cns_waterbodies, cns_private_land, cns_metro_roads, cns_servitude, cns_biodiversity_core1, cns_biodiversity_core2, cns_power_lines, cns_railway, cns_landfill_1, cns_landfill_2, cns_flood_prone, cns_irt, cns_noise_zones, cns_heritage, cns_koeberg, structure_count, density_dwellings_per_ha, age_of_pocket, temp_sanitation, upgrade_category');
             console.log("num layers", layer.getSubLayerCount());
             
             sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
                 $('#dashboard').removeClass("hidden")
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
-                $("#pocket_name").text(data.pocket_name);                
-                $("#ward_councillor").text(data.ward_councillor);                                
+                $("#pocket_name").text(data.pocket_name);
+                $("#upgrade_category").text(data.upgrade_category);
                 $("#ratio_toilets_dwellings").text(data.ratio_toilets_dwellings);
                 $("#is_cluster").text(data.is_cluster);
                 $("#area_ha").text(data.area_ha);
                 $("#ward_id").text(data.ward_id);
+                $("#structure_count").text(data.structure_count);
+                $("#density_dwellings_per_ha").text(data.density_dwellings_per_ha);
+                $("#age_of_pocket").text(data.age_of_pocket);
+                $("#temp_sanitation").text(data.temp_sanitation);
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
-                drawToilet([data.toilets_chemical, data.toilets_container, data.toilets_full_flush,data.toilets_other,data.toilets_portable], data.is_cluster);
+                drawToilet([data.toilets_chemical, data.toilets_container, data.toilets_full_flush, data.toilets_other, data.toilets_portable], data.is_cluster);
                 drawConstraints([data.cns_waterbodies, data.cns_private_land, data.cns_metro_roads, data.cns_servitude, data.cns_biodiversity_core1, data.cns_biodiversity_core2, data.cns_power_lines, data.cns_railway, data.cns_landfill_1, data.cns_landfill_2, data.cns_flood_prone, data.cns_irt, data.cns_noise_zones, data.cns_heritage, data.cns_koeberg], data.is_cluster);
-            });         
-
+            });
+        
         }
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0",
@@ -112,24 +116,24 @@ window.onload = function() {
         layer.setZIndex(9000);
         // define basemap options
         $('#base-satellite').click(function() {
-                if (map_object.hasLayer(basemap1) || (map_object.hasLayer(basemap2))) {
-                    map_object.removeLayer(basemap1);
-                    map_object.removeLayer(basemap2);
-                }
-                
-                map_object.addLayer(basemap1);
-                return true;         
+            if (map_object.hasLayer(basemap1) || (map_object.hasLayer(basemap2))) {
+                map_object.removeLayer(basemap1);
+                map_object.removeLayer(basemap2);
+            }
+            
+            map_object.addLayer(basemap1);
+            return true;
         });
-
+        
         $('#base-map').click(function() {
-                if (map_object.hasLayer(basemap1) || (map_object.hasLayer(basemap2))) {
-                    map_object.removeLayer(basemap1);
-                    map_object.removeLayer(basemap2);
-                }
-                map_object.addLayer(basemap2);
-                return true;       
+            if (map_object.hasLayer(basemap1) || (map_object.hasLayer(basemap2))) {
+                map_object.removeLayer(basemap1);
+                map_object.removeLayer(basemap2);
+            }
+            map_object.addLayer(basemap2);
+            return true;
         });
-
+    
     
     })// end function
     
@@ -138,58 +142,86 @@ window.onload = function() {
     });
     
     // draw chart function
-    function drawToilet(data, name) {
-         var data = google.visualization.arrayToDataTable([
-            ['', 'population'],
-            ['Chemical',  data[0]],
-            ['Container',  data[1]],
-            ['Full Flush',  data[2]],
-            ['Other',  data[3]],
-            ['Portable',  data[4]]
-         ]);
-
-          var options = {
-            title: name,
-            legend: { position: "none" },
-            width: 300,
-          };
-          // Instantiate and draw the chart.
+    function drawToilet(data, options) {
+        var data = google.visualization.arrayToDataTable([
+        ['Type', 'population'], 
+        ['Chemical', data[0]], 
+        ['Container', data[1]], 
+        ['Full Flush', data[2]], 
+        ['Other', data[3]], 
+        ['Portable', data[4]]
+        ]);
+        
+        var options = {
+            title: '',
+            width: '90%',
+            height: '250',
+            pieSliceText: 'value',
+            fontName: 'Open Sans',
+            chartArea: {
+                left: 0,
+                top: 10,
+                bottom: 10,
+                width: '90%',
+                height: '250',
+            }
+        };
+        
+        // Instantiate and draw the chart.
         var chart = new google.visualization.PieChart(document.getElementById('toilet_chart'));
-        chart.draw(data, null);
-      }
-
-          function drawConstraints(data, name) {
-         var data = google.visualization.arrayToDataTable([
-            ['', ''],
-            ['cns_waterbodies',  data[0]],                       
-            ['cns_private_land',  data[1]],
-            ['cns_metro_roads',  data[2]],
-            ['cns_servitude',  data[3]],
-            ['cns_biodiversity_core1',  data[4]],
-            ['cns_biodiversity_core2',  data[5]],
-            ['cns_power_lines',  data[6]],                       
-            ['cns_railway',  data[7]],
-            ['cns_landfill_1',  data[8]],
-            ['cns_landfill_2',  data[9]],
-            ['cns_flood_prone',  data[10]],
-            ['cns_irt',  data[11]],
-            ['cns_noise_zones',  data[12]],                       
-            ['cns_heritage',  data[13]],
-            ['cns_koeberg',  data[14]],
-         ]);
-
-          var options = {
-            title: name,
-            legend: { position: "none" },
-            width: 300,
-          };
-          // Instantiate and draw the chart.
-        var chart = new google.visualization.BarChart(document.getElementById('constraints_chart'));
-        chart.draw(data, null);
-      }
-
+        chart.draw(data, options);
+    }
     
-
+    function drawConstraints(data, options) {
+        var data = google.visualization.arrayToDataTable([
+        ['Contraint', ''], 
+        ['Waterbodies', data[0]], 
+        ['Private land', data[1]], 
+        ['Metro roads', data[2]], 
+        ['Servitude', data[3]], 
+        ['Biodiversity core 1', data[4]], 
+        ['Biodiversity core 2', data[5]], 
+        ['Power lines', data[6]], 
+        ['Railway', data[7]], 
+        ['Landfill 1', data[8]], 
+        ['Landfill 2', data[9]], 
+        ['Flood prone', data[10]], 
+        ['IRT', data[11]], 
+        ['Noise zones', data[12]], 
+        ['Heritage', data[13]], 
+        ['Koeberg', data[14]], 
+        ]);
+        
+        var options = {
+            title: '',
+            legend: {
+                position: "none"
+            },
+            width: '100%',
+            height: 400,
+            fontName: 'Open Sans',
+            hAxis: {
+                format: 'percent',
+                title: 'Area of cluster'
+            },
+            chartArea: {
+                top: 0,
+                height: 360,
+            }
+        };
+        
+        var formatter = new google.visualization.NumberFormat({
+            pattern: '#,###%'
+        });
+        formatter.format(data, 0);
+        formatter.format(data, 1);
+        // Instantiate and draw the chart.
+        var chart = new google.visualization.BarChart(document.getElementById('constraints_chart'));
+        chart.draw(data, options);
+    }
+    
+    
+    
     // Add button events Sublayer 0 - Structure count
     var sublayer0Shown = true;
     $(".select-sublayer0").on('click', function() {
@@ -234,11 +266,11 @@ window.onload = function() {
             {
                 name: "15 - 20 years",
                 value: "#a53ed5"
-            },
+            }, 
             {
                 name: "> 20 years",
                 value: "#0f3b82"
-            }            
+            }
             ]
         });
         $('#map').append(legend.render().el);
@@ -260,7 +292,7 @@ window.onload = function() {
             colors: ["#FFFFB2", "#FECC5C", "#FD8D3C", "#F03B20", "#BD0026"]
         });
         $('#map').append(densityLegend.render().el);
-  
+    
     });
     
     // Add button events Sublayer 3 - Upgrade category
@@ -274,7 +306,7 @@ window.onload = function() {
         $('.cartodb-legend').addClass("hidden")
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
-            title: "Test",            
+            title: "Test",
             data: [
             {
                 name: "City land. Can be upgraded",
@@ -312,25 +344,25 @@ window.onload = function() {
         });
         $('#map').append(densityLegend.render().el);
     });
-
-$("#layer-select > .btn").click(function(){
-    $("#layer-select > .btn").removeClass("active");
-    $(this).addClass("active");
-});
-
-$("#layer-select-mobile > .btn").click(function(){
-    $("#layer-select-mobile > .btn").removeClass("active");
-    $(this).addClass("active");
-});
-
-$("#layer-select-tiny > .btn").click(function(){
-    $("#layer-select-tiny > .btn").removeClass("active");
-    $(this).addClass("active");
-});
-
-$("#basemap-select > .btn").click(function(){
-    $("#basemap-select > .btn").removeClass("active");
-    $(this).addClass("active");
-});
+    
+    $("#layer-select > .btn").click(function() {
+        $("#layer-select > .btn").removeClass("active");
+        $(this).addClass("active");
+    });
+    
+    $("#layer-select-mobile > .btn").click(function() {
+        $("#layer-select-mobile > .btn").removeClass("active");
+        $(this).addClass("active");
+    });
+    
+    $("#layer-select-tiny > .btn").click(function() {
+        $("#layer-select-tiny > .btn").removeClass("active");
+        $(this).addClass("active");
+    });
+    
+    $("#basemap-select > .btn").click(function() {
+        $("#basemap-select > .btn").removeClass("active");
+        $(this).addClass("active");
+    });
 }
 //closes function
