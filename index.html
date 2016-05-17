@@ -49,15 +49,24 @@
   <li class="btn btn-default active select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
 </ul>
 
+<div id="desktop-legend" class="legend hidden-xs hidden-sm"></div>
+
     <!-- Basemap toggle menu -->
-      <div id="basemap-select">
-          <div id="base-map" class="btn btn-default active"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map</div>
-          <div id="base-satellite" class="btn btn-default"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> Satellite</div>
+      <div class="basemap-select hidden-xs">
+          <div class="btn btn-default active base-map"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map</div>
+          <div class="btn btn-default base-satellite"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> Satellite</div>
       </div>
 
+      <div class="basemap-select hidden-sm hidden-md hidden-lg">
+          <div class="btn btn-default active base-map"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i></div>
+          <div class="btn btn-default base-satellite"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></div>
+      </div>
 
     </div>
     <!-- Map End -->
+
+    <div id="mobile-legend" class="row legend hidden-md hidden-lg"></div>
+
 
     <!-- Dashboard Start -->
     <div id="dashboard" class="row hidden">
@@ -65,18 +74,18 @@
         <h2 id="pocket_name"></h2>
         <p class="category"><b>Cluster</b></p>
         <p id="is_cluster"></p>       
-        <p class="category"><b>Size in km<sup>2</sup></b></p>      
-        <p id="area_ha"></p>                    
-        <p class="category"><b>Ratio of toilets to households</b></p>
-        <p id="ratio_toilets_dwellings"></p>
+        <p class="category"><b>Size</b></p>      
+        <p style="display: inline;" id="area_ha"></p><p style="display: inline;"> km<sup>2</sup></p><p></p>
         <p class="category"><b>Number of households</b></p>
         <p id="structure_count"></p>
         <p class="category"><b>Household density</b></p>
-        <p style="display: inline;" id="density_dwellings_per_ha"></p><p style="display: inline;"> per hectare</p><p></p>
-        <p class="category"><b>Age</b></p>
-        <p id="age_of_pocket"></p>
+        <p style="display: inline;" id="density_dwellings_per_ha"></p><p style="display: inline;"> per km<sup>2</sup></p><p></p>
+        <p class="category"><b>Ratio of toilets to households</b></p>
+        <p id="ratio_toilets_dwellings"></p>        
         <p class="category"><b>Temporary toilets</b></p>
         <p style="display: inline;" id="temp_sanitation"></p><p style="display: inline;">%</p><p></p>
+        <p class="category"><b>Age</b></p>
+        <p id="age_of_pocket"></p>        
         <p class="category"><b>Upgrade category</b></p>
         <p id="upgrade_category"></p>
 
