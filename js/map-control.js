@@ -143,14 +143,14 @@ window.onload = function() {
     });
     
     // draw chart function
-    function drawToilet(data, options) {
-        var data = google.visualization.arrayToDataTable([
+    function drawToilet(dataArr, options) {
+        var dataDt = google.visualization.arrayToDataTable([
         ['Type', 'population'], 
-        ['Chemical', data[0]], 
-        ['Container', data[1]], 
-        ['Full Flush', data[2]], 
-        ['Other', data[3]], 
-        ['Portable', data[4]]
+        ['Chemical', dataArr[0]], 
+        ['Container', dataArr[1]], 
+        ['Full Flush', dataArr[2]], 
+        ['Other', dataArr[3]], 
+        ['Portable', dataArr[4]]
         ]);
         
         var options = {
@@ -167,38 +167,50 @@ window.onload = function() {
                 height: '250',
             }
         };
-        
+
+        var hasToilets = false;
+        for (var i = 0; i < dataArr.length; i++) {
+            if (dataArr[i]) {
+                hasToilets = true;
+            }
+        }
+
         // Instantiate and draw the chart.
         var chart = new google.visualization.PieChart(document.getElementById('toilet_chart'));
-        chart.draw(data, options);
+        chart.draw(dataDt, options);
+
+        if (!hasToilets) {
+        document.getElementById("toilet_chart").innerHTML = "This pocket has no toilets";
+        };
+
     }
     
-    function drawConstraints(data, options) {
-        var data = google.visualization.arrayToDataTable([
+    function drawConstraints(dataArr, options) {
+        var dataDt = google.visualization.arrayToDataTable([
         ['Contraint', 'data', {
             role: 'annotation'
         }], 
-        ['Waterbodies', data[0], data[0]], 
-        ['Private land', data[1], data[1]], 
-        ['Metro roads', data[2], data[2]], 
-        ['Servitude', data[3], data[3]], 
-        ['Biodiversity core 1', data[4], data[4]], 
-        ['Biodiversity core 2', data[5], data[5]], 
-        ['Power lines', data[6], data[6]], 
-        ['Railway', data[7], data[7]], 
-        ['Landfill 1', data[8], data[8]], 
-        ['Landfill 2', data[9], data[9]], 
-        ['Flood prone', data[10], data[10]], 
-        ['IRT', data[11], data[11]], 
-        ['Noise zones', data[12], data[12]], 
-        ['Heritage', data[13], data[13]], 
-        ['Koeberg', data[14], data[14]], 
+        ['Waterbodies', dataArr[0], dataArr[0]], 
+        ['Private land', dataArr[1], dataArr[1]], 
+        ['Metro roads', dataArr[2], dataArr[2]], 
+        ['Servitude', dataArr[3], dataArr[3]], 
+        ['Biodiversity core 1', dataArr[4], dataArr[4]], 
+        ['Biodiversity core 2', dataArr[5], dataArr[5]], 
+        ['Power lines', dataArr[6], dataArr[6]], 
+        ['Railway', dataArr[7], dataArr[7]], 
+        ['Landfill 1', dataArr[8], dataArr[8]], 
+        ['Landfill 2', dataArr[9], dataArr[9]], 
+        ['Flood prone', dataArr[10], dataArr[10]], 
+        ['IRT', dataArr[11], dataArr[11]], 
+        ['Noise zones', dataArr[12], dataArr[12]], 
+        ['Heritage', dataArr[13], dataArr[13]], 
+        ['Koeberg', dataArr[14], dataArr[14]],
         ]);
         
         var formatter = new google.visualization.NumberFormat({
             pattern: '#.##\'%\''
         });
-        formatter.format(data, 2);
+        formatter.format(dataDt, 2);
         
         var options = {
             title: '',
@@ -231,7 +243,7 @@ window.onload = function() {
         
         // Instantiate and draw the chart.
         var chart = new google.visualization.BarChart(document.getElementById('constraints_chart'));
-        chart.draw(data, options);
+        chart.draw(dataDt, options);
 
           google.visualization.events.addListener(chart, 'error', function (googleError) {
       google.visualization.errors.removeError(googleError.id);
