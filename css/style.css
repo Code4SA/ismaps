@@ -2,151 +2,172 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 
-      html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        font-family: 'Open Sans', sans;
-      }
-      #map {
-        width: 100%;
-        height: 60%;
-        padding: 0;
-        margin: 0;
-      }
-      #dash {
-        margin: 25px 0;
-        width: 400px;
-      }
-      button {
-        margin-right: 10px;
-        background: transparent;
-      }
-      h1 {
-        font-family: 'Amatic SC', cursive;
-        font-size: 4em;
-      }
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans;
+}
+#map {
+    width: 100%;
+    height: 60%;
+    padding: 0;
+    margin: 0;
+}
+#dash {
+    margin: 25px 0;
+    width: 400px;
+}
+button {
+    margin-right: 10px;
+    background: transparent;
+}
+h1 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 4em;
+}
 
-      /* Basemap toggle menu */
-      .basemap-select{
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        z-index: 9000;
-      }
+/* Basemap toggle menu */
+.basemap-select {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 9000;
+}
 
-      #layer-select{
-        position: absolute;
-        top: 15px;
-        right: 30px;
-        z-index: 9000;
-      }
-    
-      #layer-select-mobile{
-        text-align: center;
-        padding-left: 0;
-      }
+#layer-select {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    z-index: 9000;
+}
 
-      #layer-select-tiny {
-        padding-left: 0;
-        margin-bottom: 5px;       
-      }
+#layer-select-mobile {
+    text-align: center;
+    padding-left: 0;
+}
 
-      .btn {
-        font-family: 'Open Sans';
-        font-size: 13px;
-        margin-top: 5px;
-      }
-   
-      .btn-block {
-        border-right: 0;
-        border-left: 0;
-        border-radius: 0;
-        margin-top: 0;
-      }
+#layer-select-tiny {
+    padding-left: 0;
+    margin-bottom: 5px;
+}
 
-      .category {
-        margin-bottom: 0px;
-      }
+.btn {
+    font-family: 'Open Sans';
+    font-size: 13px;
+    margin-top: 5px;
+}
 
-      #footer {
-        background-color: #EFEFEF;
-        margin-top: 10px;
-      }
+.btn-block {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    margin-top: 0;
+}
 
-      .row {
-        margin-left: 0;
-        margin-right: 0;
-      }
+.category {
+    margin-bottom: 0px;
+}
 
-      .cartodb-logo {
-        visibility: hidden;
-      }
+#footer {
+    background-color: #EFEFEF;
+    margin-top: 10px;
+}
 
-      .leaflet-bar {
-        box-shadow: none;
-        border: 1px solid #ccc;        
-      }
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
 
-      .leaflet-bar a:first-child {
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-      }
+.cartodb-logo {
+    visibility: hidden;
+}
 
-      .leaflet-bar a:last-child {
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-      }        
+.leaflet-bar {
+    box-shadow: none;
+    border: 1px solid #ccc;
+}
 
-      h4 {
-        margin-top: 20px;
-      }
+.leaflet-bar a:first-child {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
 
-      .intro-text {
-        text-align: center;
-      }
+.leaflet-bar a:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
 
-      #desktop-legend > div.cartodb-legend {
-        box-shadow: none;
-        border: 1px solid #ccc;
-        right: 30px;
-        padding-top: 8px;
-        padding-bottom: 10px;
-      }
+h4 {
+    margin-top: 20px;
+}
 
-      #desktop-legend > div.cartodb-legend ul li, div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
-        font-family: 'Open Sans';
-        font-size: 12px;
-        font-weight: 400;
-        text-transform: none;
-        color: #333;
-      }
+.intro-text {
+    text-align: center;
+}
 
-      #desktop-legend > div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
-        line-height: 6px;
-      }
+#desktop-legend > div.cartodb-legend {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    right: 30px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+}
 
-      #mobile-legend > div.cartodb-legend {
-        box-shadow: none;
-        border: 1px solid #ccc;
-        border-radius: 0;
-        right: 30px;
-        position: static;
-      }
+#desktop-legend > div.cartodb-legend ul li, div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: none;
+    color: #333;
+}
 
-      #mobile-legend > div.cartodb-legend ul li, div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
-        font-family: 'Open Sans';
-        font-size: 12px;
-        font-weight: 400;
-        text-transform: none;
-        color: #333;
-      }
+#desktop-legend > div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
+    line-height: 6px;
+}
 
-      #mobile-legend > div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
-        line-height: 6px;
-      }
+#mobile-legend > div.cartodb-legend {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    right: 30px;
+    position: static;
+}
 
-      .legend-title {
-        font-family: 'Open Sans';
-        margin-top: -5px;
-      }
+#mobile-legend > div.cartodb-legend ul li, div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: none;
+    color: #333;
+}
+
+#mobile-legend > div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
+    line-height: 6px;
+}
+
+.legend-title {
+    font-family: 'Open Sans';
+    margin-top: -5px;
+}
+
+#logos {
+    margin-top: 30px;
+}
+
+#logos img {
+    max-height: 130px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#logos .col-md-2 {
+    height: 130px;
+    position: relative;
+}
+
+#logos .col-sm-6 {
+    margin-bottom: 30px;
+}
