@@ -157,6 +157,8 @@ window.onload = function() {
             title: '',
             width: '90%',
             height: '250',
+            backgroundColor: '#efefef',
+            colors:['#08306b', '#08519c', '#2171b5', '#4292c6', '#6baed6'],
             pieSliceText: 'value',
             fontName: 'Open Sans',
             chartArea: {
@@ -187,24 +189,22 @@ window.onload = function() {
     
     function drawConstraints(dataArr, options) {
         var dataDt = google.visualization.arrayToDataTable([
-        ['Contraint', 'data', {
-            role: 'annotation'
-        }], 
-        ['Waterbodies', dataArr[0], dataArr[0]], 
-        ['Private land', dataArr[1], dataArr[1]], 
-        ['Metro roads', dataArr[2], dataArr[2]], 
-        ['Servitude', dataArr[3], dataArr[3]], 
-        ['Biodiversity core 1', dataArr[4], dataArr[4]], 
-        ['Biodiversity core 2', dataArr[5], dataArr[5]], 
-        ['Power lines', dataArr[6], dataArr[6]], 
-        ['Railway', dataArr[7], dataArr[7]], 
-        ['Landfill 1', dataArr[8], dataArr[8]], 
-        ['Landfill 2', dataArr[9], dataArr[9]], 
-        ['Flood prone', dataArr[10], dataArr[10]], 
-        ['IRT', dataArr[11], dataArr[11]], 
-        ['Noise zones', dataArr[12], dataArr[12]], 
-        ['Heritage', dataArr[13], dataArr[13]], 
-        ['Koeberg', dataArr[14], dataArr[14]],
+        ['Contraint', 'data', {role: 'annotation'}, { role: 'style' }], 
+        ['Waterbodies', dataArr[0], dataArr[0], 'color: #08306b; stroke-width: 0'], 
+        ['Private land', dataArr[1], dataArr[1], 'color: #08306b; stroke-width: 0'], 
+        ['Metro roads', dataArr[2], dataArr[2], 'color: #08306b; stroke-width: 0'], 
+        ['Servitude', dataArr[3], dataArr[3], 'color: #08306b; stroke-width: 0'], 
+        ['Biodiversity core 1', dataArr[4], dataArr[4], 'color: #08306b; stroke-width: 0'], 
+        ['Biodiversity core 2', dataArr[5], dataArr[5], 'color: #08306b; stroke-width: 0'], 
+        ['Power lines', dataArr[6], dataArr[6], 'color: #08306b; stroke-width: 0'], 
+        ['Railway', dataArr[7], dataArr[7], 'color: #08306b; stroke-width: 0'], 
+        ['Landfill 1', dataArr[8], dataArr[8], 'color: #08306b; stroke-width: 0'], 
+        ['Landfill 2', dataArr[9], dataArr[9], 'color: #08306b; stroke-width: 0'], 
+        ['Flood prone', dataArr[10], dataArr[10], 'color: #08306b; stroke-width: 0'], 
+        ['IRT', dataArr[11], dataArr[11], 'color: #08306b; stroke-width: 0'], 
+        ['Noise zones', dataArr[12], dataArr[12], 'color: #08306b; stroke-width: 0'], 
+        ['Heritage', dataArr[13], dataArr[13], 'color: #08306b; stroke-width: 0'], 
+        ['Koeberg', dataArr[14], dataArr[14], 'color: #08306b; stroke-width: 0'],
         ]);
         
         var formatter = new google.visualization.NumberFormat({
@@ -219,6 +219,7 @@ window.onload = function() {
             },
             width: '100%',
             height: 400,
+            backgroundColor: '#efefef',
             annotations: {
                 textStyle: {
                     color: '#222',
