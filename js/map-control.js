@@ -105,6 +105,8 @@ window.onload = function() {
             colors: ["#1a9850", "#8cce8a", "#fff2cc", "#f79272", "#d73027"]
         });
         $('.legend').append(densityLegend.render().el);
+        $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per km<sup>2</sup></p>').show();
+
         for (var i = 0; i < layer.getSubLayerCount(); i++) {
             sublayers[i] = layer.getSubLayer(i);
         }
@@ -154,7 +156,7 @@ window.onload = function() {
         var options = {
             title: '',
             width: '90%',
-            height: '250',            
+            height: '250',
             pieSliceText: 'value',
             fontName: 'Open Sans',
             chartArea: {
@@ -173,7 +175,9 @@ window.onload = function() {
     
     function drawConstraints(data, options) {
         var data = google.visualization.arrayToDataTable([
-        ['Contraint', 'data', { role: 'annotation' } ], 
+        ['Contraint', 'data', {
+            role: 'annotation'
+        }], 
         ['Waterbodies', data[0], data[0]], 
         ['Private land', data[1], data[1]], 
         ['Metro roads', data[2], data[2]], 
@@ -190,10 +194,12 @@ window.onload = function() {
         ['Heritage', data[13], data[13]], 
         ['Koeberg', data[14], data[14]], 
         ]);
-
-var formatter = new google.visualization.NumberFormat({pattern: '#.##\'%\''});
-formatter.format(data, 2);
-
+        
+        var formatter = new google.visualization.NumberFormat({
+            pattern: '#.##\'%\''
+        });
+        formatter.format(data, 2);
+        
         var options = {
             title: '',
             legend: {
@@ -211,21 +217,26 @@ formatter.format(data, 2);
             hAxis: {
                 format: '#\'%\'',
                 title: 'Area of cluster',
-                    viewWindow: {
-        min: 0,
-        max: 100
-    },
-    ticks: [0, 25, 50, 75, 100]
+                viewWindow: {
+                    min: 0,
+                    max: 100
+                },
+                ticks: [0, 25, 50, 75, 100]
             },
             chartArea: {
                 top: 0,
                 height: 360,
             }
         };
-
+        
         // Instantiate and draw the chart.
         var chart = new google.visualization.BarChart(document.getElementById('constraints_chart'));
         chart.draw(data, options);
+
+          google.visualization.events.addListener(chart, 'error', function (googleError) {
+      google.visualization.errors.removeError(googleError.id);
+      document.getElementById("constraints_chart").innerHTML = "There are no constraints for this cluster";
+  });
     }
     
     
@@ -245,6 +256,7 @@ formatter.format(data, 2);
             colors: ["#fb6a4a", "#ef3b2c", "#cb181d", "#a50f15", "#67000d"]
         });
         $('.legend').append(densityLegend.render().el);
+        $('.cartodb-legend').prepend('<p class="legend-title">Number of households</p>').show();
     });
     
     // Add button events Sublayer 1 - Age of pocket
@@ -282,6 +294,7 @@ formatter.format(data, 2);
             ]
         });
         $('.legend').append(legend.render().el);
+        $('.cartodb-legend').prepend('<p class="legend-title">Age of pocket</p>').show();
     
     });
     
@@ -299,9 +312,10 @@ formatter.format(data, 2);
             right: "100",
             colors: ["#FFFFB2", "#FECC5C", "#FD8D3C", "#F03B20", "#BD0026"]
         });
+
         $('.legend').append(densityLegend.render().el);
-    
-    });
+        $('.cartodb-legend').prepend('<p class="legend-title">Percentage of toilets that are temporary</p>').show();
+        });
     
     // Add button events Sublayer 3 - Upgrade category
     var sublayer3Shown = true;
@@ -335,6 +349,8 @@ formatter.format(data, 2);
             ]
         });
         $('.legend').append(legend.render().el);
+        $('.cartodb-legend').prepend('<p class="legend-title">Upgrade category</p>').show();
+
     });
     // Add button events Sublayer 4 - Housing density
     var sublayer4Shown = true;
@@ -351,6 +367,7 @@ formatter.format(data, 2);
             colors: ["#1a9850", "#8cce8a", "#fff2cc", "#f79272", "#d73027"]
         });
         $('.legend').append(densityLegend.render().el);
+        $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per km<sup>2</sup></p>').show();
     });
     
     $("#layer-select > .btn").click(function() {
