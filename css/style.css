@@ -1,6 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Amatic+SC);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
+@import url(https://fonts.googleapis.com/css?family=Lato);
 
 html, body {
     width: 100%;
@@ -22,10 +21,12 @@ button {
     margin-right: 10px;
     background: transparent;
 }
-h1 {
-    font-family: 'Amatic SC', cursive;
-    font-size: 4em;
-}
+
+      h1 {
+        font-family: 'Lato', cursive;
+        font-size: 4em;
+        font-weight: bold;
+      }
 
 /* Basemap toggle menu */
 .basemap-select {
@@ -104,7 +105,17 @@ h4 {
 
 .intro-text {
     text-align: center;
+            background-color: #08306b;
+        color:#fff;
+
 }
+
+      #pocket_name {
+        color:#08306b;
+        font-family: 'Lato';
+        font-weight: bold;
+      }
+
 
 #desktop-legend > div.cartodb-legend {
     box-shadow: none;
@@ -171,3 +182,29 @@ h4 {
 #logos .col-sm-6 {
     margin-bottom: 30px;
 }
+
+      /* Sublayer Contextual Information Display */
+      
+      #infoDisplay {
+        font-family: 'Lato';
+        color: #08306b;
+        background-color: #fff;
+        margin-left:auto;
+        margin-right:auto;
+        padding: 10px 15px 15px;
+      }
+      #infoDisplay h3, p {
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+        text-align: justify;
+      }
+      #infoDisplay h3 {
+        font-weight: bold;
+      }
+
+      .btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+      color: #fff;
+      background-color: #08306b;
+      border-color: #08306b;
+      }
