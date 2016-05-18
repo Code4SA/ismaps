@@ -5,6 +5,8 @@ window.onload = function() {
         center: [-34.0000, 18.6100],
         // Starting Point
         zoom: 13,
+        scrollWheelZoom: false, 
+        doubleClickZoom: false,
     });
     
     // Put layer data into a JS object
@@ -56,7 +58,7 @@ window.onload = function() {
     // Add data layer to your map
     cartodb.createLayer(map_object, layerSource)
     .addTo(map_object)
-    
+
     .done(function(layer) {
         
         var hovers = [];
@@ -96,6 +98,7 @@ window.onload = function() {
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
                 drawToilet([data.toilets_chemical, data.toilets_container, data.toilets_full_flush, data.toilets_other, data.toilets_portable], data.is_cluster);
                 drawConstraints([data.cns_waterbodies, data.cns_private_land, data.cns_metro_roads, data.cns_servitude, data.cns_biodiversity_core1, data.cns_biodiversity_core2, data.cns_power_lines, data.cns_railway, data.cns_landfill_1, data.cns_landfill_2, data.cns_flood_prone, data.cns_irt, data.cns_noise_zones, data.cns_heritage, data.cns_koeberg], data.is_cluster);
+                ga('send', 'event', 'pocket', data.pocket_name);
             });
         
         }
@@ -123,6 +126,7 @@ window.onload = function() {
             }
             
             map_object.addLayer(basemap1);
+            ga('send', 'event', 'basemap', 'satellite');
             return true;
         });
         
@@ -132,6 +136,7 @@ window.onload = function() {
                 map_object.removeLayer(basemap2);
             }
             map_object.addLayer(basemap2);
+            ga('send', 'event', 'basemap', 'map');
             return true;
         });
     
@@ -301,7 +306,7 @@ window.onload = function() {
         $('#infoUpgrade').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
-
+        ga('send', 'event', 'layers', 'number of households');
     });
     
     // Add button events Sublayer 1 - Age of pocket
@@ -346,7 +351,8 @@ window.onload = function() {
         $('#infoTempSani').addClass("hidden").hide();
         $('#infoUpgrade').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
-        $('#infoDefault').addClass("hidden").hide();    
+        $('#infoDefault').addClass("hidden").hide();
+        ga('send', 'event', 'layers', 'age of pocket');    
     });
     
     // Add button events Sublayer 2 - Temporary sanitation
@@ -372,7 +378,8 @@ window.onload = function() {
         $('#infoAge').addClass("hidden").hide();
         $('#infoUpgrade').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
-        $('#infoDefault').addClass("hidden").hide();        
+        $('#infoDefault').addClass("hidden").hide();
+        ga('send', 'event', 'layers', 'temporary toilets');             
         });
     
     // Add button events Sublayer 3 - Upgrade category
@@ -415,6 +422,7 @@ window.onload = function() {
         $('#infoAge').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
+        ga('send', 'event', 'layers', 'upgrade category');        
     });
     // Add button events Sublayer 4 - Housing density
     var sublayer4Shown = true;
@@ -438,7 +446,8 @@ window.onload = function() {
         $('#infoTempSani').addClass("hidden").hide();
         $('#infoAge').addClass("hidden").hide();
         $('#infoHousing').addClass("hidden").hide();
-        $('#infoDefault').addClass("hidden").hide();        
+        $('#infoDefault').addClass("hidden").hide();
+        ga('send', 'event', 'layers', 'housing density');               
     });
     
     $("#layer-select > .btn").click(function() {

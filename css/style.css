@@ -148,9 +148,7 @@ h4 {
 
 #mobile-legend > div.cartodb-legend {
     box-shadow: none;
-    border: 1px solid #ccc;
-    border-radius: 0;
-    right: 30px;
+    border: 0px solid #ccc;
     position: static;
 }
 
@@ -215,4 +213,16 @@ h4 {
 .col-basic-info {
     padding-top: 1px;
     padding-bottom: 10px;
+}
+
+div.cartodb-legend.density li.graph {
+    border: 0 solid transparent;
+}
+
+div.cartodb-legend.custom ul li .bullet {
+    margin: -2px 5px 0 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    border: 0 solid transparent;
 }
