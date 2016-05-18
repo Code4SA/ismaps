@@ -1,11 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
 html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    font-family: 'Open Sans', sans;
+    font-family: 'Open Sans', sans-serif;
 }
 #map {
     width: 100%;
@@ -23,16 +24,17 @@ button {
 }
 
 .col-md-3 {
-    background-color: #08306b;
+    background-color: #333;
     color: #fff;
 }
 
 #dashboard {
     background-color: #efefef;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
-    font-family: 'Lato', cursive;
+    font-family: 'Open Sans', sans-serif;
     font-size: 4em;
     font-weight: bold;
 }
@@ -63,9 +65,10 @@ h1 {
 }
 
 .btn {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     margin-top: 5px;
+    border-radius: 0px;    
 }
 
 .btn-block {
@@ -80,8 +83,9 @@ h1 {
 }
 
 #footer {
-    background-color: #EFEFEF;
+    background-color: #333;
     margin-top: 10px;
+    color: #fff;
 }
 
 .row {
@@ -96,32 +100,74 @@ h1 {
 .leaflet-bar {
     box-shadow: none;
     border: 1px solid #ccc;
+    border-radius: 0;
 }
 
 .leaflet-bar a:first-child {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 .leaflet-bar a:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 h4 {
+    font-weight: bold;
     margin-top: 20px;
 }
 
 .intro-text {
     text-align: center;
-    background-color: #08306b;
+    background-color: #333;
     color: #fff;
+}
 
+.intro-text p {
+    text-align: justify;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Sublayer Contextual Information Display */
+
+#infoDisplay {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+div.cartodb-legend {
+    font-family: 'Open Sans', sans-serif;
+    border-radius:0px;
+}
+
+#infoDisplay h1 {
+    text-align: center;
+}
+
+#infoDisplay h3, p {
+    text-align: justify;
+}
+
+#infoDisplay h3 {
+    font-weight: bold;
+}
+
+#infoDisplay p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18px;
+}
+
+#desktop-legend > div.cartodb-legend ul li, div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
+   color: #333;
 }
 
 #pocket_name {
     color: #FFF;
-    font-family: 'Lato';
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
 
@@ -135,7 +181,7 @@ h4 {
 }
 
 #desktop-legend > div.cartodb-legend ul li, div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     font-weight: 400;
     text-transform: none;
@@ -153,7 +199,7 @@ h4 {
 }
 
 #mobile-legend > div.cartodb-legend ul li, div.cartodb-legend.category ul li, div.cartodb-legend.color ul li, div.cartodb-legend.custom ul li {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     font-weight: 400;
     text-transform: none;
@@ -165,13 +211,13 @@ h4 {
 }
 
 .legend-title {
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     margin-top: -5px;
 }
 
 #logos {
-    margin-top: 30px;
-}
+    padding-top: 30px;
+    background-color:#f5f5f5;}
 
 #logos img {
     max-height: 130px;
@@ -194,7 +240,7 @@ h4 {
 
 #infoDisplay {
     font-family: 'Lato';
-    color: #08306b;
+    color: #333;
     background-color: #fff;
 }
 #infoDisplay h3, p {
@@ -206,8 +252,8 @@ h4 {
 
 .btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
     color: #fff;
-    background-color: #08306b;
-    border-color: #08306b;
+    background-color: #333;
+    border-color: #333;
 }
 
 .col-basic-info {
@@ -217,12 +263,107 @@ h4 {
 
 div.cartodb-legend.density li.graph {
     border: 0 solid transparent;
+    border-radius: 0;
 }
 
 div.cartodb-legend.custom ul li .bullet {
     margin: -2px 5px 0 0;
     width: 10px;
     height: 10px;
-    border-radius: 3px;
+    border-radius: 0px;
     border: 0 solid transparent;
+}
+
+.click-layer-large {
+    border: 3px solid #999;
+    border-radius: 30px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    left:49px;
+    top: 10px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: pulsate 1s ease-out;
+    -moz-animation-iteration-count: infinite;     
+    opacity: 0.0;
+    pointer-events: none;
+}
+
+.click-layer-mobile {
+    border: 3px solid #333;
+    border-radius: 30px;
+    height: 25px;
+    width: 25px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: pulsate 1s ease-out;
+    -moz-animation-iteration-count: infinite;     
+    opacity: 0.0;
+    pointer-events: none;
+}
+
+#click-map {
+    border: 3px solid #FFF;
+    border-radius: 30px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: pulsate 1s ease-out;
+    -moz-animation-iteration-count: infinite;     
+    opacity: 0.0;
+    pointer-events: none;
+    z-index: 9000;
+}
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
+@-moz-keyframes pulsate {
+    0% {-moz-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-moz-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
+.arrow-down {
+  width: 10; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #333;
+  position: absolute;
+  left:50%;
+  bottom:10%;
+  z-index: 9000;
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+
+@-webkit-keyframes mover {
+    100% { transform: translateY(0); }
+    0% { transform: translateY(-20px); }
+}
+
+@keyframes mover {
+    100% { transform: translateY(0); }
+    0% { transform: translateY(-20px); }
+}
+
+.fade-out {
+    -webkit-transition: opacity 2s ease-in-out;
+    -moz-transition: opacity 2s ease-in-out;
+    -ms-transition: opacity 2s ease-in-out;
+    -o-transition: opacity 2s ease-in-out;
+     opacity: 0;
+}
+
+h3 {
+  text-transform: uppercase;
 }

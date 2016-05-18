@@ -2,7 +2,7 @@ window.onload = function() {
     
     // Instantiate new map object, place it in 'map' element -- Uses Leaflet.js
     var map_object = new L.Map('map',{
-        center: [-34.0000, 18.6100],
+        center: [-33.99943, 18.61679],
         // Starting Point
         zoom: 13,
         scrollWheelZoom: false, 
@@ -16,27 +16,32 @@ window.onload = function() {
         sublayers: [{
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Structure count
-            cartocss: '#is_matrix_epsg4326_region_1 {polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#is_matrix_epsg4326_region_1[structure_count <= 8000] {polygon-fill: #67000d;}#is_matrix_epsg4326_region_1[structure_count <= 5000] {polygon-fill: #a50f15;}#is_matrix_epsg4326_region_1[structure_count <= 1000] {polygon-fill: #cb181d;}#is_matrix_epsg4326_region_1[structure_count <= 750] {polygon-fill: #ef3b2c;}#is_matrix_epsg4326_region_1[structure_count <= 500] {polygon-fill: #fb6a4a;}#is_matrix_epsg4326_region_1[structure_count <= 250] {polygon-fill: #fcbba1;}'
+            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[structure_count <= 8000] {polygon-fill: #67000d;}#matrix_formatted_data[structure_count <= 5000] {polygon-fill: #a50f15;}#matrix_formatted_data[structure_count <= 1000] {polygon-fill: #cb181d;}#matrix_formatted_data[structure_count <= 750] {polygon-fill: #ef3b2c;}#matrix_formatted_data[structure_count <= 500] {polygon-fill: #fb6a4a;}#matrix_formatted_data[structure_count <= 250] {polygon-fill: #fcbba1;}'
         }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Age of pocket
-            cartocss: '#is_matrix_epsg4326_region_1 {polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#is_matrix_epsg4326_region_1[age_of_pocket="0 - 5 years"] {polygon-fill: #c6dbef;}#is_matrix_epsg4326_region_1[age_of_pocket="10 - 15 years"] {polygon-fill: #2171b5;}#is_matrix_epsg4326_region_1[age_of_pocket="15 - 20 years"] {polygon-fill: #08519c;}#is_matrix_epsg4326_region_1[age_of_pocket="5 - 10 years"] {polygon-fill: #4292c6;}#is_matrix_epsg4326_region_1[age_of_pocket="> 20 years"] {polygon-fill: #08306b;}'
+            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[age_of_pocket="0 - 5 years"] {polygon-fill: #c6dbef;}#matrix_formatted_data[age_of_pocket="10 - 15 years"] {polygon-fill: #2171b5;}#matrix_formatted_data[age_of_pocket="15 - 20 years"] {polygon-fill: #08519c;}#matrix_formatted_data[age_of_pocket="5 - 10 years"] {polygon-fill: #4292c6;}#matrix_formatted_data[age_of_pocket="> 20 years"] {polygon-fill: #08306b;}'
         }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Temporary sanitation
-            cartocss: '#is_matrix_epsg4326_region_1{polygon-fill: #FFFFCC;polygon-opacity: 1;line-color: #FFF;line-width: 0.5;line-opacity: 1;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 100] {polygon-fill: #bd0026;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 80] {polygon-fill: #e31a1c;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 60] {polygon-fill: #fc4e2a;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 40] {polygon-fill: #fd8d3c;}#is_matrix_epsg4326_region_1 [ temp_sanitation <= 20] {polygon-fill: #fed976;}'
+            cartocss: '#matrix_formatted_data{polygon-fill: #FFFFCC;polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data [ temp_sanitation <= 100] {polygon-fill: #bd0026;}#matrix_formatted_data [ temp_sanitation <= 80] {polygon-fill: #e31a1c;}#matrix_formatted_data [ temp_sanitation <= 60] {polygon-fill: #fc4e2a;}#matrix_formatted_data [ temp_sanitation <= 40] {polygon-fill: #fd8d3c;}#matrix_formatted_data [ temp_sanitation <= 20] {polygon-fill: #fed976;}'
         }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Upgrade category
-            cartocss: '#is_matrix_epsg4326_region_1 {polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#is_matrix_epsg4326_region_1[upgrade_category="City land. Can be upgraded"] {polygon-fill: #08519c;}#is_matrix_epsg4326_region_1[upgrade_category="National land. Can be upgraded"] {polygon-fill: #1d91c0;}#is_matrix_epsg4326_region_1[upgrade_category="Provincial land. Can be upgraded"] {polygon-fill: #67000d;}#is_matrix_epsg4326_region_1[upgrade_category="Some constraints. May need to be relocated"] {polygon-fill: #bd0026;}'
+            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[upgrade_category="City land. Can be upgraded"] {polygon-fill: #08519c;}#matrix_formatted_data[upgrade_category="National land. Can be upgraded"] {polygon-fill: #1d91c0;}#matrix_formatted_data[upgrade_category="Provincial land. Can be upgraded"] {polygon-fill: #67000d;}#matrix_formatted_data[upgrade_category="Some constraints. May need to be relocated"] {polygon-fill: #bd0026;}'
         }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Housing density
-            cartocss: '#is_matrix_epsg4326_region_1{polygon-fill: #1a9850;polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#is_matrix_epsg4326_region_1 [ density_dwellings_per_ha <= 3007.299270073] {polygon-fill: #081d58;}#is_matrix_epsg4326_region_1 [ density_dwellings_per_ha <= 263.73626373626] {polygon-fill: #253494;}#is_matrix_epsg4326_region_1 [ density_dwellings_per_ha <= 199.76635514019] {polygon-fill: #225ea8;}#is_matrix_epsg4326_region_1 [ density_dwellings_per_ha <= 131.31313131313] {polygon-fill: #1d91c0;}#is_matrix_epsg4326_region_1 [ density_dwellings_per_ha <= 66.666666666667] {polygon-fill: #41b6c4;}'
+            cartocss: '#matrix_formatted_data{polygon-fill: #1a9850;polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data [ density_dwellings_per_ha <= 3007.299270073] {polygon-fill: #081d58;}#matrix_formatted_data [ density_dwellings_per_ha <= 263.73626373626] {polygon-fill: #253494;}#matrix_formatted_data [ density_dwellings_per_ha <= 199.76635514019] {polygon-fill: #225ea8;}#matrix_formatted_data [ density_dwellings_per_ha <= 131.31313131313] {polygon-fill: #1d91c0;}#matrix_formatted_data [ density_dwellings_per_ha <= 66.666666666667] {polygon-fill: #41b6c4;}'
+        },
+        {
+            sql: "SELECT * FROM matrix_formatted_data",
+            // IS Region -- Boundary layer
+            cartocss: '#is_matrix_epsg4326_region_1 {polygon-fill: #fff;polygon-opacity: 0.1;line-color: #000;line-width: 1.3;line-opacity: 1;}'
         }]
     }
     
@@ -76,14 +81,21 @@ window.onload = function() {
         });
         
         
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 6; i++) {
             sublayer = layer.getSubLayer(i);
             sublayer.setInteraction(true);
             sublayer.setInteractivity('pocket_name, ratio_toilets_dwellings, is_cluster, area_ha, ward_id, toilets_container, toilets_chemical, toilets_full_flush, toilets_other, toilets_portable, cns_waterbodies, cns_private_land, cns_metro_roads, cns_servitude, cns_biodiversity_core1, cns_biodiversity_core2, cns_power_lines, cns_railway, cns_landfill_1, cns_landfill_2, cns_flood_prone, cns_irt, cns_noise_zones, cns_heritage, cns_koeberg, structure_count, density_dwellings_per_ha, age_of_pocket, temp_sanitation, upgrade_category');
             console.log("num layers", layer.getSubLayerCount());
             
             sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
-                $('#dashboard').removeClass("hidden")
+                $('#back-to-map').removeClass("hidden");                
+                $('#click-map').addClass("hidden");
+                $('#dashboard').removeClass("hidden");
+                $('.arrow-down').removeClass("fade-out");                              
+                $('.arrow-down').removeClass("hidden");
+                setTimeout(function () {
+                $(".arrow-down").addClass("fade-out");
+                  },6000);
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
                 $("#pocket_name").text(data.pocket_name);
                 $("#upgrade_category").text(data.upgrade_category);
@@ -98,7 +110,7 @@ window.onload = function() {
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
                 drawToilet([data.toilets_chemical, data.toilets_container, data.toilets_full_flush, data.toilets_other, data.toilets_portable], data.is_cluster);
                 drawConstraints([data.cns_waterbodies, data.cns_private_land, data.cns_metro_roads, data.cns_servitude, data.cns_biodiversity_core1, data.cns_biodiversity_core2, data.cns_power_lines, data.cns_railway, data.cns_landfill_1, data.cns_landfill_2, data.cns_flood_prone, data.cns_irt, data.cns_noise_zones, data.cns_heritage, data.cns_koeberg], data.is_cluster);
-                ga('send', 'event', 'pocket', data.pocket_name);
+                ga('send', 'event', 'pocket', data.is_cluster, data.pocket_name);       
             });
         
         }
@@ -114,8 +126,12 @@ window.onload = function() {
             sublayers[i] = layer.getSubLayer(i);
         }
         
-        
-        
+        sublayers[0].hide();        
+        sublayers[1].hide();
+        sublayers[2].hide();
+        sublayers[3].hide();
+        sublayers[5].hide();   
+           
         // define ZIndex of the CartoDB layer
         layer.setZIndex(9000);
         // define basemap options
@@ -142,7 +158,7 @@ window.onload = function() {
     
     
     })// end function
-    
+
     .error(function(err) {
         console.log("error: " + err);
     });
@@ -266,8 +282,10 @@ window.onload = function() {
         sublayers[2].hide();
         sublayers[3].hide();
         sublayers[4].hide();
+        sublayers[5].hide();        
         sublayers[0].show();
-        $('.cartodb-legend').addClass("hidden")
+        $('.cartodb-legend').addClass("hidden");
+        $('.click-layer').addClass("hidden");     
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             data: [
@@ -306,6 +324,7 @@ window.onload = function() {
         $('#infoUpgrade').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
+        $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'number of households');
     });
     
@@ -316,8 +335,10 @@ window.onload = function() {
         sublayers[2].hide();
         sublayers[3].hide();
         sublayers[4].hide();
+        sublayers[5].hide();
         sublayers[1].show();
-        $('.cartodb-legend').addClass("hidden")
+        $('.cartodb-legend').addClass("hidden");
+        $('.click-layer').addClass("hidden");               
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             data: [
@@ -352,6 +373,7 @@ window.onload = function() {
         $('#infoUpgrade').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
+        $('#infoBoundary').addClass("hidden").hide();           
         ga('send', 'event', 'layers', 'age of pocket');    
     });
     
@@ -362,8 +384,10 @@ window.onload = function() {
         sublayers[1].hide();
         sublayers[3].hide();
         sublayers[4].hide();
+        sublayers[5].hide();
         sublayers[2].show();
-        $('.cartodb-legend').addClass("hidden")
+        $('.cartodb-legend').addClass("hidden");
+        $('.click-layer').addClass("hidden");                
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0%",
             right: "100%",
@@ -379,6 +403,7 @@ window.onload = function() {
         $('#infoUpgrade').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
+        $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'temporary toilets');             
         });
     
@@ -389,8 +414,10 @@ window.onload = function() {
         sublayers[2].hide();
         sublayers[1].hide();
         sublayers[4].hide();
+        sublayers[5].hide();
         sublayers[3].show();
-        $('.cartodb-legend').addClass("hidden")
+        $('.cartodb-legend').addClass("hidden");
+        $('.click-layer').addClass("hidden");                
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             title: "Test",
@@ -422,6 +449,7 @@ window.onload = function() {
         $('#infoAge').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
+        $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'upgrade category');        
     });
     // Add button events Sublayer 4 - Housing density
@@ -431,8 +459,10 @@ window.onload = function() {
         sublayers[2].hide();
         sublayers[1].hide();
         sublayers[3].hide();
+        sublayers[5].hide();
         sublayers[4].show();
-        $('.cartodb-legend').addClass("hidden")
+        $('.cartodb-legend').addClass("hidden");
+        $('.click-layer').addClass("hidden");        
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0",
             right: "3010",
@@ -447,6 +477,7 @@ window.onload = function() {
         $('#infoAge').addClass("hidden").hide();
         $('#infoHousing').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
+        $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'housing density');               
     });
     
@@ -469,5 +500,44 @@ window.onload = function() {
         $(".basemap-select > .btn").removeClass("active");
         $(this).addClass("active");
     });
+
+    var sublayer5Shown = true;
+    $(".select-sublayer5").on('click', function() {
+        sublayers[0].hide();
+        sublayers[2].hide();
+        sublayers[1].hide();
+        sublayers[3].hide();
+        sublayers[4].hide();
+        sublayers[5].show();
+
+        $('#infoBoundary').removeClass("hidden").show();
+        $('#infoDensity').addClass("hidden").hide();
+        $('#infoUpgrade').addClass("hidden").hide();      
+        $('#infoTempSani').addClass("hidden").hide();
+        $('#infoAge').addClass("hidden").hide();
+        $('#infoHousing').addClass("hidden").hide();
+        $('#infoDefault').addClass("hidden").hide();  
+
+    });
+    
+    $("#layer-select > .btn").click(function() {
+        $("#layer-select > .btn").removeClass("active");
+        $(this).addClass("active");
+    });
+    
+    $("#layer-select-mobile > .btn").click(function() {
+        $("#layer-select-mobile > .btn").removeClass("active");
+        $(this).addClass("active");
+    });
+    
+    $("#layer-select-tiny > .btn").click(function() {
+        $("#layer-select-tiny > .btn").removeClass("active");
+        $(this).addClass("active");
+    });
+    
+    $(".basemap-select > .btn").click(function() {
+        $(".basemap-select > .btn").removeClass("active");
+        $(this).addClass("active");
+    });    
 }
 //closes function

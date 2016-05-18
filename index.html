@@ -11,19 +11,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+
+
   </head>
 
   <body>
   <div class="row intro-text">
   <div class="col-lg-8 col-lg-offset-2">
-    <h1>Cape Town Informal Settlement Map</h1>
-
-    <p>There are 437 informal settlement pockets in Cape Town. Toggle between map and satellite view. Explore the map to find individual pockets. Click on a pocket to see see more information. Click on the layers to see trends.</p>
+    <h1>INFORMAL SETTLEMENTS MAP <br> CAPE TOWN</h1>
+    <!--<h2>Cape Town Informal Settlement Map</h2>-->
+    <p>Around 146,000 households live in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets. Click on the layers to see trends across the city.</p>
     </div>
     </div>
 
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2" id="infoDisplay"> <!-- Contextual SubLayer Information Start -->
+
+        <h1>INTERACTIVE MAP</h1>
+    <h3>USING THE MAP</h3>
+    <p>Toggle between map and satellite view. Explore the map to find individual pockets.Click on a pocket to see see more information. Click on the layers to see trends.</p>
+
 
     <div id="infoDefault">
     <h3>Density</h3>
@@ -42,17 +50,22 @@
 
     <div id="infoTempSani" class="hidden">
     <h3>Temporary Sanitation</h3>
-    <p>Placeholder for explanatory text.</p>
+    <p>The City of Cape Town provides a range of toilet types to residents living in informal settlements. Around 13,577 full flush toilets have been installed. These are a free standing toilets built into prefabricated cement shelters and connected to a sewer system. This means that around a third (33%) of all toilets are permanent infrastructure. The rest are temporary toilets that are provided and cleaned by private companies. The City provides many different types. We show the data for chemical, container and porta potti, which are the most common and combine the rest into an ‘other’ category.  5027 (12%) are chemical toilets - a toilet with a chemical container that can be removed or cleaned via suction. These are often called ‘mshengu’ toilets. 5077 (12.5%) are container toilets - a cement shelter with a container that has to be removed. The vast majority, around 15928 (39%), are Porta Pottis. These are portable toilets with a small container that can be disconnected and must be collected and cleaned. This is the number of toilets that have been purchased - it is unclear how many actually exist or where they are currently. Most pockets across the city use temporary toilets.</p>
     </div>
 
     <div id="infoUpgrade" class="hidden">
     <h3>Upgrade Category</h3>
-    <p>Placeholder for explanatory text.</p>
+    <p>How many informal settlements are really on unsuitable land? These City has categorised informal settlements in terms of size, age and development priority.  There are 48 (12%) informal settlements in Category A. These have been approved for full upgrade or are suitable for future upgrades where 'pre-planning' can commence. Why are these not being prioritised immediately for upgrading; infrastructure and sanitation? There are 22 (5%) informal settlements in Category B1. These are on City land with adverse physical conditions that require programmes and budgets for upgrading. The vast majority, around 252 (585), of informal settlements are in Category B2. These are informal settlements on Provincial or National government land that require programmes and budgets for transfer to the City, de-densification, and upgrading. There are challenges here but it is still possible to upgrade and install infrastructure despite the challenges. Why is it taking so long? There are 115 (26%) informal settlements in Category C. These are informal settlements that are located on land which either needs to be purchased or there are constraints that require total relocation. Dealing with these challenges will not be easy. It requires decisive action, not indifference and denials. Please note that no constraints information exists at the pocket level - this only provided for all the pockets within a recognised the settlement. As each pocket is unique, it is likely that significantly more informal settlements could be recognised and upgraded if the City determined the specific constraints for each pocket.</p>
     </div>
 
     <div id="infoDensity" class="hidden">
     <h3>Density</h3>
     <p>The Density of a pocket is measured in dwelling per hectare or DHa. We have calculated this by dividing the number of households by the size of the land. The density of a pocket is an important consideration because it determines how easily basic services can be installed. Density ranges between 3 DHa at Kroonendal in Houtbay to about 3007 DHa at Jim Se Bos. To put this into perspective the target density for affordable housing of between 1 and 4 stories is around [XX]. [Add analysis on spatial arrangement]</p>
+    </div>
+
+    <div id="infoBoundary" class="hidden">
+    <h3>Boundary</h3>
+    <p>There are 204 recognised informal settlements in Cape Town. In fact there are 437 individual pockets. Sometimes the pocket is a large blocks of hundreds of homes. In other cases the pockets are small clusters of only a few homes scattered on land in between formal houses. Some are individual homes on plots surrounded by food gardens. Use the satellite view to explore how each pocket is and unique. You can find more information below by clicking on the pocket.</p>
     </div>
 
     </div> <!-- Contextual SubLayer Information End -->
@@ -64,25 +77,31 @@
   <li class="btn btn-block btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
   <li class="btn btn-block btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
   <li class="btn btn-block btn-default active select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
+  <li class="btn btn-block btn-default select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
 </ul>
 
 <ul id="layer-select-mobile" class="hidden-md hidden-lg hidden-xs">
+  <div class="click-layer click-layer-mobile"></div>
   <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
   <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
   <li class="btn btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
   <li class="btn btn-default active select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
+  <li class="btn btn-default select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
 </ul>
 
     <!-- Map Start -->
     <div id="map">
-
+<div id="click-map"></div>
+<a href="#dashboard"><div class="arrow-down hidden"></div></a>
 <ul id="layer-select" class="hidden-sm hidden-xs">
+  <div class="click-layer click-layer-large"></div>
   <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
   <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
   <li class="btn btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
   <li class="btn btn-default active select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
+  <li class="btn btn-default select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
 </ul>
 
 <div id="desktop-legend" class="legend hidden-xs hidden-sm"></div>
@@ -124,7 +143,6 @@
         <p id="age_of_pocket"></p>        
         <p class="category"><b>Upgrade category</b></p>
         <p id="upgrade_category"></p>
-
     </div>  
 
     <div class="col-md-4">
@@ -136,7 +154,7 @@
 
     <div class="col-md-5">
     <div id="charts">
-    <h4>Constraints on cluster level <a style="color: #08306b" href="javascript: void(0)" data-toggle="tooltip" title="A constraint is something that the City of Cape Town considers prevents them from installing proper sanitation. This chart shows the percentage of land that has these contraints."><i class="fa fa-question-circle" aria-hidden="true"></i></a></h4>
+    <h4>Constraints on cluster level <a style="color: #333" href="javascript: void(0)" data-toggle="tooltip" title="A constraint is something that the City of Cape Town considers prevents them from installing proper sanitation. This chart shows the percentage of land that has these contraints."><i class="fa fa-question-circle" aria-hidden="true"></i></a></h4>
     <div id="constraints_chart"></div>
     </div>
     </div>
@@ -144,6 +162,10 @@
     </div>
 
     <!-- Dashboard End -->
+
+    <div id="back-to-map" class="hidden row hidden-lg hidden-md hidden-sm">
+    <a href="#map" class="btn-block btn btn-default"><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> Back to map</a>
+    </div>
 
     <!-- Data Source and Credits Start -->
 
@@ -178,11 +200,11 @@
     <!-- Script Start -->
 
   </body>
-
   <script src="js/map-control.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="http://api.maps.nokia.com/2.1.1/jsl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
   <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
@@ -204,5 +226,4 @@ $(document).ready(function(){
   ga('send', 'pageview');
 
 </script>
-
 </html>
