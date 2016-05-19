@@ -31,7 +31,7 @@ window.onload = function() {
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Upgrade category
-            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[upgrade_category="City land. Can be upgraded"] {polygon-fill: #08519c;}#matrix_formatted_data[upgrade_category="National land. Can be upgraded"] {polygon-fill: #1d91c0;}#matrix_formatted_data[upgrade_category="Provincial land. Can be upgraded"] {polygon-fill: #67000d;}#matrix_formatted_data[upgrade_category="Some constraints. May need to be relocated"] {polygon-fill: #bd0026;}'
+            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[upgrade_category="City land. Can be upgraded"] {polygon-fill: #67a9cf;}#matrix_formatted_data[upgrade_category="Provincial or National Government land.  Some constraints"] {polygon-fill: #fddbc7;}#matrix_formatted_data[upgrade_category="City land.  Some constraints"] {polygon-fill: #ef8a62;}#matrix_formatted_data[upgrade_category="Many constraints. May need to be relocated"] {polygon-fill: #b2182b;}'
         }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
@@ -108,7 +108,7 @@ window.onload = function() {
                 $("#age_of_pocket").text(data.age_of_pocket);
                 $("#temp_sanitation").text(data.temp_sanitation);
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
-                drawToilet([data.toilets_chemical, data.toilets_container, data.toilets_full_flush, data.toilets_other, data.toilets_portable], data.is_cluster);
+                drawToilet([data.toilets_full_flush, data.toilets_chemical, data.toilets_container, data.toilets_portable, data.toilets_other], data.is_cluster);
                 drawConstraints([data.cns_waterbodies, data.cns_private_land, data.cns_metro_roads, data.cns_servitude, data.cns_biodiversity_core1, data.cns_biodiversity_core2, data.cns_power_lines, data.cns_railway, data.cns_landfill_1, data.cns_landfill_2, data.cns_flood_prone, data.cns_irt, data.cns_noise_zones, data.cns_heritage, data.cns_koeberg], data.is_cluster);
                 ga('send', 'event', 'pocket', data.is_cluster, data.pocket_name);       
             });
@@ -120,7 +120,7 @@ window.onload = function() {
             colors: ["#41b6c4", "#1d91c0", "#225ea8", "#253494", "#081d58"]
         });
         $('.legend').append(densityLegend.render().el);
-        $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per km<sup>2</sup></p>').show();
+        $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per hectare</p>').show();
 
         for (var i = 0; i < layer.getSubLayerCount(); i++) {
             sublayers[i] = layer.getSubLayer(i);
@@ -167,11 +167,11 @@ window.onload = function() {
     function drawToilet(dataArr, options) {
         var dataDt = google.visualization.arrayToDataTable([
         ['Type', 'population'], 
-        ['Chemical', dataArr[0]], 
-        ['Container', dataArr[1]], 
-        ['Full Flush', dataArr[2]], 
-        ['Other', dataArr[3]], 
-        ['Portable', dataArr[4]]
+        ['Full Flush', dataArr[0]], 
+        ['Chemical', dataArr[1]], 
+        ['Container', dataArr[2]], 
+        ['Porta-potty', dataArr[3]],
+        ['Other', dataArr[4]], 
         ]);
         
         var options = {
@@ -179,7 +179,7 @@ window.onload = function() {
             width: '90%',
             height: '250',
             backgroundColor: '#efefef',
-            colors:['#08306b', '#08519c', '#2171b5', '#4292c6', '#6baed6'],
+            colors:['#377eb8', "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c"],
             pieSliceText: 'value',
             fontName: 'Open Sans',
             chartArea: {
@@ -211,21 +211,21 @@ window.onload = function() {
     function drawConstraints(dataArr, options) {
         var dataDt = google.visualization.arrayToDataTable([
         ['Contraint', 'data', {role: 'annotation'}, { role: 'style' }], 
-        ['Waterbodies', dataArr[0], dataArr[0], 'color: #08306b; stroke-width: 0'], 
-        ['Private land', dataArr[1], dataArr[1], 'color: #08306b; stroke-width: 0'], 
-        ['Metro roads', dataArr[2], dataArr[2], 'color: #08306b; stroke-width: 0'], 
-        ['Servitude', dataArr[3], dataArr[3], 'color: #08306b; stroke-width: 0'], 
-        ['Biodiversity core 1', dataArr[4], dataArr[4], 'color: #08306b; stroke-width: 0'], 
-        ['Biodiversity core 2', dataArr[5], dataArr[5], 'color: #08306b; stroke-width: 0'], 
-        ['Power lines', dataArr[6], dataArr[6], 'color: #08306b; stroke-width: 0'], 
-        ['Railway', dataArr[7], dataArr[7], 'color: #08306b; stroke-width: 0'], 
-        ['Landfill 1', dataArr[8], dataArr[8], 'color: #08306b; stroke-width: 0'], 
-        ['Landfill 2', dataArr[9], dataArr[9], 'color: #08306b; stroke-width: 0'], 
-        ['Flood prone', dataArr[10], dataArr[10], 'color: #08306b; stroke-width: 0'], 
-        ['IRT', dataArr[11], dataArr[11], 'color: #08306b; stroke-width: 0'], 
-        ['Noise zones', dataArr[12], dataArr[12], 'color: #08306b; stroke-width: 0'], 
-        ['Heritage', dataArr[13], dataArr[13], 'color: #08306b; stroke-width: 0'], 
-        ['Koeberg', dataArr[14], dataArr[14], 'color: #08306b; stroke-width: 0'],
+        ['Waterbodies', dataArr[0], dataArr[0], 'color: #333; stroke-width: 0'], 
+        ['Private land', dataArr[1], dataArr[1], 'color: #333; stroke-width: 0'], 
+        ['Metro roads', dataArr[2], dataArr[2], 'color: #333; stroke-width: 0'], 
+        ['Servitude', dataArr[3], dataArr[3], 'color: #333; stroke-width: 0'], 
+        ['Biodiversity core 1', dataArr[4], dataArr[4], 'color: #333; stroke-width: 0'], 
+        ['Biodiversity core 2', dataArr[5], dataArr[5], 'color: #333; stroke-width: 0'], 
+        ['Power lines', dataArr[6], dataArr[6], 'color: #333; stroke-width: 0'], 
+        ['Railway', dataArr[7], dataArr[7], 'color: #333; stroke-width: 0'], 
+        ['Landfill 1', dataArr[8], dataArr[8], 'color: #333; stroke-width: 0'], 
+        ['Landfill 2', dataArr[9], dataArr[9], 'color: #333; stroke-width: 0'], 
+        ['Flood prone', dataArr[10], dataArr[10], 'color: #333; stroke-width: 0'], 
+        ['IRT', dataArr[11], dataArr[11], 'color: #333; stroke-width: 0'], 
+        ['Noise zones', dataArr[12], dataArr[12], 'color: #333; stroke-width: 0'], 
+        ['Heritage', dataArr[13], dataArr[13], 'color: #333; stroke-width: 0'], 
+        ['Koeberg', dataArr[14], dataArr[14], 'color: #333; stroke-width: 0'],
         ]);
         
         var formatter = new google.visualization.NumberFormat({
@@ -290,27 +290,27 @@ window.onload = function() {
             type: "custom",
             data: [
             {
-                name: "<= 8000",
+                name: "≤ 8000",
                 value: "#67000d"
             }, 
             {
-                name: "<= 5000",
+                name: "≤ 5000",
                 value: "#a50f15"
             }, 
             {
-                name: "<= 1000",
+                name: "≤ 1000",
                 value: "#cb181d"
             }, 
             {
-                name: "<= 750",
+                name: "≤ 750",
                 value: "#ef3b2c"
             }, 
             {
-                name: "<= 500",
+                name: "≤ 500",
                 value: "#fb6a4a"
             },
             {
-                name: "<= 250",
+                name: "≤ 250",
                 value: "#fcbba1"
             }
             ]
@@ -424,19 +424,19 @@ window.onload = function() {
             data: [
             {
                 name: "City land. Can be upgraded",
-                value: "#08519c"
+                value: "#67a9cf"
             }, 
             {
-                name: "National land. Can be upgraded",
-                value: "#1d91c0"
+                name: "Provincial or National Government land.  Some constraints",
+                value: "#fddbc7"
             }, 
             {
-                name: "Provincial land. Can be upgraded",
-                value: "#67000d"
+                name: "City land.  Some constraints",
+                value: "#ef8a62"
             }, 
             {
-                name: "Some constraints. May need to be relocated",
-                value: "#bd0026"
+                name: "Many constraints. May need to be relocated",
+                value: "#b2182b"
             }
             ]
         });
@@ -469,7 +469,7 @@ window.onload = function() {
             colors: ["#41b6c4", "#1d91c0", "#225ea8", "#253494", "#081d58"]
         });
         $('.legend').append(densityLegend.render().el);
-        $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per km<sup>2</sup></p>').show();
+        $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per hectare</p>').show();
 
         $('#infoDensity').removeClass("hidden").show();
         $('#infoUpgrade').addClass("hidden").hide();      
@@ -509,7 +509,7 @@ window.onload = function() {
         sublayers[3].hide();
         sublayers[4].hide();
         sublayers[5].show();
-
+        $('.cartodb-legend').addClass("hidden");
         $('#infoBoundary').removeClass("hidden").show();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoUpgrade').addClass("hidden").hide();      
@@ -538,6 +538,31 @@ window.onload = function() {
     $(".basemap-select > .btn").click(function() {
         $(".basemap-select > .btn").removeClass("active");
         $(this).addClass("active");
-    });    
+    });
+
+
+     var minimized_elements = $('p.minimize');
+    
+    minimized_elements.each(function(){    
+        var t = $(this).text();        
+        if(t.length < 400) return;
+        
+        $(this).html(
+            t.slice(0,400)+'<span>... </span><a href="#" class="more">more</a>'+
+            '<span style="display:none;">'+ t.slice(400,t.length)+' <a href="#" class="less">less</a></span>'
+        );
+        
+    }); 
+    
+    $('a.more', minimized_elements).click(function(event){
+        event.preventDefault();
+        $(this).hide().prev().hide();
+        $(this).next().show();        
+    });
+    
+    $('a.less', minimized_elements).click(function(event){
+        event.preventDefault();
+        $(this).parent().hide().prev().show().prev().show();    
+    });
 }
 //closes function

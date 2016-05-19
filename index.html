@@ -9,69 +9,67 @@
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
     <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-
-
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
 
   <body>
   <div class="row intro-text">
   <div class="col-lg-8 col-lg-offset-2">
-    <h1>INFORMAL SETTLEMENTS MAP <br> CAPE TOWN</h1>
-    <!--<h2>Cape Town Informal Settlement Map</h2>-->
-    <p>Around 146,000 households live in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets. Click on the layers to see trends across the city.</p>
+    <h1>INFORMAL SETTLEMENTS MAP<br>CAPE TOWN</h1>
+    <p>Around 146,000 households live in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets.</p>
     </div>
     </div>
 
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2" id="infoDisplay"> <!-- Contextual SubLayer Information Start -->
 
-        <h1>INTERACTIVE MAP</h1>
-    <h3>USING THE MAP</h3>
-    <p>Toggle between map and satellite view. Explore the map to find individual pockets.Click on a pocket to see see more information. Click on the layers to see trends.</p>
+    <h3>Using the interactive map</h3>
+    <p>Explore the map to find individual pockets. Click on a pocket to see see more information. Click on the layers to see trends. Toggle between map and satellite view.</p>
 
 
     <div id="infoDefault">
     <h3>Density</h3>
-    <p>The Density of a pocket is measured in dwelling per hectare or DHa. We have calculated this by dividing the number of households by the size of the land. The density of a pocket is an important consideration because it determines how easily basic services can be installed. Density ranges between 3 DHa at Kroonendal in Houtbay to about 3007 DHa at Jim Se Bos. To put this into perspective the target density for affordable housing of between 1 and 4 stories is around. [Add analysis on spatial arrangement]</p>
+
+    <p class="minimize">The Density of a pocket is measured in dwelling per hectare or DHa. We have calculated this by dividing the number of households by the size of the land. The density of a pocket is an important consideration because it determines how easily basic services can be installed. Density ranges between 3 DHa at Kroonendal in Houtbay to about 463 at Langa Sportfield. To put this into perspective, the target density for formal affordable housing of between 1 and 4 stories is between 80 and 300 DHa.</p>
     </div>
 
     <div id="infoHousing" class="hidden">
     <h3>Households</h3>
-    <p>The number of households in pocket was obtained from the Human Settlements Directorate. There is a wide variation. Some pockets, like Chris Hani Park have as little as 3 while some, like Enkanini, have nearly 8000 households! Altogether there are 146,626 households living in informal settlements. That is about 00% of all households in the City of Cape Town. The average pocket has around 340 households but this is skewed by the large informal settlements - the majority of pockets have less than 800 households.[Add analysis on spatial arrangement]</p>
+    <p class="minimize">Each household is one individual home that has been built. There is a wide variation in the number of households in a pocket. Some, like Chris Hani Park have as little as 3. Some, like Enkanini, have nearly 8000 households! Altogether there are 146,626 households living in informal settlements. There are 1,068,572 households in Cape Town according to the 2011 census. This means that about 13.7% of all households (480,000 people) in the City of Cape Town live in informal settlements. The average pocket has around 340 households but this is skewed by a few large informal settlements - the majority of pockets have less than 800 households.</p>
     </div>
 
     <div id="infoAge" class="hidden">
     <h3>Age of Informal Settlements</h3>
-    <p>The age of an informal settlement tells you how long it has been since it was first established. It does not show how a particular pocket has grown over time or whether the same people have been living there. Age data was obtained from the Human Settlements Directorate. It is divided into categories in the table below. Most pockets are between 15 and 20 years old. In fact around 103 are older than 20 years. As few as 17 pockets are less than 5 years old. This shows that most pockets were established before the year 2000. [Add analysis on spatial arrangement]</p>
+    <p class="minimize">The age of an informal settlement tells you how long it has been since it was first established. It does not show how a particular pocket has grown over time or whether the same people have been living there. Many people believe informal settlements are a new phenomenon, but most pockets are very old. Only 17 pockets (4%) are less than 5 years old. In fact around 286 pockets (65%) were established 15 or more years ago (before the year 2000) and 103 (24%) were established before our democracy. The oldest informal settlements are clustered around northern Khayelitsha, Crossroads and Nyanga but are still not recognised and still have temporary toilets.</p>
     </div>
 
     <div id="infoTempSani" class="hidden">
-    <h3>Temporary Sanitation</h3>
-    <p>The City of Cape Town provides a range of toilet types to residents living in informal settlements. Around 13,577 full flush toilets have been installed. These are a free standing toilets built into prefabricated cement shelters and connected to a sewer system. This means that around a third (33%) of all toilets are permanent infrastructure. The rest are temporary toilets that are provided and cleaned by private companies. The City provides many different types. We show the data for chemical, container and porta potti, which are the most common and combine the rest into an ‘other’ category.  5027 (12%) are chemical toilets - a toilet with a chemical container that can be removed or cleaned via suction. These are often called ‘mshengu’ toilets. 5077 (12.5%) are container toilets - a cement shelter with a container that has to be removed. The vast majority, around 15928 (39%), are Porta Pottis. These are portable toilets with a small container that can be disconnected and must be collected and cleaned. This is the number of toilets that have been purchased - it is unclear how many actually exist or where they are currently. Most pockets across the city use temporary toilets.</p>
+    <h3>Temporary toilets</h3>
+    <p class="minimize">The City of Cape Town provides a range of toilet types to residents living in informal settlements. Around 13,577 full flush toilets have been installed. These are a free standing toilets built into prefabricated cement shelters and connected to a sewer system. This means that around a third (33%) of all toilets are permanent infrastructure. The rest are temporary toilets that are provided and cleaned by private companies. The City provides many different types. We show the data for chemical, container and porta potti, which are the most common and combine the rest into an ‘other’ category.  5027 (12%) are chemical toilets - a toilet with a chemical container that can be removed or cleaned via suction. These are often called ‘mshengu’ toilets. 5077 (12.5%) are container toilets - a cement shelter with a container that has to be removed. The vast majority, around 15928 (39%), are Porta Pottis. These are portable toilets with a small container that can be disconnected and must be collected and cleaned. This is the number of toilets that have been purchased - it is unclear how many actually exist or where they are currently. Most pockets across the city use temporary toilets.</p>
     </div>
 
     <div id="infoUpgrade" class="hidden">
     <h3>Upgrade Category</h3>
-    <p>How many informal settlements are really on unsuitable land? These City has categorised informal settlements in terms of size, age and development priority.  There are 48 (12%) informal settlements in Category A. These have been approved for full upgrade or are suitable for future upgrades where 'pre-planning' can commence. Why are these not being prioritised immediately for upgrading; infrastructure and sanitation? There are 22 (5%) informal settlements in Category B1. These are on City land with adverse physical conditions that require programmes and budgets for upgrading. The vast majority, around 252 (585), of informal settlements are in Category B2. These are informal settlements on Provincial or National government land that require programmes and budgets for transfer to the City, de-densification, and upgrading. There are challenges here but it is still possible to upgrade and install infrastructure despite the challenges. Why is it taking so long? There are 115 (26%) informal settlements in Category C. These are informal settlements that are located on land which either needs to be purchased or there are constraints that require total relocation. Dealing with these challenges will not be easy. It requires decisive action, not indifference and denials. Please note that no constraints information exists at the pocket level - this only provided for all the pockets within a recognised the settlement. As each pocket is unique, it is likely that significantly more informal settlements could be recognised and upgraded if the City determined the specific constraints for each pocket.</p>
+    <p class="minimize">How many informal settlements are really on unsuitable land? These City has categorised informal settlements in terms of size, age and development priority.  There are 48 (12%) informal settlements in Category A. These have been approved for full upgrade or are suitable for future upgrades where 'pre-planning' can commence. Why are these not being prioritised immediately for upgrading; infrastructure and sanitation? There are 22 (5%) informal settlements in Category B1. These are on City land with adverse physical conditions that require programmes and budgets for upgrading. The vast majority, around 252 (585), of informal settlements are in Category B2. These are informal settlements on Provincial or National government land that require programmes and budgets for transfer to the City, de-densification, and upgrading. There are challenges here but it is still possible to upgrade and install infrastructure despite the challenges. Why is it taking so long? There are 115 (26%) informal settlements in Category C. These are informal settlements that are located on land which either needs to be purchased or there are constraints that require total relocation. Dealing with these challenges will not be easy. It requires decisive action, not indifference and denials. Please note that no constraints information exists at the pocket level - this only provided for all the pockets within a recognised the settlement. As each pocket is unique, it is likely that significantly more informal settlements could be recognised and upgraded if the City determined the specific constraints for each pocket.</p>
     </div>
 
     <div id="infoDensity" class="hidden">
     <h3>Density</h3>
-    <p>The Density of a pocket is measured in dwelling per hectare or DHa. We have calculated this by dividing the number of households by the size of the land. The density of a pocket is an important consideration because it determines how easily basic services can be installed. Density ranges between 3 DHa at Kroonendal in Houtbay to about 3007 DHa at Jim Se Bos. To put this into perspective the target density for affordable housing of between 1 and 4 stories is around [XX]. [Add analysis on spatial arrangement]</p>
+    <p class="minimize">The Density of a pocket is measured in dwelling per hectare or DHa. We have calculated this by dividing the number of households by the size of the land. The density of a pocket is an important consideration because it determines how easily basic services can be installed. Density ranges between 3 DHa at Kroonendal in Houtbay to about 463 at Langa Sportfield. To put this into perspective, the target density for formal affordable housing of between 1 and 4 stories is between 80 and 300 DHa.</p>
     </div>
 
     <div id="infoBoundary" class="hidden">
     <h3>Boundary</h3>
-    <p>There are 204 recognised informal settlements in Cape Town. In fact there are 437 individual pockets. Sometimes the pocket is a large blocks of hundreds of homes. In other cases the pockets are small clusters of only a few homes scattered on land in between formal houses. Some are individual homes on plots surrounded by food gardens. Use the satellite view to explore how each pocket is and unique. You can find more information below by clicking on the pocket.</p>
+    <p class="minimize">There are 204 recognised informal settlements in Cape Town. In fact there are 437 individual pockets. Sometimes the pocket is a large blocks of hundreds of homes. In other cases the pockets are small clusters of only a few homes scattered on land in between formal houses. Some are individual homes on plots surrounded by food gardens. Use the satellite view to explore how each pocket is and unique. You can find more information below by clicking on the pocket.</p>
     </div>
 
     </div> <!-- Contextual SubLayer Information End -->
 </div>
 
 <ul id="layer-select-tiny" class="hidden-md hidden-lg hidden-sm">
+  <div class="click-layer click-layer-tiny"></div>
   <li class="btn btn-block btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-block btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
   <li class="btn btn-block btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
@@ -80,6 +78,7 @@
   <li class="btn btn-block btn-default select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
 </ul>
 
+<div class="position:relative">
 <ul id="layer-select-mobile" class="hidden-md hidden-lg hidden-xs">
   <div class="click-layer click-layer-mobile"></div>
   <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
@@ -89,6 +88,7 @@
   <li class="btn btn-default active select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
   <li class="btn btn-default select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
 </ul>
+</div>
 
     <!-- Map Start -->
     <div id="map">
@@ -130,11 +130,11 @@
         <p class="category"><b>Cluster</b></p>
         <p id="is_cluster"></p>       
         <p class="category"><b>Size</b></p>      
-        <p style="display: inline;" id="area_ha"></p><p style="display: inline;"> km<sup>2</sup></p><p></p>
+        <p style="display: inline;" id="area_ha"></p><p style="display: inline;"> hectares</p><p></p>
         <p class="category"><b>Number of households</b></p>
         <p id="structure_count"></p>
         <p class="category"><b>Household density</b></p>
-        <p style="display: inline;" id="density_dwellings_per_ha"></p><p style="display: inline;"> per km<sup>2</sup></p><p></p>
+        <p style="display: inline;" id="density_dwellings_per_ha"></p><p style="display: inline;"> per hectare</p><p></p>
         <p class="category"><b>Ratio of toilets to households</b></p>
         <p id="ratio_toilets_dwellings"></p>        
         <p class="category"><b>Temporary toilets</b></p>
@@ -147,7 +147,7 @@
 
     <div class="col-md-4">
     <div id="charts">
-    <h4>Types of Toilets</h4>
+    <h4>Types of Toilets <a style="color: #333" href="javascript: void(0)" data-toggle="tooltip" title="Full flush toilets are free standing toilets connected to a sewer system. The others are temporary: chemical toilets have a chemical container that can be removed or cleaned via suction. Container toilets have a cement shelter with a container that has to be removed. Porta-potties are portable toilets with a small container that must be collected and cleaned."><i class="fa fa-question-circle" aria-hidden="true"></i></a></h4>
     <div id="toilet_chart"></div>
     </div>
     </div>
