@@ -16,17 +16,17 @@ window.onload = function() {
         sublayers: [{
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Structure count
-            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[structure_count <= 8000] {polygon-fill: #67000d;}#matrix_formatted_data[structure_count <= 5000] {polygon-fill: #a50f15;}#matrix_formatted_data[structure_count <= 1000] {polygon-fill: #cb181d;}#matrix_formatted_data[structure_count <= 750] {polygon-fill: #ef3b2c;}#matrix_formatted_data[structure_count <= 500] {polygon-fill: #fb6a4a;}#matrix_formatted_data[structure_count <= 250] {polygon-fill: #fcbba1;}'
-        }, 
+            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[structure_count <= 8000] {polygon-fill: #a50f15;}#matrix_formatted_data[structure_count <= 5000] {polygon-fill: #de2d26;}#matrix_formatted_data[structure_count <= 1000] {polygon-fill: #fb6a4a;}#matrix_formatted_data[structure_count <= 750] {polygon-fill: #fc9272;}#matrix_formatted_data[structure_count <= 500] {polygon-fill: #fcbba1;}#matrix_formatted_data[structure_count <= 250] {polygon-fill: #fee5d9;}'
+        },
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Age of pocket
-            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[age_of_pocket="0 - 5 years"] {polygon-fill: #c6dbef;}#matrix_formatted_data[age_of_pocket="10 - 15 years"] {polygon-fill: #2171b5;}#matrix_formatted_data[age_of_pocket="15 - 20 years"] {polygon-fill: #08519c;}#matrix_formatted_data[age_of_pocket="5 - 10 years"] {polygon-fill: #4292c6;}#matrix_formatted_data[age_of_pocket="> 20 years"] {polygon-fill: #08306b;}'
+            cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[age_of_pocket="0 - 5 years"] {polygon-fill: #dadaeb;}#matrix_formatted_data[age_of_pocket="10 - 15 years"] {polygon-fill: #bcbddc;}#matrix_formatted_data[age_of_pocket="15 - 20 years"] {polygon-fill: #9e9ac8;}#matrix_formatted_data[age_of_pocket="5 - 10 years"] {polygon-fill: #756bb1;}#matrix_formatted_data[age_of_pocket="> 20 years"] {polygon-fill: #54278f;}'
         }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Temporary sanitation
-            cartocss: '#matrix_formatted_data{polygon-fill: #FFFFCC;polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data [ temp_sanitation <= 100] {polygon-fill: #bd0026;}#matrix_formatted_data [ temp_sanitation <= 80] {polygon-fill: #e31a1c;}#matrix_formatted_data [ temp_sanitation <= 60] {polygon-fill: #fc4e2a;}#matrix_formatted_data [ temp_sanitation <= 40] {polygon-fill: #fd8d3c;}#matrix_formatted_data [ temp_sanitation <= 20] {polygon-fill: #fed976;}'
+            cartocss: '#matrix_formatted_data{polygon-fill: #FFFFCC;polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data [ temp_sanitation <= 100] {polygon-fill: #ca0020;}#matrix_formatted_data [ temp_sanitation <= 80] {polygon-fill: #f4a582;}#matrix_formatted_data [ temp_sanitation <= 60] {polygon-fill: #f7f7f7;}#matrix_formatted_data [ temp_sanitation <= 40] {polygon-fill: #92c5de;}#matrix_formatted_data [ temp_sanitation <= 20] {polygon-fill: #0571b0;}#matrix_formatted_data [ toilets_total <= 0] {polygon-fill: #333;}'
         }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
@@ -36,12 +36,12 @@ window.onload = function() {
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Housing density
-            cartocss: '#matrix_formatted_data{polygon-fill: #1a9850;polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data [ density_dwellings_per_ha <= 3007.299270073] {polygon-fill: #081d58;}#matrix_formatted_data [ density_dwellings_per_ha <= 263.73626373626] {polygon-fill: #253494;}#matrix_formatted_data [ density_dwellings_per_ha <= 199.76635514019] {polygon-fill: #225ea8;}#matrix_formatted_data [ density_dwellings_per_ha <= 131.31313131313] {polygon-fill: #1d91c0;}#matrix_formatted_data [ density_dwellings_per_ha <= 66.666666666667] {polygon-fill: #41b6c4;}'
+            cartocss: '#matrix_formatted_data{polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data [ density_dwellings_per_ha <= 465] {polygon-fill: #a50f15;}#matrix_formatted_data [ density_dwellings_per_ha <= 372] {polygon-fill: #de2d26;}#matrix_formatted_data [ density_dwellings_per_ha <= 279] {polygon-fill: #fb6a4a;}#matrix_formatted_data [ density_dwellings_per_ha <= 186] {polygon-fill: #fcae91;}#matrix_formatted_data [ density_dwellings_per_ha <= 93] {polygon-fill: #fee5d9;}'
         },
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Boundary layer
-            cartocss: '#is_matrix_epsg4326_region_1 {polygon-fill: #fff;polygon-opacity: 0.1;line-color: #000;line-width: 1.3;line-opacity: 1;}'
+            cartocss: '#matrix_formatted_data {polygon-fill: #fff;polygon-opacity: 0.1;line-color: #000;line-width: 1.3;line-opacity: 1;}'
         }]
     }
     
@@ -115,12 +115,12 @@ window.onload = function() {
         
         }
         var densityLegend = new cdb.geo.ui.Legend.Density({
-            left: "0",
-            right: "3010",
-            colors: ["#41b6c4", "#1d91c0", "#225ea8", "#253494", "#081d58"]
+            left: "0%",
+            right: "100%",
+            colors: ["#0571b0", "#92c5de", "#f7f7f7", "#f4a582", "#ca0020"]
         });
         $('.legend').append(densityLegend.render().el);
-        $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per hectare</p>').show();
+        $('.cartodb-legend').prepend('<p class="legend-title">Percentage of toilets that are temporary</p>').show();
 
         for (var i = 0; i < layer.getSubLayerCount(); i++) {
             sublayers[i] = layer.getSubLayer(i);
@@ -128,8 +128,8 @@ window.onload = function() {
         
         sublayers[0].hide();        
         sublayers[1].hide();
-        sublayers[2].hide();
         sublayers[3].hide();
+        sublayers[4].hide();
         sublayers[5].hide();   
            
         // define ZIndex of the CartoDB layer
@@ -219,8 +219,8 @@ window.onload = function() {
         ['Biodiversity core 2', dataArr[5], dataArr[5], 'color: #333; stroke-width: 0'], 
         ['Power lines', dataArr[6], dataArr[6], 'color: #333; stroke-width: 0'], 
         ['Railway', dataArr[7], dataArr[7], 'color: #333; stroke-width: 0'], 
-        ['Landfill 1', dataArr[8], dataArr[8], 'color: #333; stroke-width: 0'], 
-        ['Landfill 2', dataArr[9], dataArr[9], 'color: #333; stroke-width: 0'], 
+        ['Near to landfills', dataArr[8], dataArr[8], 'color: #333; stroke-width: 0'], 
+        ['Proposed / closed landfills', dataArr[9], dataArr[9], 'color: #333; stroke-width: 0'], 
         ['Flood prone', dataArr[10], dataArr[10], 'color: #333; stroke-width: 0'], 
         ['IRT', dataArr[11], dataArr[11], 'color: #333; stroke-width: 0'], 
         ['Noise zones', dataArr[12], dataArr[12], 'color: #333; stroke-width: 0'], 
@@ -291,27 +291,27 @@ window.onload = function() {
             data: [
             {
                 name: "≤ 8000",
-                value: "#67000d"
-            }, 
-            {
-                name: "≤ 5000",
                 value: "#a50f15"
             }, 
             {
+                name: "≤ 5000",
+                value: "#de2d26"
+            }, 
+            {
                 name: "≤ 1000",
-                value: "#cb181d"
+                value: "#fb6a4a"
             }, 
             {
                 name: "≤ 750",
-                value: "#ef3b2c"
+                value: "#fc9272"
             }, 
             {
                 name: "≤ 500",
-                value: "#fb6a4a"
+                value: "#fcbba1"
             },
             {
                 name: "≤ 250",
-                value: "#fcbba1"
+                value: "#fee5d9"
             }
             ]
         });
@@ -344,23 +344,23 @@ window.onload = function() {
             data: [
             {
                 name: "0 - 5 years",
-                value: "#c6dbef"
+                value: "#dadaeb"
             }, 
             {
                 name: "5 - 10 years",
-                value: "#4292c6"
+                value: "#bcbddc"
             }, 
             {
                 name: "10 - 15 years",
-                value: "#2171b5"
+                value: "#9e9ac8"
             }, 
             {
                 name: "15 - 20 years",
-                value: "#08519c"
+                value: "#756bb1"
             }, 
             {
                 name: "> 20 years",
-                value: "#08306b"
+                value: "#54278f"
             }
             ]
         });
@@ -391,7 +391,7 @@ window.onload = function() {
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0%",
             right: "100%",
-            colors: ["#fed976", "#fd8d3c", "#fc4e2a", "#e31a1c", "#bd0026"]
+            colors: ["#0571b0", "#92c5de", "#f7f7f7", "#f4a582", "#ca0020"]
         });
 
         $('.legend').append(densityLegend.render().el);
@@ -465,8 +465,8 @@ window.onload = function() {
         $('.click-layer').addClass("hidden");        
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0",
-            right: "3010",
-            colors: ["#41b6c4", "#1d91c0", "#225ea8", "#253494", "#081d58"]
+            right: "465",
+            colors: ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"]
         });
         $('.legend').append(densityLegend.render().el);
         $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per hectare</p>').show();
