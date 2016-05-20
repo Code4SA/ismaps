@@ -114,7 +114,7 @@ window.onload = function() {
                 drawConstraints([data.cns_waterbodies, data.cns_private_land, data.cns_metro_roads, data.cns_servitude, data.cns_biodiversity_core1, data.cns_biodiversity_core2, data.cns_power_lines, data.cns_railway, data.cns_landfill_1, data.cns_landfill_2, data.cns_flood_prone, data.cns_irt, data.cns_noise_zones, data.cns_heritage, data.cns_koeberg], data.is_cluster);
                 ga('send', 'event', 'pocket', data.is_cluster, data.pocket_name);
                 if (!clickedPocket) {
-                    ga('send', 'event', 'pocket', 'clicked pocket');
+                    ga('send', 'event', 'at least one pocket', 'clicked');
                 }
                 clickedPocket = true;
             });
@@ -336,7 +336,7 @@ window.onload = function() {
         $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'number of households');
         if (!clickedLayer) {
-            ga('send', 'event', 'layers', 'changed layer');
+            ga('send', 'event', 'at least one layer', 'changed');
         }
         clickedLayer = true;
     });
@@ -389,7 +389,7 @@ window.onload = function() {
         $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'age of pocket');
         if (!clickedLayer) {
-            ga('send', 'event', 'layers', 'changed layer');
+            ga('send', 'event', 'at least one layer', 'changed');
         }
         clickedLayer = true;
     });
@@ -423,7 +423,7 @@ window.onload = function() {
         $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'temporary toilets');
         if (!clickedLayer) {
-            ga('send', 'event', 'layers', 'changed layer');
+            ga('send', 'event', 'at least one layer', 'changed');
         }
         clickedLayer = true;
     });
@@ -473,7 +473,7 @@ window.onload = function() {
         $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'upgrade category');
         if (!clickedLayer) {
-            ga('send', 'event', 'layers', 'changed layer');
+            ga('send', 'event', 'at least one layer', 'changed');
         }
         clickedLayer = true;
     });
@@ -505,7 +505,7 @@ window.onload = function() {
         $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'housing density');
         if (!clickedLayer) {
-            ga('send', 'event', 'layers', 'changed layer');
+            ga('send', 'event', 'at least one layer', 'changed');
         }
         clickedLayer = true;
     });
@@ -549,7 +549,7 @@ window.onload = function() {
         $('#infoDefault').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'boundary');
         if (!clickedLayer) {
-            ga('send', 'event', 'layers', 'changed layer');
+            ga('send', 'event', 'at least one layer', 'changed');
         }
         clickedLayer = true;
     });
