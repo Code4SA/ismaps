@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Cape Town Informal Settlement Map - disclosure</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <!-- tutorial docs -->
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  <body>
+
+  <body>
+  <div class="row intro-text">
+  <div class="col-lg-8 col-lg-offset-2">
+    <h1>INFORMAL SETTLEMENTS MAP<br>CAPE TOWN</h1>
+    </div>
+    </div>
+
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 disclosure">
+
+    <h3>Data spreadsheets</h3>
+    <p>You can download the spreadsheets below. Please note that the constraints data is at the informal settlement level. All other data is at the pocket level.</p>
+
+      <p><i class="fa fa-download" aria-hidden="true"></i> <a href="https://data.code4sa.org/dataset/Informal-Settlements-Upgrade-Constraints/3wnb-x2rd">Constraints affecting informal settlements</a></p>
+      <p><i class="fa fa-download" aria-hidden="true"></i> <a href="https://data.code4sa.org/dataset/Informal-Settlement-Matrix/bky6-3za5">Combined contextual information for informal settlement pockets</a></p>
+      <p><i class="fa fa-download" aria-hidden="true"></i> <a href="https://data.code4sa.org/dataset/Toilets-In-Inf-Settlements-CTn-For-Portal/abad-taj3">Dataset of GPS locations of toilet facilities in the informal settlements</a></p>
+  
+  <h3>Data Sources</h3>
+
+  <p>The informal settlement map combines information from different datasets that were obtained from the City of Cape Town in 2015 via access to information requests (PAIA). 
+Constraints - Hard copies of the constraints data were obtained from the City of Cape Town via PAIA.<br>
+<p><b>The Matrix</b> - This is a database developed by the Human Settlements Directorate and contains various contextual data including informal settlement and pocket names, area and structure counts, estimate of household size, and the upgrade category. Obtained via PAIA.</p>
+<p><b>Toilet counts</b> - This is a database held by the Utilities Directorate and contains the GPS coordinates for flush toilets as well as a count of all toilets by location. Obtained via PAIA.</p>
+<p><b>Porta Potty counts</b> - This information is not included in the City’s database for toilet infrastructure. Presumably because the location cannot be pinpointed accurately once distributed. We obtained the  numbers and locations from the original tender. Please note that it is likely that there are less porta potties available, due to damage and loss. Obtained via PAIA.</p>
+
+
+<h3>Geocoding the Informal Settlement Pockets</h3>
+
+<p>The City has GPS coordinates for flush toilets. We used these to locate the pockets that have full flush toilets and then drew boundaries around the pockets. In cases where no GPS coordinates could be found, it was necessary to refer to a hard copy map of the informal settlements that was received from the City - these boundaries were then geocoded using satellite imagery.</p>
+
+<p>13 pockets could not be located:</p>
+
+<table class="table">
+<thead><tr><th style="width: 50%">Settlement</th><th style="width: 50%">Pocket</th></tr></thead><tbody>
+ <tr><td>Mfuleni Infills</td><td>Bohlo Bohlo</td></tr>
+ <tr><td>Mfuleni Infills</td><td>Strong Yard</td></tr>
+ <tr><td>Masonwabe</td><td>Masonwabe</td></tr>
+ <tr><td>Weltevreden Road</td><td>Weltevreden Road</td></tr>
+ <tr><td>Site C Infills</td><td>DT Section 2</td></tr>
+ <tr><td>Nonqubela Infills</td><td>Masikhule</td></tr>
+ <tr><td>Section 32</td><td>Section 32</td></tr>
+ <tr><td>YAB Section</td><td>YAB Section 3</td></tr>
+ <tr><td>City Mission - Crossroads</td><td>City Mission - Crossroads</td></tr>
+ <tr><td>Atlantis Farms</td><td>Meadowvale Farm</td></tr>
+ <tr><td>Wallacedene Infills</td><td>Wallacedene 2</td></tr>
+ <tr><td>Richwood </td><td>Richwood</td></tr>
+</tbody></table>
+
+
+<h3>Notes</h3>
+
+<p><b>Temporary Toilets layer</b> - We determined this layer by adding all of the temporary toilets together and calculated the percentage of all the toilets installed in a pocket (this is basically all toilets except full flush toilets)</p>
+
+<p><b>Density layer</b> - we determined the density by dividing the area in hectares by the number of households giving the dwelling per hectare (DHa). The values for Housing Density presented discrepancies and have been removed for the following pockets:</p>
+
+<table class="table">
+<thead><tr><th style="width: 50%">Settlement</th><th style="width: 50%">Pocket</th></tr></thead><tbody>
+ <tr><td>Jim se Bos</td><td>Jim se Bos</td></tr>
+ <tr><td>Browns Farm Infills</td><td>Browns Farm Xhwithinja</td></tr>
+ <tr><td>Bosasa</td><td>Bosasa Phase 2</td></tr>
+</tbody></table>
+
+<h3>Report an Issue / Update Values</h3>
+<p>To report any discrepancies, issues or to provide updates please contact <a href="mailto:jared@nu.org.za">jared@nu.org.za</a>.</p>
+
+    <p><a href="http://ismaps.org.za">Back to map</a></p>
+
+    </div>
+    </div>
+
+  </body>
+  </head>
+  </html>

@@ -249,7 +249,7 @@ div.cartodb-legend {
 /* Sublayer Contextual Information Display */
 
 #infoDisplay {
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     color: #333;
     background-color: #fff;
 }
@@ -403,3 +403,20 @@ div.cartodb-legend.custom ul li .bullet {
 h3 {
   text-transform: uppercase;
 }
+
+.disclosure h1 {
+    text-align: center;
+}
+
+.disclosure h3, p {
+    text-align: justify;
+}
+
+.disclosure h3 {
+    font-weight: bold;
+}
+
+.disclosure p {
+    font-family: 'Open Sans', sans-serif;
+}
+
