@@ -5,9 +5,12 @@ window.onload = function() {
         center: [-33.99943, 18.61679],
         // Starting Point
         zoom: 13,
-        scrollWheelZoom: false, 
+        scrollWheelZoom: false,
         doubleClickZoom: false,
     });
+    
+    var clickedPocket = false;
+    var clickedLayer = false;
     
     // Put layer data into a JS object
     var layerSource = {
@@ -17,7 +20,7 @@ window.onload = function() {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Structure count
             cartocss: '#matrix_formatted_data {polygon-opacity: 1;line-color: #FFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data[structure_count <= 8000] {polygon-fill: #a50f15;}#matrix_formatted_data[structure_count <= 5000] {polygon-fill: #de2d26;}#matrix_formatted_data[structure_count <= 1000] {polygon-fill: #fb6a4a;}#matrix_formatted_data[structure_count <= 750] {polygon-fill: #fc9272;}#matrix_formatted_data[structure_count <= 500] {polygon-fill: #fcbba1;}#matrix_formatted_data[structure_count <= 250] {polygon-fill: #fee5d9;}'
-        },
+        }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Age of pocket
@@ -37,11 +40,11 @@ window.onload = function() {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Housing density
             cartocss: '#matrix_formatted_data{polygon-opacity: 1;line-color: #FFFFFF;line-width: 1;line-opacity: 1;}#matrix_formatted_data [ density_dwellings_per_ha <= 465] {polygon-fill: #a50f15;}#matrix_formatted_data [ density_dwellings_per_ha <= 372] {polygon-fill: #de2d26;}#matrix_formatted_data [ density_dwellings_per_ha <= 279] {polygon-fill: #fb6a4a;}#matrix_formatted_data [ density_dwellings_per_ha <= 186] {polygon-fill: #fcae91;}#matrix_formatted_data [ density_dwellings_per_ha <= 93] {polygon-fill: #fee5d9;}'
-        },
+        }, 
         {
             sql: "SELECT * FROM matrix_formatted_data",
             // IS Region -- Boundary layer
-            cartocss: '#matrix_formatted_data {polygon-fill: #fff;polygon-opacity: 0.1;line-color: #000;line-width: 1.3;line-opacity: 1;}'
+            cartocss: '#matrix_formatted_data {polygon-fill: #fff;polygon-opacity: 0;line-color: #000;line-width: 1;line-opacity: 1;}'
         }]
     }
     
@@ -57,13 +60,11 @@ window.onload = function() {
         attribution: 'Nokia'
     });
     
-    
-    
     // Basemap function
     // Add data layer to your map
     cartodb.createLayer(map_object, layerSource)
     .addTo(map_object)
-
+    
     .done(function(layer) {
         
         var hovers = [];
@@ -85,17 +86,18 @@ window.onload = function() {
             sublayer = layer.getSubLayer(i);
             sublayer.setInteraction(true);
             sublayer.setInteractivity('pocket_name, ratio_toilets_dwellings, is_cluster, area_ha, ward_id, toilets_container, toilets_chemical, toilets_full_flush, toilets_other, toilets_portable, cns_waterbodies, cns_private_land, cns_metro_roads, cns_servitude, cns_biodiversity_core1, cns_biodiversity_core2, cns_power_lines, cns_railway, cns_landfill_1, cns_landfill_2, cns_flood_prone, cns_irt, cns_noise_zones, cns_heritage, cns_koeberg, structure_count, density_dwellings_per_ha, age_of_pocket, temp_sanitation, upgrade_category');
+            
             console.log("num layers", layer.getSubLayerCount());
             
             sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
-                $('#back-to-map').removeClass("hidden");                
+                $('#back-to-map').removeClass("hidden");
                 $('#click-map').addClass("hidden");
                 $('#dashboard').removeClass("hidden");
-                $('.arrow-down').removeClass("fade-out");                              
+                $('.arrow-down').removeClass("fade-out");
                 $('.arrow-down').removeClass("hidden");
-                setTimeout(function () {
-                $(".arrow-down").addClass("fade-out");
-                  },6000);
+                setTimeout(function() {
+                    $(".arrow-down").addClass("fade-out");
+                }, 6000);
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
                 $("#pocket_name").text(data.pocket_name);
                 $("#upgrade_category").text(data.upgrade_category);
@@ -110,7 +112,11 @@ window.onload = function() {
                 cartodb.log.log(e, latlng, pos, data, layerNumber);
                 drawToilet([data.toilets_full_flush, data.toilets_chemical, data.toilets_container, data.toilets_portable, data.toilets_other], data.is_cluster);
                 drawConstraints([data.cns_waterbodies, data.cns_private_land, data.cns_metro_roads, data.cns_servitude, data.cns_biodiversity_core1, data.cns_biodiversity_core2, data.cns_power_lines, data.cns_railway, data.cns_landfill_1, data.cns_landfill_2, data.cns_flood_prone, data.cns_irt, data.cns_noise_zones, data.cns_heritage, data.cns_koeberg], data.is_cluster);
-                ga('send', 'event', 'pocket', data.is_cluster, data.pocket_name);       
+                ga('send', 'event', 'pocket', data.is_cluster, data.pocket_name);
+                if (!clickedPocket) {
+                    ga('send', 'event', 'pocket', 'clicked pocket');
+                }
+                clickedPocket = true;
             });
         
         }
@@ -121,17 +127,17 @@ window.onload = function() {
         });
         $('.legend').append(densityLegend.render().el);
         $('.cartodb-legend').prepend('<p class="legend-title">Percentage of toilets that are temporary</p>').show();
-
+        
         for (var i = 0; i < layer.getSubLayerCount(); i++) {
             sublayers[i] = layer.getSubLayer(i);
         }
         
-        sublayers[0].hide();        
+        sublayers[0].hide();
         sublayers[1].hide();
         sublayers[3].hide();
         sublayers[4].hide();
-        sublayers[5].hide();   
-           
+        sublayers[5].hide();
+        
         // define ZIndex of the CartoDB layer
         layer.setZIndex(9000);
         // define basemap options
@@ -158,7 +164,7 @@ window.onload = function() {
     
     
     })// end function
-
+    
     .error(function(err) {
         console.log("error: " + err);
     });
@@ -170,7 +176,7 @@ window.onload = function() {
         ['Full Flush', dataArr[0]], 
         ['Chemical', dataArr[1]], 
         ['Container', dataArr[2]], 
-        ['Porta-potty', dataArr[3]],
+        ['Porta-potty', dataArr[3]], 
         ['Other', dataArr[4]], 
         ]);
         
@@ -179,7 +185,7 @@ window.onload = function() {
             width: '90%',
             height: '250',
             backgroundColor: '#efefef',
-            colors:['#377eb8', "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c"],
+            colors: ['#377eb8', "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c"],
             pieSliceText: 'value',
             fontName: 'Open Sans',
             chartArea: {
@@ -190,27 +196,32 @@ window.onload = function() {
                 height: '250',
             }
         };
-
+        
         var hasToilets = false;
         for (var i = 0; i < dataArr.length; i++) {
             if (dataArr[i]) {
                 hasToilets = true;
             }
         }
-
+        
         // Instantiate and draw the chart.
         var chart = new google.visualization.PieChart(document.getElementById('toilet_chart'));
         chart.draw(dataDt, options);
-
+        
         if (!hasToilets) {
-        document.getElementById("toilet_chart").innerHTML = "This pocket has no toilets";
-        };
-
+            document.getElementById("toilet_chart").innerHTML = "This pocket has no toilets";
+        }
+        ;
+    
     }
     
     function drawConstraints(dataArr, options) {
         var dataDt = google.visualization.arrayToDataTable([
-        ['Contraint', 'data', {role: 'annotation'}, { role: 'style' }], 
+        ['Contraint', 'data', {
+            role: 'annotation'
+        }, {
+            role: 'style'
+        }], 
         ['Waterbodies', dataArr[0], dataArr[0], 'color: #333; stroke-width: 0'], 
         ['Private land', dataArr[1], dataArr[1], 'color: #333; stroke-width: 0'], 
         ['Metro roads', dataArr[2], dataArr[2], 'color: #333; stroke-width: 0'], 
@@ -225,7 +236,7 @@ window.onload = function() {
         ['IRT', dataArr[11], dataArr[11], 'color: #333; stroke-width: 0'], 
         ['Noise zones', dataArr[12], dataArr[12], 'color: #333; stroke-width: 0'], 
         ['Heritage', dataArr[13], dataArr[13], 'color: #333; stroke-width: 0'], 
-        ['Koeberg', dataArr[14], dataArr[14], 'color: #333; stroke-width: 0'],
+        ['Koeberg', dataArr[14], dataArr[14], 'color: #333; stroke-width: 0'], 
         ]);
         
         var formatter = new google.visualization.NumberFormat({
@@ -266,14 +277,12 @@ window.onload = function() {
         // Instantiate and draw the chart.
         var chart = new google.visualization.BarChart(document.getElementById('constraints_chart'));
         chart.draw(dataDt, options);
-
-          google.visualization.events.addListener(chart, 'error', function (googleError) {
-      google.visualization.errors.removeError(googleError.id);
-      document.getElementById("constraints_chart").innerHTML = "There are no constraints for this cluster";
-  });
+        
+        google.visualization.events.addListener(chart, 'error', function(googleError) {
+            google.visualization.errors.removeError(googleError.id);
+            document.getElementById("constraints_chart").innerHTML = "There are no constraints for this cluster";
+        });
     }
-    
-    
     
     // Add button events Sublayer 0 - Structure count
     var sublayer0Shown = true;
@@ -282,10 +291,10 @@ window.onload = function() {
         sublayers[2].hide();
         sublayers[3].hide();
         sublayers[4].hide();
-        sublayers[5].hide();        
+        sublayers[5].hide();
         sublayers[0].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");     
+        $('.click-layer').addClass("hidden");
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             data: [
@@ -308,7 +317,7 @@ window.onload = function() {
             {
                 name: "≤ 500",
                 value: "#fcbba1"
-            },
+            }, 
             {
                 name: "≤ 250",
                 value: "#fee5d9"
@@ -317,7 +326,7 @@ window.onload = function() {
         });
         $('.legend').append(legend.render().el);
         $('.cartodb-legend').prepend('<p class="legend-title">Number of households</p>').show();
-
+        
         $('#infoHousing').removeClass("hidden").show();
         $('#infoAge').addClass("hidden").hide();
         $('#infoTempSani').addClass("hidden").hide();
@@ -326,6 +335,10 @@ window.onload = function() {
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
         ga('send', 'event', 'layers', 'number of households');
+        if (!clickedLayer) {
+            ga('send', 'event', 'layers', 'changed layer');
+        }
+        clickedLayer = true;
     });
     
     // Add button events Sublayer 1 - Age of pocket
@@ -338,7 +351,7 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[1].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");               
+        $('.click-layer').addClass("hidden");
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             data: [
@@ -366,15 +379,19 @@ window.onload = function() {
         });
         $('.legend').append(legend.render().el);
         $('.cartodb-legend').prepend('<p class="legend-title">Age of pocket</p>').show();
-    
+        
         $('#infoAge').removeClass("hidden").show();
         $('#infoHousing').addClass("hidden").hide();
         $('#infoTempSani').addClass("hidden").hide();
         $('#infoUpgrade').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
-        $('#infoBoundary').addClass("hidden").hide();           
-        ga('send', 'event', 'layers', 'age of pocket');    
+        $('#infoBoundary').addClass("hidden").hide();
+        ga('send', 'event', 'layers', 'age of pocket');
+        if (!clickedLayer) {
+            ga('send', 'event', 'layers', 'changed layer');
+        }
+        clickedLayer = true;
     });
     
     // Add button events Sublayer 2 - Temporary sanitation
@@ -387,16 +404,16 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[2].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");                
+        $('.click-layer').addClass("hidden");
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0%",
             right: "100%",
             colors: ["#0571b0", "#92c5de", "#f7f7f7", "#f4a582", "#ca0020"]
         });
-
+        
         $('.legend').append(densityLegend.render().el);
         $('.cartodb-legend').prepend('<p class="legend-title">Percentage of toilets that are temporary</p>').show();
-
+        
         $('#infoTempSani').removeClass("hidden").show();
         $('#infoHousing').addClass("hidden").hide();
         $('#infoAge').addClass("hidden").hide();
@@ -404,8 +421,12 @@ window.onload = function() {
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
-        ga('send', 'event', 'layers', 'temporary toilets');             
-        });
+        ga('send', 'event', 'layers', 'temporary toilets');
+        if (!clickedLayer) {
+            ga('send', 'event', 'layers', 'changed layer');
+        }
+        clickedLayer = true;
+    });
     
     // Add button events Sublayer 3 - Upgrade category
     var sublayer3Shown = true;
@@ -417,7 +438,7 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[3].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");                
+        $('.click-layer').addClass("hidden");
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             title: "Test",
@@ -442,15 +463,19 @@ window.onload = function() {
         });
         $('.legend').append(legend.render().el);
         $('.cartodb-legend').prepend('<p class="legend-title">Upgrade category</p>').show();
-
+        
         $('#infoUpgrade').removeClass("hidden").show();
-        $('#infoHousing').addClass("hidden").hide();        
+        $('#infoHousing').addClass("hidden").hide();
         $('#infoTempSani').addClass("hidden").hide();
         $('#infoAge').addClass("hidden").hide();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
-        ga('send', 'event', 'layers', 'upgrade category');        
+        ga('send', 'event', 'layers', 'upgrade category');
+        if (!clickedLayer) {
+            ga('send', 'event', 'layers', 'changed layer');
+        }
+        clickedLayer = true;
     });
     // Add button events Sublayer 4 - Housing density
     var sublayer4Shown = true;
@@ -462,7 +487,7 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[4].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");        
+        $('.click-layer').addClass("hidden");
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0",
             right: "465",
@@ -470,15 +495,19 @@ window.onload = function() {
         });
         $('.legend').append(densityLegend.render().el);
         $('.cartodb-legend').prepend('<p class="legend-title">Numbers of households per hectare</p>').show();
-
+        
         $('#infoDensity').removeClass("hidden").show();
-        $('#infoUpgrade').addClass("hidden").hide();      
+        $('#infoUpgrade').addClass("hidden").hide();
         $('#infoTempSani').addClass("hidden").hide();
         $('#infoAge').addClass("hidden").hide();
         $('#infoHousing').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
-        ga('send', 'event', 'layers', 'housing density');               
+        ga('send', 'event', 'layers', 'housing density');
+        if (!clickedLayer) {
+            ga('send', 'event', 'layers', 'changed layer');
+        }
+        clickedLayer = true;
     });
     
     $("#layer-select > .btn").click(function() {
@@ -500,7 +529,7 @@ window.onload = function() {
         $(".basemap-select > .btn").removeClass("active");
         $(this).addClass("active");
     });
-
+    
     var sublayer5Shown = true;
     $(".select-sublayer5").on('click', function() {
         sublayers[0].hide();
@@ -510,14 +539,19 @@ window.onload = function() {
         sublayers[4].hide();
         sublayers[5].show();
         $('.cartodb-legend').addClass("hidden");
+        $('.click-layer').addClass("hidden");
         $('#infoBoundary').removeClass("hidden").show();
         $('#infoDensity').addClass("hidden").hide();
-        $('#infoUpgrade').addClass("hidden").hide();      
+        $('#infoUpgrade').addClass("hidden").hide();
         $('#infoTempSani').addClass("hidden").hide();
         $('#infoAge').addClass("hidden").hide();
         $('#infoHousing').addClass("hidden").hide();
-        $('#infoDefault').addClass("hidden").hide();  
-
+        $('#infoDefault').addClass("hidden").hide();
+        ga('send', 'event', 'layers', 'boundary');
+        if (!clickedLayer) {
+            ga('send', 'event', 'layers', 'changed layer');
+        }
+        clickedLayer = true;
     });
     
     $("#layer-select > .btn").click(function() {
@@ -539,30 +573,31 @@ window.onload = function() {
         $(".basemap-select > .btn").removeClass("active");
         $(this).addClass("active");
     });
-
-
-     var minimized_elements = $('p.minimize');
     
-    minimized_elements.each(function(){    
-        var t = $(this).text();        
-        if(t.length < 400) return;
+    
+    var minimized_elements = $('p.minimize');
+    
+    minimized_elements.each(function() {
+        var t = $(this).text();
+        if (t.length < 400)
+            return;
         
         $(this).html(
-            t.slice(0,400)+'<span>... </span><a href="#" class="more">more</a>'+
-            '<span style="display:none;">'+ t.slice(400,t.length)+' <a href="#" class="less">less</a></span>'
+        t.slice(0, 400) + '<span>... </span><a href="#" class="more">more</a>' + 
+        '<span style="display:none;">' + t.slice(400, t.length) + ' <a href="#" class="less">less</a></span>'
         );
-        
-    }); 
     
-    $('a.more', minimized_elements).click(function(event){
-        event.preventDefault();
-        $(this).hide().prev().hide();
-        $(this).next().show();        
     });
     
-    $('a.less', minimized_elements).click(function(event){
+    $('a.more', minimized_elements).click(function(event) {
         event.preventDefault();
-        $(this).parent().hide().prev().show().prev().show();    
+        $(this).hide().prev().hide();
+        $(this).next().show();
+    });
+    
+    $('a.less', minimized_elements).click(function(event) {
+        event.preventDefault();
+        $(this).parent().hide().prev().show().prev().show();
     });
 }
 //closes function
