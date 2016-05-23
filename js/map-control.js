@@ -264,20 +264,13 @@ window.onload = function() {
             fontName: 'Open Sans',
             enableInteractivity: 'false',
             vAxis: { title: "",
-            textStyle: {
-            fontSize: 12
-                }
-            },
+                textStyle: {fontSize: 12}
+                },
             hAxis: {
                 format: '#\'%\'',
                 title: 'Area of cluster',
-                textStyle: {
-                    fontSize: 12
-                },
-                viewWindow: {
-                    min: 0,
-                    max: 100
-                },
+                textStyle: {fontSize: 12 },
+                viewWindow: {min: 0, max: 100},
                 ticks: [0, 25, 50, 75, 100]
             },
             chartArea: {
