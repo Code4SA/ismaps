@@ -29,7 +29,7 @@ button {
     background: transparent;
 }
 
-.col-md-3 {
+.col-basic-info {
     background-color: #333;
     color: #fff;
 }
@@ -37,6 +37,7 @@ button {
 #dashboard {
     background-color: #efefef;
     font-family: 'Open Sans', sans-serif;
+    margin-bottom: 1px;
 }
 
 h1 {
@@ -94,7 +95,6 @@ h3 {
 
 #footer {
     background-color: #333;
-    margin-top: 10px;
     color: #fff;
 }
 
@@ -290,13 +290,21 @@ div.cartodb-legend.custom ul li .bullet {
     border: 0 solid transparent;
 }
 
+.bullet-box {
+    width: 50px;
+    height: 22px;
+    background-color: #333;
+    float: left;
+    margin-right: 5px;
+}
+
 .click-layer-large {
     border: 3px solid #333;
     border-radius: 30px;
     height: 25px;
     width: 25px;
     position: absolute;
-    left:168px;
+    right:463px;
     top: 9px;
     -webkit-animation: pulsate 1s ease-out;
     -webkit-animation-iteration-count: infinite;
@@ -418,5 +426,31 @@ h3 {
 
 .disclosure p {
     font-family: 'Open Sans', sans-serif;
+}
+
+#toilet_chart {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.col-toilets {
+    background-color: #EFEFEF;
+}
+
+.leg-toi-text {
+    color: #333;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.tt-small {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 9000;
+    margin: 0;
 }
 

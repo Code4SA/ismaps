@@ -118,15 +118,18 @@ window.onload = function() {
                 }
                 clickedPocket = true;
             });
-        
+
+            sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
+                $(".tooltip-name").text(data.pocket_name);
+                $(".tooltip-name").removeClass("hidden");
+            });
+
+            sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
+                $(".tooltip-name").text('');
+                $(".tooltip-name").addClass("hidden");
+            });
+
         }
-        var densityLegend = new cdb.geo.ui.Legend.Density({
-            left: "0%",
-            right: "100%",
-            colors: ["#0571b0", "#92c5de", "#f7f7f7", "#f4a582", "#ca0020"]
-        });
-        $('.legend').append(densityLegend.render().el);
-        $('.cartodb-legend').prepend('<p class="legend-title">Percentage of toilets that are temporary</p>').show();
         
         for (var i = 0; i < layer.getSubLayerCount(); i++) {
             sublayers[i] = layer.getSubLayer(i);
@@ -134,9 +137,9 @@ window.onload = function() {
         
         sublayers[0].hide();
         sublayers[1].hide();
+        sublayers[2].hide();
         sublayers[3].hide();
         sublayers[4].hide();
-        sublayers[5].hide();
         
         // define ZIndex of the CartoDB layer
         layer.setZIndex(9000);
@@ -255,13 +258,22 @@ window.onload = function() {
             annotations: {
                 textStyle: {
                     color: '#222',
+                    fontSize: 12,
                 }
             },
             fontName: 'Open Sans',
             enableInteractivity: 'false',
+            vAxis: { title: "",
+            textStyle: {
+            fontSize: 12
+                }
+            },
             hAxis: {
                 format: '#\'%\'',
                 title: 'Area of cluster',
+                textStyle: {
+                    fontSize: 12
+                },
                 viewWindow: {
                     min: 0,
                     max: 100
@@ -271,6 +283,7 @@ window.onload = function() {
             chartArea: {
                 top: 0,
                 height: 360,
+                width: '65%'
             }
         };
         
@@ -412,7 +425,9 @@ window.onload = function() {
         });
         
         $('.legend').append(densityLegend.render().el);
+
         $('.cartodb-legend').prepend('<p class="legend-title">Percentage of toilets that are temporary</p>').show();
+        $('.cartodb-legend').append('<br><div class="bullet-box"></div><p class="leg-toi-text">No toilets</p>').show();
         
         $('#infoTempSani').removeClass("hidden").show();
         $('#infoHousing').addClass("hidden").hide();

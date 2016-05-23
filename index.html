@@ -71,10 +71,10 @@
   <div class="click-layer click-layer-tiny"></div>
   <li class="btn btn-block btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-block btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
-  <li class="btn btn-block btn-default active select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
+  <li class="btn btn-block btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
   <li class="btn btn-block btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
   <li class="btn btn-block btn-default select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
-  <li class="btn btn-block btn-default select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
+  <li class="btn btn-block btn-default active select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
 </ul>
 
 <div class="position:relative">
@@ -82,25 +82,27 @@
   <div class="click-layer click-layer-mobile"></div>
   <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
-  <li class="btn btn-default active select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
+  <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
   <li class="btn btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
   <li class="btn btn-default select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
-  <li class="btn btn-default select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
+  <li class="btn btn-default active select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
 </ul>
 </div>
 
     <!-- Map Start -->
     <div id="map">
+<button class="btn btn-default tooltip-name tt-small hidden hidden-lg hidden-md" style="font-weight: 800"></button>
 <div id="click-map"></div>
 <a href="#dashboard"><div class="arrow-down hidden"></div></a>
 <ul id="layer-select" class="hidden-sm hidden-xs">
   <div class="click-layer click-layer-large"></div>
+  <li class="btn btn-default tooltip-name hidden" style="font-weight: 800"></li>
   <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
-  <li class="btn btn-default active select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
+  <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
   <li class="btn btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
   <li class="btn btn-default select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
-  <li class="btn btn-default select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>  
+  <li class="btn btn-default active select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>
 </ul>
 
 <div id="desktop-legend" class="legend hidden-xs hidden-sm"></div>
@@ -144,14 +146,14 @@
         <p id="upgrade_category"></p>
     </div>  
 
-    <div class="col-md-4">
+    <div class="col-md-3 col-toilets">
     <div id="charts">
     <h4>Types of Toilets <a style="color: #333" href="javascript: void(0)" data-toggle="tooltip" title="Full flush toilets are free standing toilets connected to a sewer system. The others are temporary: chemical toilets have a chemical container that can be removed or cleaned via suction. Container toilets have a cement shelter with a container that has to be removed. Porta-potties are portable toilets with a small container that must be collected and cleaned."><i class="fa fa-question-circle" aria-hidden="true"></i></a></h4>
     <div id="toilet_chart"></div>
     </div>
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-6 col-constraints">
     <div id="charts">
     <h4>Constraints on cluster level <a style="color: #333" href="javascript: void(0)" data-toggle="tooltip" title="A constraint is something that the City of Cape Town considers prevents them from installing proper sanitation. This chart shows the percentage of land that has these contraints."><i class="fa fa-question-circle" aria-hidden="true"></i></a></h4>
     <div id="constraints_chart"></div>
