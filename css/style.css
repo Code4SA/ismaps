@@ -29,7 +29,7 @@ button {
     background: transparent;
 }
 
-.col-md-3 {
+.col-basic-info {
     background-color: #333;
     color: #fff;
 }
@@ -37,6 +37,7 @@ button {
 #dashboard {
     background-color: #efefef;
     font-family: 'Open Sans', sans-serif;
+    margin-bottom: 1px;
 }
 
 h1 {
@@ -47,6 +48,13 @@ h1 {
 
 h3 {
     font-size: 1.3em;
+}
+
+.tooltip-name {
+    /*background-color: #6EB3F0;*/ /* blue */
+    background-color: #FC4E2A; /* orange */
+    color: #efefef;
+    border: 1px solid #efefef;
 }
 
 /* Basemap toggle menu */
@@ -94,7 +102,6 @@ h3 {
 
 #footer {
     background-color: #333;
-    margin-top: 10px;
     color: #fff;
 }
 
@@ -249,7 +256,7 @@ div.cartodb-legend {
 /* Sublayer Contextual Information Display */
 
 #infoDisplay {
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     color: #333;
     background-color: #fff;
 }
@@ -290,13 +297,21 @@ div.cartodb-legend.custom ul li .bullet {
     border: 0 solid transparent;
 }
 
+.bullet-box {
+    width: 50px;
+    height: 22px;
+    background-color: #333;
+    float: left;
+    margin-right: 5px;
+}
+
 .click-layer-large {
-    border: 3px solid #999;
+    border: 3px solid #333;
     border-radius: 30px;
     height: 25px;
     width: 25px;
     position: absolute;
-    left:234px;
+    right:463px;
     top: 9px;
     -webkit-animation: pulsate 1s ease-out;
     -webkit-animation-iteration-count: infinite;
@@ -322,34 +337,13 @@ div.cartodb-legend.custom ul li .bullet {
     pointer-events: none;
 }
 
-.click-layer-tiny {
-    border: 3px solid #333;
-    border-radius: 30px;
-    height: 25px;
-    width: 25px;
-    position: absolute;
-    left: 50%;
-    margin-top: 3px;
-    -webkit-animation: pulsate 1s ease-out;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation: pulsate 1s ease-out;
-    -moz-animation-iteration-count: infinite;     
-    opacity: 0.0;
-    pointer-events: none;
-}
-
-
 #click-map {
-    border: 3px solid #FFF;
-    border-radius: 30px;
-    height: 25px;
-    width: 25px;
     position: absolute;
     left:50%;
     top:50%;
-    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation: pulsate 2s cubic-bezier(1, -0.02, 0.1, 1);
     -webkit-animation-iteration-count: infinite;
-    -moz-animation: pulsate 1s ease-out;
+    -moz-animation: pulsate 2s cubic-bezier(1, -0.02, 0.1, 1);
     -moz-animation-iteration-count: infinite;     
     opacity: 0.0;
     pointer-events: none;
@@ -357,15 +351,15 @@ div.cartodb-legend.custom ul li .bullet {
 }
 
 @-webkit-keyframes pulsate {
-    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
-    50% {opacity: 1.0;}
-    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+    0% {-webkit-transform: scale(0.96, 0.96); opacity: 1.0;}
+    50% {-webkit-transform: scale(1, 1); opacity: 1.0;}
+    100% {-webkit-transform: scale(0.96, 0.96); opacity: 1.0;}
 }
 
 @-moz-keyframes pulsate {
-    0% {-moz-transform: scale(0.1, 0.1); opacity: 0.0;}
-    50% {opacity: 1.0;}
-    100% {-moz-transform: scale(1.2, 1.2); opacity: 0.0;}
+    0% {-moz-transform: scale(0.96, 0.96); opacity: 1.0;}
+    50% {-moz-transform: scale(1, 1); opacity: 1.0;}
+    100% {-moz-transform: scale(0.96, 0.96); opacity: 1.0;}
 }
 
 .arrow-down {
@@ -402,4 +396,50 @@ div.cartodb-legend.custom ul li .bullet {
 
 h3 {
   text-transform: uppercase;
+}
+
+.disclosure h1 {
+    text-align: center;
+}
+
+.disclosure h3, p {
+    text-align: justify;
+}
+
+.disclosure h3 {
+    font-weight: bold;
+}
+
+.disclosure p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#toilet_chart {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.col-toilets {
+    background-color: #EFEFEF;
+}
+
+.leg-toi-text {
+    color: #333;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.tt-small {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 9000;
+    margin: 0;
+}
+
+.back-to-map {
+    border: 0 solid transparent;
 }
