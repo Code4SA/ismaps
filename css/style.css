@@ -15,8 +15,7 @@ a:hover {
   color: #63AEEF;  
 }
 #map {
-    width: 100%;
-    height: 60%;
+    height: 100%;
     padding: 0;
     margin: 0;
 }
@@ -337,9 +336,22 @@ div.cartodb-legend.custom ul li .bullet {
     pointer-events: none;
 }
 
-#click-map {
+#click-layer {
     position: absolute;
-    left:50%;
+    right:440px;
+    top:42px;
+    -webkit-animation: pulsate 2s cubic-bezier(1, -0.02, 0.1, 1);
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: pulsate 2s cubic-bezier(1, -0.02, 0.1, 1);
+    -moz-animation-iteration-count: infinite;     
+    opacity: 0.0;
+    pointer-events: none;
+    z-index: 9001;
+}
+
+#click-pocket {
+    position: absolute;
+    right:50%;
     top:50%;
     -webkit-animation: pulsate 2s cubic-bezier(1, -0.02, 0.1, 1);
     -webkit-animation-iteration-count: infinite;
@@ -347,7 +359,7 @@ div.cartodb-legend.custom ul li .bullet {
     -moz-animation-iteration-count: infinite;     
     opacity: 0.0;
     pointer-events: none;
-    z-index: 9000;
+    z-index: 9001;
 }
 
 @-webkit-keyframes pulsate {
@@ -442,4 +454,15 @@ h3 {
 
 .back-to-map {
     border: 0 solid transparent;
+}
+
+#storyboard {
+    background-color: #FFF;
+}
+
+#start-overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 9002;
+    background-color: #FFF;
 }

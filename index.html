@@ -15,14 +15,14 @@
 
   <body>
 
-  <div class="row intro-text">
+  <div class="row intro-text hidden">
   <div class="col-lg-8 col-lg-offset-2">
     <h1>INFORMAL SETTLEMENTS MAP<br>CAPE TOWN</h1>
     <p>There are around 146,000 households in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets.</p>
     </div>
     </div>
 
-  <div class="row">
+  <div class="row hidden">
     <div class="col-lg-8 col-lg-offset-2" id="infoDisplay"> <!-- Contextual SubLayer Information Start -->
 
     <h3>Using the interactive map</h3>
@@ -68,7 +68,7 @@
     </div> <!-- Contextual SubLayer Information End -->
 </div>
 
-<ul id="layer-select-tiny" class="hidden-md hidden-lg hidden-sm">
+<ul id="layer-select-tiny" class="hidden-md hidden-lg hidden-sm hidden">
   <li class="btn btn-block btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-block btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
   <li class="btn btn-block btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
@@ -78,7 +78,7 @@
 </ul>
 
 <div class="position:relative">
-<ul id="layer-select-mobile" class="hidden-md hidden-lg hidden-xs">
+<ul id="layer-select-mobile" class="hidden-md hidden-lg hidden-xs hidden">
   <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li id="story-layer" class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
   <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
@@ -88,19 +88,14 @@
 </ul>
 </div>
 
-  <div class="btn btn-default select-sublayer1">Change layer</div>
-  <div class="btn btn-default base-satellite">Change basemap</div>
-  <div id="panzoom" class="btn btn-default">Pan and zoom</div>
-  <div id="onefeature" class="btn btn-default">Specific pocket</div>
-
-
-
     <!-- Map Start -->
-    <div id="map">
+  <div class="row" style="height: 60%">
+    <div id="map" class="col-sm-9">
 <button class="btn btn-default tooltip-name tt-small hidden hidden-lg hidden-md" style="font-weight: 800"></button>
-<img src="img/click.png" id="click-map"></img>
+<img class="hidden" src="img/click.png" id="click-layer"></img>
+<img class="hidden" src="img/click.png" id="click-pocket"></img>
 <a href="#dashboard"><div class="arrow-down hidden"></div></a>
-<ul id="layer-select" class="hidden-sm hidden-xs">
+<ul id="layer-select" class="hidden-sm hidden-xs hidden">
   <li class="btn btn-default tooltip-name hidden" style="font-weight: 800"></li>
   <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
@@ -113,18 +108,29 @@
 <div id="desktop-legend" class="legend hidden-xs hidden-sm"></div>
 
     <!-- Basemap toggle menu -->
-      <div class="basemap-select hidden-xs">
+      <div class="basemap-select hidden-xs hidden">
           <div class="btn btn-default active base-map"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map</div>
           <div class="btn btn-default base-satellite"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> Satellite</div>
       </div>
 
-      <div class="basemap-select hidden-sm hidden-md hidden-lg">
+      <div class="basemap-select hidden-sm hidden-md hidden-lg hidden">
           <div class="btn btn-default active base-map"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i></div>
           <div class="btn btn-default base-satellite"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></div>
       </div>
 
     </div>
     <!-- Map End -->
+<div id="storyboard" class="col-sm-3">
+  <ul>
+  <li class="btn btn-default scene2">Scene 2</li>
+  <li class="btn btn-default scene3">Scene 3</li>
+  <li class="btn btn-default scene4">Scene 4</li>
+  <li class="btn btn-default scene5">Scene 5</li>
+  <li class="btn btn-default scene6">Scene 6</li>
+
+</ul>
+</div>
+</div>
 
     <div id="mobile-legend" class="row legend hidden-md hidden-lg"></div>
 

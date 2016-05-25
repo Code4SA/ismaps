@@ -4,9 +4,13 @@ window.onload = function() {
     var map_object = new L.Map('map',{
         center: [-33.99943, 18.61679],
         // Starting Point
-        zoom: 13,
+        zoom: 10,
         scrollWheelZoom: false,
         doubleClickZoom: false,
+        dragging: false,
+        touchZoom: false,
+        zoomControl: false,
+        keyboard: false,
     });
     
     var clickedPocket = false;
@@ -140,6 +144,8 @@ window.onload = function() {
         sublayers[2].hide();
         sublayers[3].hide();
         sublayers[4].hide();
+        sublayers[5].hide();
+
         
         // define ZIndex of the CartoDB layer
         layer.setZIndex(9000);
@@ -429,6 +435,7 @@ window.onload = function() {
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
+        $('#click-layer').addClass("hidden");
         ga('send', 'event', 'layers', 'temporary toilets');
         if (!clickedLayer) {
             ga('send', 'event', 'at least one layer', 'changed');
@@ -612,9 +619,40 @@ window.onload = function() {
     layer.trigger('featureClick', { cartodb_id: cartodb_id });
     }
 
-    $("#panzoom").on('click', function() {
+    // scene 1
+    $(".scene1").on('click', function() {
+    $('#start-overlay').addClass("hidden");
+    });
+
+    // scene 2
+
+    $(".scene2").on('click', function() {
+    sublayers[5].show();
+    }); 
+
+    // scene 3
+
+    $(".scene3").on('click', function() {
+    map_object.setView([-34.017147, 18.631967], 12);
+    }); 
+
+    // scene 4
+
+    $(".scene4").on('click', function() {
     map_object.setView([-34.017447, 18.661056], 16);
     }); 
 
+    // scene 5
+
+    $(".scene5").on('click', function() {
+    $('#layer-select').removeClass("hidden");
+    $('#click-layer').removeClass("hidden");
+    }); 
+
+    // scene 6
+
+    $(".scene6").on('click', function() {
+    $('#click-pocket').removeClass("hidden");
+    }); 
 }
 //closes function
