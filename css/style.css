@@ -479,3 +479,14 @@ background-color:#333
     z-index: 9002;
     background-color: #FFF;
 }
+
+.text {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10px;
+}
+
+.story-buttons {
+    padding-left: 5%;
+    padding-right: 5%;
+}

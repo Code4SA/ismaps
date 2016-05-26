@@ -1,9 +1,7 @@
 window.onload = function() {
 
     $(".startStory").on('click', function() {
-        $("#mapOverlay").fadeOut( "slow", function() {
-            // Animation complete.
-        });
+        $("#mapOverlay").fadeOut("slow")
     });    
     
     // Instantiate new map object, place it in 'map' element -- Uses Leaflet.js
@@ -629,6 +627,9 @@ window.onload = function() {
     });
 
     // scene 0 -- overlay
+    $(".scene0-btn").on('click', function() {
+    $("#mapOverlay").fadeIn("slow");
+    });
 
     // scene 1 -- empty map
     $(".scene1-btn").on('click', function() {
@@ -666,6 +667,7 @@ window.onload = function() {
     $("#click-layer").addClass("hidden"); 
     $(".cartodb-legend").addClass("hidden"); 
     $("#dashboard").addClass("hidden"); 
+    $(".scene8-next").addClass("disabled");                
 
     sublayers[5].show();
     sublayers[2].hide();           
@@ -784,7 +786,7 @@ window.onload = function() {
     $(".leaflet-control-zoom").removeClass("hidden"); 
     map_object.setView([-34.017147, 18.631967], 12); 
     $(".ssub").removeClass("disabled");
-    $("#mapGradient").removeClass("hidden");                
+    $("#mapGradient").addClass("hidden");                
     });
 
     $(".leaflet-control-zoom").addClass("hidden");
