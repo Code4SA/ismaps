@@ -16,11 +16,11 @@
   <body>
 
   <div class="row intro-text hidden">
-  <div class="col-lg-8 col-lg-offset-2">
-    <h1>INFORMAL SETTLEMENTS MAP<br>CAPE TOWN</h1>
-    <p>There are around 146,000 households in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets.</p>
+    <div class="col-lg-8 col-lg-offset-2">
+        <h1>INFORMAL SETTLEMENTS MAP<br>CAPE TOWN</h1>
+        <p>There are around 146,000 households in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets.</p>
     </div>
-    </div>
+  </div>
 
   <div class="row hidden">
     <div class="col-lg-8 col-lg-offset-2" id="infoDisplay"> <!-- Contextual SubLayer Information Start -->
@@ -92,17 +92,29 @@
   <div class="row" style="height: 60%">
     <div id="map" class="col-sm-9">
 <button class="btn btn-default tooltip-name tt-small hidden hidden-lg hidden-md" style="font-weight: 800"></button>
-<img class="hidden" src="img/click.png" id="click-layer"></img>
-<img class="hidden" src="img/click.png" id="click-pocket"></img>
+<img class="hidden" src="img/tap.svg" id="click-layer"></img>
+<img class="hidden" src="img/tap.svg" id="click-pocket"></img>
 <a href="#dashboard"><div class="arrow-down hidden"></div></a>
+
+    <div id="mapOverlay">
+        <h1>Why can't Cape Town's informal settlements be upgraded?</h1>
+        <p>There are around 146,000 households in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets.</p>
+        <ul>
+        <li class="btn btn-default startStory">Start</li>
+        <li class="btn btn-default startStory explore-map">Skip to map</li>
+        </ul>
+      </div>
+
+    <div id="mapGradient" style="height: 100%; width:8%;"></div>
+
 <ul id="layer-select" class="hidden-sm hidden-xs hidden">
   <li class="btn btn-default tooltip-name hidden" style="font-weight: 800"></li>
-  <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
-  <li class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
-  <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
-  <li class="btn btn-default select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
-  <li class="btn btn-default select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
-  <li class="btn btn-default active select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>
+  <li class="btn btn-default disabled ssub select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
+  <li class="btn btn-default disabled ssub select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
+  <li class="btn btn-default disabled ssub select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
+  <li class="btn btn-default disabled ssub select-sublayer3"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Upgrade category</li>
+  <li class="btn btn-default disabled ssub select-sublayer4"><i class="fa fa-building-o fa-fw" aria-hidden="true"></i> Density</li>
+  <li class="btn btn-default disabled ssub active select-sublayer5"><i class="fa fa-circle-thin fa-fw" aria-hidden="true"></i> Boundary</li>
 </ul>
 
 <div id="desktop-legend" class="legend hidden-xs hidden-sm"></div>
@@ -122,11 +134,44 @@
     <!-- Map End -->
 <div id="storyboard" class="col-sm-3">
   <ul>
-  <li class="btn btn-default scene2">Scene 2</li>
-  <li class="btn btn-default scene3">Scene 3</li>
-  <li class="btn btn-default scene4">Scene 4</li>
-  <li class="btn btn-default scene5">Scene 5</li>
-  <li class="btn btn-default scene6">Scene 6</li>
+
+  <p class="scene1-text text">Empty map</p>
+  <p class="scene2-text text hidden">Asithandile and Zukiswa are 2 of the 3,000 residents of informal settlements to participate in and make a submission to the City of Cape Town’s 2016/2017 draft budget.  They experience a number of challenges in their day-to-day lives</p>
+  <p class="scene3-text text hidden"></p>
+  <p class="scene4-text text hidden">Asithandile lives in Kosovo Informal Settlement.
+He is wheelchair-bound after suffering a gun-shot wound in an attack in the Eastern Cape, which makes navigate the streets in Kosovo challenging.</p>
+  <p class="scene5-text text hidden">With change layer buttons</p>
+  <p class="scene6-text text hidden">Changed text</p>
+  <p class="scene7-text text hidden">Scene 7 placeholder text</p>
+  <p class="scene8-text text hidden">Scene 8 placeholder text</p>
+  <p class="scene9-text text hidden">Scene 9 placeholder text</p>
+
+  <li class="btn btn-default scene0-btn scene0-back scene-btn back-btn">Back</li>
+  <li class="btn btn-default scene2-btn scene2-next scene-btn next-btn">Next</li>
+
+  <li class="btn btn-default scene1-btn scene1-back scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene3-btn scene3-next scene-btn next-btn hidden">Next</li>
+
+  <li class="btn btn-default scene2-btn scene2-back scene-btn back-btn hidden">Back</li> 
+  <li class="btn btn-default scene4-btn-asithandile scene4-next scene-btn next-btn hidden">Asithandile's story</li>
+  <li class="btn btn-default scene4-btn-zukiswa scene4-next scene-btn next-btn hidden">Zukiswa's story</li>  
+
+  <li class="btn btn-default scene3-btn scene3-back scene-btn back-btn hidden">Back</li>
+  <li class="btn btn-default scene5-btn scene5-next-asithandile scene-btn next-btn hidden">Next</li>  
+  <li class="btn btn-default scene5-btn scene5-next-zukiswa scene-btn next-btn hidden">Next</li>  
+
+  <li class="btn btn-default scene4-btn scene4-back scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene6-btn scene6-next scene-btn next-btn hidden disabled">Next</li>  
+
+  <li class="btn btn-default scene5-btn scene5-back scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene7-btn scene7-next scene-btn next-btn hidden">Next</li>
+
+  <li class="btn btn-default scene6-btn scene6-back scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene8-btn scene8-next scene-btn next-btn hidden disabled">Next</li>  
+
+  <li class="btn btn-default scene7-btn scene7-back scene-btn back-btn hidden">Back</li>
+  <li class="btn btn-default scene3-btn other-story scene-btn back-btn hidden">A different story</li>    
+  <li class="btn btn-default explore-map scene-btn next-btn hidden">Explore map</li>
 
 </ul>
 </div>

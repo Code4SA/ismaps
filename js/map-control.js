@@ -1,4 +1,10 @@
 window.onload = function() {
+
+    $(".startStory").on('click', function() {
+        $("#mapOverlay").fadeOut( "slow", function() {
+            // Animation complete.
+        });
+    });    
     
     // Instantiate new map object, place it in 'map' element -- Uses Leaflet.js
     var map_object = new L.Map('map',{
@@ -9,7 +15,6 @@ window.onload = function() {
         doubleClickZoom: false,
         dragging: false,
         touchZoom: false,
-        zoomControl: false,
         keyboard: false,
     });
     
@@ -84,7 +89,9 @@ window.onload = function() {
                 $('#map').css('cursor', 'auto');
             }
         });
-        
+    
+
+        $('.scene7-btn').click(function() {
         
         for (var i = 0; i < 6; i++) {
             sublayer = layer.getSubLayer(i);
@@ -94,8 +101,9 @@ window.onload = function() {
             console.log("num layers", layer.getSubLayerCount());
             
             sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
+                $(".scene8-next").removeClass("disabled");                
                 $('#back-to-map').removeClass("hidden");
-                $('#click-map').addClass("hidden");
+                $("#click-pocket").addClass("hidden");                                
                 $('#dashboard').removeClass("hidden");
                 $('.arrow-down').removeClass("fade-out");
                 $('.arrow-down').removeClass("hidden");
@@ -123,6 +131,7 @@ window.onload = function() {
                 clickedPocket = true;
             });
 
+
             sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
                 $(".tooltip-name").text(data.pocket_name);
                 $(".tooltip-name").removeClass("hidden");
@@ -134,6 +143,8 @@ window.onload = function() {
             });
 
         }
+
+        });
         
         for (var i = 0; i < layer.getSubLayerCount(); i++) {
             sublayers[i] = layer.getSubLayer(i);
@@ -417,6 +428,7 @@ window.onload = function() {
         sublayers[2].show();
         $('.cartodb-legend').addClass("hidden");
         $('.click-layer').addClass("hidden");
+        $('.scene6-next').removeClass("disabled");
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0%",
             right: "100%",
@@ -424,6 +436,7 @@ window.onload = function() {
         });
         
         $('.legend').append(densityLegend.render().el);
+
 
         $('.cartodb-legend').prepend('<p class="legend-title">Percentage of toilets that are temporary</p>').show();
         $('.cartodb-legend').append('<br><div class="bullet-box"></div><p class="leg-toi-text">No toilets</p>').show();
@@ -615,44 +628,166 @@ window.onload = function() {
         $(this).parent().hide().prev().show().prev().show();
     });
 
-    function openInfowindow(layer, cartodb_id) {
-    layer.trigger('featureClick', { cartodb_id: cartodb_id });
-    }
+    // scene 0 -- overlay
 
-    // scene 1
-    $(".scene1").on('click', function() {
-    $('#start-overlay').addClass("hidden");
+    // scene 1 -- empty map
+    $(".scene1-btn").on('click', function() {
+    sublayers[5].hide();
+    map_object.setView([-33.99943, 18.61679], 10);
+    $("#layer-select").addClass("hidden");    
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene0-back").removeClass("hidden");
+    $(".scene2-next").removeClass("hidden");
+
+
+    $(".text").addClass("hidden");
+    $(".scene1-text").removeClass("hidden");    
     });
 
-    // scene 2
-
-    $(".scene2").on('click', function() {
+    // scene 2 -- with borders
+    $(".scene2-btn").on('click', function() {
     sublayers[5].show();
-    }); 
+    map_object.setView([-33.99943, 18.61679], 10);
+    $("#layer-select").addClass("hidden");    
 
-    // scene 3
+    $(".scene-btn").addClass("hidden");
+    $(".scene1-back").removeClass("hidden");
+    $(".scene3-next").removeClass("hidden");
 
-    $(".scene3").on('click', function() {
+    $(".text").addClass("hidden");
+    $(".scene2-text").removeClass("hidden");        
+    });    
+
+    // scene 3 -- zoomed to cape flats
+    $(".scene3-btn").on('click', function() {
     map_object.setView([-34.017147, 18.631967], 12);
-    }); 
+    $("#layer-select").addClass("hidden");
+    $("#click-layer").addClass("hidden"); 
+    $(".cartodb-legend").addClass("hidden"); 
+    $("#dashboard").addClass("hidden"); 
 
-    // scene 4
+    sublayers[5].show();
+    sublayers[2].hide();           
 
-    $(".scene4").on('click', function() {
+    $(".scene-btn").addClass("hidden");
+    $(".scene2-back").removeClass("hidden");
+    $(".scene4-next").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene3-text").removeClass("hidden");            
+    });
+
+    // scene 4 -- zoomed to pocket Zukiswa
+    $(".scene4-btn-zukiswa").on('click', function() {
     map_object.setView([-34.017447, 18.661056], 16);
-    }); 
+    $("#layer-select").addClass("hidden");
+    $("#click-layer").addClass("hidden");    
+    $(".select-sublayer2").addClass("disabled");    
 
-    // scene 5
+    $(".scene-btn").addClass("hidden");
+    $(".scene3-back").removeClass("hidden");
+    $(".scene5-next-zukiswa").removeClass("hidden");
 
-    $(".scene5").on('click', function() {
-    $('#layer-select').removeClass("hidden");
-    $('#click-layer').removeClass("hidden");
-    }); 
+    $(".text").addClass("hidden");
+    $(".scene4-text").removeClass("hidden");            
+    });
 
-    // scene 6
+    // scene 4 -- zoomed to pocket Asithandile
+    $(".scene4-btn-asithandile").on('click', function() {
+    map_object.setView([-34.018532, 18.586795], 16);
+    $("#layer-select").addClass("hidden");
+    $("#click-layer").addClass("hidden");
+    $(".select-sublayer2").addClass("disabled");    
 
-    $(".scene6").on('click', function() {
-    $('#click-pocket').removeClass("hidden");
-    }); 
+    $(".scene-btn").addClass("hidden");
+    $(".scene3-back").removeClass("hidden");
+    $(".scene5-next-asithandile").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene4-text").removeClass("hidden");            
+    });
+
+    // scene 5 -- with change layer buttons
+    $(".scene5-btn").on('click', function() {
+    sublayers[5].show();
+    sublayers[2].hide();
+    $(".select-sublayer2").removeClass("active");
+    $(".select-sublayer5").addClass("active");
+    $("#layer-select").removeClass("hidden");
+    $("#click-layer").removeClass("hidden");    
+    $(".select-sublayer2").removeClass("disabled");
+    $(".scene6-next").addClass("disabled");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene3-back").removeClass("hidden");
+    $(".scene6-next").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene5-text").removeClass("hidden");            
+    });
+
+    // scene 6 -- changed text
+    $(".scene6-btn").on('click', function() {
+    $("#layer-select").removeClass("hidden");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene5-back").removeClass("hidden");
+    $(".scene7-next").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene6-text").removeClass("hidden"); 
+    $("#click-pocket").addClass("hidden");                                
+    });
+
+    // scene 7 -- clickable pocket
+    $(".scene7-btn").on('click', function() {
+    $("#layer-select").removeClass("hidden");
+    $(".select-sublayer2").removeClass("disabled");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene6-back").removeClass("hidden");
+    $(".scene8-next").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene7-text").removeClass("hidden");
+    $("#click-pocket").removeClass("hidden");                 
+    });
+
+    // scene 8 -- three options
+    $(".scene8-btn").on('click', function() {
+    $("#click-pocket").addClass("hidden");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene7-back").removeClass("hidden");
+    $(".other-story").removeClass("hidden");        
+    $(".explore-map").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene8-text").removeClass("hidden");            
+    });
+
+    // explore map
+    $(".explore-map").on('click', function() {
+    $("#click-pocket").removeClass("hidden");
+    $(".basemap-select").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene8-text").removeClass("hidden");
+    $("#click-pocket").addClass("hidden");    
+    $("#map").removeClass("col-sm-9");   
+    $("#map").addClass("col-sm-12");
+    $("#storyboard").remove();
+    map_object.dragging.enable();
+    map_object.touchZoom.enable();
+    map_object.keyboard.enable();
+    $(".leaflet-control-zoom").removeClass("hidden"); 
+    map_object.setView([-34.017147, 18.631967], 12); 
+    $(".ssub").removeClass("disabled");
+    $("#mapGradient").removeClass("hidden");                
+    });
+
+    $(".leaflet-control-zoom").addClass("hidden");
+
 }
 //closes function
