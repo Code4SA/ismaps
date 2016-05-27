@@ -14,7 +14,15 @@
   </head>
 
   <body>
-
+    <div id="load"><i class="spinloader fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
+    <div id="mapOverlay">
+        <h1>Why can't Cape Town's informal settlements be upgraded?</h1>
+        <p>There are around 146,000 households in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets.</p>
+        <ul>
+        <li class="btn btn-default startStory">Start</li>
+        <li class="btn btn-default startStory explore-map">Skip to map</li>
+        </ul>
+      </div>
   <div class="row intro-text hidden">
     <div class="col-lg-8 col-lg-offset-2">
         <h1>INFORMAL SETTLEMENTS MAP<br>CAPE TOWN</h1>
@@ -89,21 +97,13 @@
 </div>
 
     <!-- Map Start -->
-  <div class="row" style="height: 60%">
+  <div id="mapcontainer" class="row mapstart">
     <div id="map" class="col-sm-9">
 <button class="btn btn-default tooltip-name tt-small hidden hidden-lg hidden-md" style="font-weight: 800"></button>
 <img class="hidden" src="img/tap.svg" id="click-layer"></img>
 <img class="hidden" src="img/tap.svg" id="click-pocket"></img>
-<a href="#dashboard"><div class="arrow-down hidden"></div></a>
 
-    <div id="mapOverlay">
-        <h1>Why can't Cape Town's informal settlements be upgraded?</h1>
-        <p>There are around 146,000 households in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets.</p>
-        <ul>
-        <li class="btn btn-default startStory">Start</li>
-        <li class="btn btn-default startStory explore-map">Skip to map</li>
-        </ul>
-      </div>
+<a href="#dashboard"><div class="arrow-down hidden"></div></a>
 
     <div id="mapGradient" style="height: 100%; width:8%;"></div>
 
@@ -121,8 +121,8 @@
 
     <!-- Basemap toggle menu -->
       <div class="basemap-select hidden-xs hidden">
-          <div class="btn btn-default active base-map"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map</div>
-          <div class="btn btn-default base-satellite"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> Satellite</div>
+          <div id="bm-map" class="btn btn-default active base-map"><i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map</div>
+          <div id="bm-sat" class="btn btn-default base-satellite"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> Satellite</div>
       </div>
 
       <div class="basemap-select hidden-sm hidden-md hidden-lg hidden">
@@ -135,13 +135,23 @@
 <div id="storyboard" class="col-sm-3">
 
  <div class="scene1-text text"><p>Empty map</p></div>
- <div class="scene2-text text hidden"><p></p></div>
+ <div class="scene2-text text hidden"><p>with borders</p></div>
  <div class="scene3-text text hidden"><p>Asithandile and Zukiswa are 2 of the 3,000 residents of informal settlements to participate in and make a submission to the City of Cape Town’s 2016/2017 draft budget. They experience a number of challenges in their day-to-day lives.</p></div>
- <div class="scene4-text text hidden"><p>Asithandile lives in Kosovo Informal Settlement. He is wheelchair-bound after suffering a gunshot wound in an attack in the Eastern Cape, which makes navigate the streets in Kosovo challenging.</p><img src="img/asithandile-1.png" style="width: 100%; padding-bottom: 5px;"><p>He needs assistance to use the toilet, to get on and off his wheelchair.  He has to ask his brother for assistance, which makes him feel useless and uncomfortable.</p><p>Continue to explore the extent of the temporary solution to the lack of sanitation facilities.</p></div>
+
+ <div class="scene4-text-asithandile text hidden"><p>Asithandile text and video</p><iframe width="100%" height="200px" frameborder="0" autoplay="0" controls="2" color="white" modestbranding="1" src="https://www.youtube.com/embed/6gz05AQfPiU" allowfullscreen></iframe></div>
+ <div class="scene4-text-zukiswa text hidden"><p>zukiswa text and video</p><iframe width="100%" height="200px" src="https://www.youtube.com/embed/8q2bH71IFNM" autoplay="0" color="white" modestbranding="1" controls="2" frameborder="0" allowfullscreen></iframe></div> 
+
  <div class="scene5-text text hidden"><p>Explain functionality switching layers</p></div>
- <div class="scene6-text text hidden"><p>We can see that Kosovo has a fairly high level of temporary sanitation, 60 - 80% of the toilets provided are not permanent full flush toilets but fall into the category of temporary solutions ie portable, container, chemical, or bucket types.</p></div>
- <div class="scene7-text text hidden"><p>Let's explore the data further in Kosovo.  Click on the Kosovo informal settlement pocket, etc.</p></div>
- <div class="scene8-text text hidden"><p>Scene 8 placeholder text</p></div>
+
+ <div class="scene6-text-asithandile text hidden"><p>extra info asithandile</p></div>
+ <div class="scene6-text-zukiswa text hidden"><p>extra info zukiswa</p></div>
+
+ <div class="scene7-text-asithandile text hidden"><p>Explore Kosovo - asithandile</p></div>
+ <div class="scene7-text-zukiswa text hidden"><p>Explore RR section - zukiswa</p></div>
+
+ <div class="scene8-text-asithandile text hidden"><p>Three options - asithandile</p></div>
+ <div class="scene8-text-zukiswa text hidden"><p>Three options - zukiswa</p></div>
+
  <div class="scene9-text text hidden"><p>Scene 9 placeholder text</p></div>
 
 
@@ -157,20 +167,28 @@
   <li class="btn btn-default scene4-btn-zukiswa scene4-next scene-btn next-btn hidden">Zukiswa's story</li>  
 
   <li class="btn btn-default scene3-btn scene3-back scene-btn back-btn hidden">Back</li>
-  <li class="btn btn-default scene5-btn scene5-next-asithandile scene-btn next-btn hidden">Next</li>  
-  <li class="btn btn-default scene5-btn scene5-next-zukiswa scene-btn next-btn hidden">Next</li>  
+  <li class="btn btn-default scene5-btn-asithandile scene5-next-asithandile scene-btn next-btn hidden">Next</li>  
+  <li class="btn btn-default scene5-btn-zukiswa scene5-next-zukiswa scene-btn next-btn hidden">Next</li>  
 
-  <li class="btn btn-default scene4-btn scene4-back scene-btn back-btn hidden">Back</li>  
-  <li class="btn btn-default scene6-btn scene6-next scene-btn next-btn hidden disabled">Next</li>  
+  <li class="btn btn-default scene4-btn-asithandile scene4-back-asithandile scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene4-btn-zukiswa scene4-back-zukiswa scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene6-btn-asithandile scene6-next-asithandile scene-btn next-btn hidden disabled">Next</li>  
+  <li class="btn btn-default scene6-btn-zukiswa scene6-next-zukiswa scene-btn next-btn hidden disabled">Next</li>  
 
-  <li class="btn btn-default scene5-btn scene5-back scene-btn back-btn hidden">Back</li>  
-  <li class="btn btn-default scene7-btn scene7-next scene-btn next-btn hidden">Next</li>
+  <li class="btn btn-default scene5-btn-asithandile scene5-back-asithandile scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene5-btn-zukiswa scene5-back-zukiswa scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene7-btn scene7-btn-asithandile scene7-next-asithandile scene-btn next-btn hidden">Next</li>
+  <li class="btn btn-default scene7-btn scene7-btn-zukiswa scene7-next-zukiswa scene-btn next-btn hidden">Next</li>  
 
-  <li class="btn btn-default scene6-btn scene6-back scene-btn back-btn hidden">Back</li>  
-  <li class="btn btn-default scene8-btn scene8-next scene-btn next-btn hidden disabled">Next</li>  
+  <li class="btn btn-default scene6-btn-asithandile scene6-back-asithandile scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene6-btn-zukiswa scene6-back-zukiswa scene-btn back-btn hidden">Back</li>
+  <li class="btn btn-default scene8-btn-asithandile scene8-next scene8-next-asithandile scene-btn next-btn hidden disabled">Next</li>    
+  <li class="btn btn-default scene8-btn-zukiswa scene8-next scene8-next-zukiswa scene-btn next-btn hidden disabled">Next</li>  
 
-  <li class="btn btn-default scene7-btn scene7-back scene-btn back-btn hidden">Back</li>
-  <li class="btn btn-default scene3-btn other-story scene-btn back-btn hidden">A different story</li>    
+  <li class="btn btn-default scene7-btn-asithandile scene7-back-asithandile scene-btn back-btn hidden">Back</li>
+  <li class="btn btn-default scene7-btn-zukiswa scene7-back-zukiswa scene-btn back-btn hidden">Back</li>  
+  <li class="btn btn-default scene4-btn-zukiswa other-story-asithandile scene-btn back-btn hidden">Zukiswa's story</li>
+  <li class="btn btn-default scene4-btn-asithandile other-story-zukiswa scene-btn back-btn hidden">Asithandile's story</li>  
   <li class="btn btn-default explore-map scene-btn next-btn hidden">Explore map</li>
 
 </ul>
@@ -227,14 +245,14 @@
 
     <!-- Data Source and Credits Start -->
 
-    <div class="row" id="footer">
+    <div  id="footer" class="row hidden">
     <div class="col-lg-8 col-lg-offset-2">
     <p style="margin-top: 10px;">The data used to generate this map was obtained from the City of Cape Town in 2015. Some information was obtained from sources and others through access to information requests. Constraint data has been sourced directly from the City of Cape Town.  Requests have been made for detailed descriptions of the constraint fields, and we will continue to follow up these requests. The datasets are available on Code4SA's data portal: <a href="https://data.code4sa.org/dataset/Informal-Settlements-CTn-Detailed/fnr6-38xe" target="_blank">demographic and toilet data</a>, <a href="https://data.code4sa.org/dataset/Informal-Settlements-Upgrade-Constraints/3wnb-x2rd" target="_blank">constraints data</a>. Details, background, and discrepancies of our process and the data can be found <a href="disclosure.html">here</a>. It's also the place you can find the <a href="disclosure.html#constraints">definitions of the constraints</a>.</p>
     <p>This map of informal settlements in Cape Town is the result of a collaboration between <a href="http://nu.org.za/">Ndifuna Ukwazi</a>, <a href="http://www.sjc.org.za/">Social Justice Coalition</a>, <a href="http://www.internationalbudget.org/">International Budget Partnership</a>, and <a href="http://www.code4sa.org/">Code for South Africa</a>. For further information and comment please contact <a href="mailto:axolile@sjc.org.za">axolile@sjc.org.za</a> or <a href="mailto:jared@nu.org.za">jared@nu.org.za</a>.</p>
     </div>
     </div>
 
-    <div class="row" id="logos">
+    <div id="logos" class="row hidden">
 
     <div class="col-md-2 col-md-offset-2 col-sm-6">
     <a href="http://nu.org.za" target="_blank"><img class="center-block" src="img/logo-nu.png"/></a>

@@ -99,6 +99,10 @@ window.onload = function() {
             console.log("num layers", layer.getSubLayerCount());
             
             sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
+                $("#mapcontainer").removeClass("mapstart");
+                $("#mapcontainer").addClass("mapdashboard"); 
+                $('#footer').removeClass("hidden");
+                $('#logos').removeClass("hidden");                                                               
                 $(".scene8-next").removeClass("disabled");                
                 $('#back-to-map').removeClass("hidden");
                 $("#click-pocket").addClass("hidden");                                
@@ -426,7 +430,7 @@ window.onload = function() {
         sublayers[2].show();
         $('.cartodb-legend').addClass("hidden");
         $('.click-layer').addClass("hidden");
-        $('.scene6-next').removeClass("disabled");
+        $('.scene6-next-asithandile, .scene6-next-zukiswa').removeClass("disabled");
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0%",
             right: "100%",
@@ -677,28 +681,15 @@ window.onload = function() {
     $(".scene4-next").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene3-text").removeClass("hidden");            
-    });
-
-    // scene 4 -- zoomed to pocket Zukiswa
-    $(".scene4-btn-zukiswa").on('click', function() {
-    map_object.setView([-34.017447, 18.661056], 16);
-    $("#layer-select").addClass("hidden");
-    $("#click-layer").addClass("hidden");    
-    $(".select-sublayer2").addClass("disabled");    
-
-    $(".scene-btn").addClass("hidden");
-    $(".scene3-back").removeClass("hidden");
-    $(".scene5-next-zukiswa").removeClass("hidden");
-
-    $(".text").addClass("hidden");
-    $(".scene4-text").removeClass("hidden");            
+    $(".scene3-text").removeClass("hidden");
+    $("#bm-map").click();
     });
 
     // scene 4 -- zoomed to pocket Asithandile
     $(".scene4-btn-asithandile").on('click', function() {
     map_object.setView([-34.018532, 18.586795], 16);
     $("#layer-select").addClass("hidden");
+    $(".select-sublayer5").click();    
     $("#click-layer").addClass("hidden");
     $(".select-sublayer2").addClass("disabled");    
 
@@ -707,67 +698,151 @@ window.onload = function() {
     $(".scene5-next-asithandile").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene4-text").removeClass("hidden");            
-    });
+    $(".scene4-text-asithandile").removeClass("hidden");  
+    $("#bm-sat").click();  
 
-    // scene 5 -- with change layer buttons
-    $(".scene5-btn").on('click', function() {
-    sublayers[5].show();
-    sublayers[2].hide();
-    $(".select-sublayer2").removeClass("active");
-    $(".select-sublayer5").addClass("active");
-    $("#layer-select").removeClass("hidden");
-    $("#click-layer").removeClass("hidden");    
-    $(".select-sublayer2").removeClass("disabled");
-    $(".scene6-next").addClass("disabled");
+    $("#mapcontainer").addClass("mapstart");
+    $("#mapcontainer").removeClass("mapdashboard"); 
+    $('#dashboard').addClass("hidden");     
+    $('#footer').addClass("hidden");
+    $('#logos').addClass("hidden");
+
+    });    
+
+    // scene 4 -- zoomed to pocket Zukiswa
+    $(".scene4-btn-zukiswa").on('click', function() {
+    map_object.setView([-34.017447, 18.661056], 16);
+    $("#layer-select").addClass("hidden");
+    $(".select-sublayer5").click();
+    $("#click-layer").addClass("hidden");    
+    $(".select-sublayer2").addClass("disabled");    
 
     $(".scene-btn").addClass("hidden");
     $(".scene3-back").removeClass("hidden");
-    $(".scene6-next").removeClass("hidden");
+    $(".scene5-next-zukiswa").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene4-text-zukiswa").removeClass("hidden"); 
+    $("#bm-sat").click();
+
+    $("#mapcontainer").addClass("mapstart");
+    $("#mapcontainer").removeClass("mapdashboard");
+    $('#dashboard').addClass("hidden"); 
+    $('#footer').addClass("hidden");
+    $('#logos').addClass("hidden");
+    });
+
+    // scene 5 -- with change layer buttons Asithandile
+    $(".scene5-btn-asithandile").on('click', function() {
+    $(".select-sublayer5").click();
+    $("#layer-select").removeClass("hidden");
+    $("#click-layer").removeClass("hidden");    
+    $(".select-sublayer2").removeClass("disabled");
+    $(".scene6-next-asithandile").addClass("disabled");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene4-back-asithandile").removeClass("hidden");
+    $(".scene6-next-asithandile").removeClass("hidden");
 
     $(".text").addClass("hidden");
     $(".scene5-text").removeClass("hidden");            
     });
 
-    // scene 6 -- changed text
-    $(".scene6-btn").on('click', function() {
+    // scene 5 -- with change layer buttons Zukiswa
+    $(".scene5-btn-zukiswa").on('click', function() {
+    $(".select-sublayer5").click();
+    $("#layer-select").removeClass("hidden");
+    $("#click-layer").removeClass("hidden");    
+    $(".select-sublayer2").removeClass("disabled");
+    $(".scene6-next-zukiswa").addClass("disabled");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene4-back-zukiswa").removeClass("hidden");
+    $(".scene6-next-zukiswa").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene5-text").removeClass("hidden");            
+    });
+
+    // scene 6 -- changed text Asithandile
+    $(".scene6-btn-asithandile").on('click', function() {
     $("#layer-select").removeClass("hidden");
 
     $(".scene-btn").addClass("hidden");
-    $(".scene5-back").removeClass("hidden");
-    $(".scene7-next").removeClass("hidden");
+    $(".scene5-back-asithandile").removeClass("hidden");
+    $(".scene7-next-asithandile").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene6-text").removeClass("hidden"); 
+    $(".scene6-text-asithandile").removeClass("hidden"); 
     $("#click-pocket").addClass("hidden");                                
     });
 
-    // scene 7 -- clickable pocket
-    $(".scene7-btn").on('click', function() {
+    // scene 6 -- changed text Zukiswa
+    $(".scene6-btn-zukiswa").on('click', function() {
+    $("#layer-select").removeClass("hidden");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene5-back-zukiswa").removeClass("hidden");
+    $(".scene7-next-zukiswa").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene6-text-zukiswa").removeClass("hidden"); 
+    $("#click-pocket").addClass("hidden");                                
+    });    
+
+    // scene 7 -- clickable pocket Asithandile
+    $(".scene7-btn-asithandile").on('click', function() {
     $("#layer-select").removeClass("hidden");
     $(".select-sublayer2").removeClass("disabled");
 
     $(".scene-btn").addClass("hidden");
-    $(".scene6-back").removeClass("hidden");
-    $(".scene8-next").removeClass("hidden");
+    $(".scene6-back-asithandile").removeClass("hidden");
+    $(".scene8-next-asithandile").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene7-text").removeClass("hidden");
+    $(".scene7-text-asithandile").removeClass("hidden");
     $("#click-pocket").removeClass("hidden");                 
     });
 
-    // scene 8 -- three options
-    $(".scene8-btn").on('click', function() {
+    // scene 7 -- clickable pocket Zukiswa
+    $(".scene7-btn-zukiswa").on('click', function() {
+    $("#layer-select").removeClass("hidden");
+    $(".select-sublayer2").removeClass("disabled");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene6-back-zukiswa").removeClass("hidden");
+    $(".scene8-next-zukiswa").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene7-text-zukiswa").removeClass("hidden");
+    $("#click-pocket").removeClass("hidden");                 
+    });    
+
+    // scene 8 -- three options Asithandile
+    $(".scene8-btn-asithandile").on('click', function() {
     $("#click-pocket").addClass("hidden");
 
     $(".scene-btn").addClass("hidden");
-    $(".scene7-back").removeClass("hidden");
-    $(".other-story").removeClass("hidden");        
+    $(".scene7-back-asithandile").removeClass("hidden");
+    $(".other-story-asithandile").removeClass("hidden");        
     $(".explore-map").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene8-text").removeClass("hidden");            
+    $(".scene8-text-asithandile").removeClass("hidden");
     });
+
+    // scene 8 -- three options Zukiswa
+    $(".scene8-btn-zukiswa").on('click', function() {
+    $("#click-pocket").addClass("hidden");
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene7-back-zukiswa").removeClass("hidden");
+    $(".other-story-zukiswa").removeClass("hidden");        
+    $(".explore-map").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene8-text-zukiswa").removeClass("hidden");
+    });    
 
     // explore map
     $(".explore-map").on('click', function() {
@@ -786,10 +861,19 @@ window.onload = function() {
     $(".leaflet-control-zoom").removeClass("hidden"); 
     map_object.setView([-34.017147, 18.631967], 12); 
     $(".ssub").removeClass("disabled");
-    $("#mapGradient").addClass("hidden");                
+    $("#mapGradient").addClass("hidden");
+    $("#bm-map").click();                        
     });
 
     $(".leaflet-control-zoom").addClass("hidden");
 
 }
 //closes function
+
+document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'complete') {
+         document.getElementById('interactive');
+         document.getElementById('load').style.visibility="hidden";
+  }
+}
