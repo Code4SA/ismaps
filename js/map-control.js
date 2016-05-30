@@ -1,6 +1,6 @@
 window.onload = function() {
 
-    $(".startStory").on('click', function() {
+    $(".startStory, .skiptomap").on('click', function() {
         $("#mapOverlay").fadeOut("slow")
     });    
     
@@ -94,7 +94,7 @@ window.onload = function() {
         for (var i = 0; i < 6; i++) {
             sublayer = layer.getSubLayer(i);
             sublayer.setInteraction(true);
-            sublayer.setInteractivity('pocket_name, ratio_toilets_dwellings, is_cluster, area_ha, ward_id, toilets_container, toilets_chemical, toilets_full_flush, toilets_other, toilets_portable, cns_waterbodies, cns_private_land, cns_metro_roads, cns_servitude, cns_biodiversity_core1, cns_biodiversity_core2, cns_power_lines, cns_railway, cns_landfill_1, cns_landfill_2, cns_flood_prone, cns_irt, cns_noise_zones, cns_heritage, cns_koeberg, structure_count, density_dwellings_per_ha, age_of_pocket, temp_sanitation, upgrade_category');
+            sublayer.setInteractivity('pocket_name, ratio_toilets_dwellings, is_cluster, area_ha, ward_id, ward_councillor, toilets_container, toilets_chemical, toilets_full_flush, toilets_other, toilets_portable, cns_waterbodies, cns_private_land, cns_metro_roads, cns_servitude, cns_biodiversity_core1, cns_biodiversity_core2, cns_power_lines, cns_railway, cns_landfill_1, cns_landfill_2, cns_flood_prone, cns_irt, cns_noise_zones, cns_heritage, cns_koeberg, structure_count, density_dwellings_per_ha, age_of_pocket, temp_sanitation, upgrade_category');
             
             console.log("num layers", layer.getSubLayerCount());
             
@@ -119,6 +119,7 @@ window.onload = function() {
                 $("#is_cluster").text(data.is_cluster);
                 $("#area_ha").text(data.area_ha);
                 $("#ward_id").text(data.ward_id);
+                $("#ward_councillor").text(data.ward_councillor);                
                 $("#structure_count").text(data.structure_count);
                 $("#density_dwellings_per_ha").text(data.density_dwellings_per_ha);
                 $("#age_of_pocket").text(data.age_of_pocket);
@@ -319,7 +320,6 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[0].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             data: [
@@ -376,7 +376,7 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[1].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");
+        $('.scene7-next-zukiswa').removeClass("disabled");        
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             data: [
@@ -412,6 +412,7 @@ window.onload = function() {
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
+        $('#click-layer-zukiswa-age').addClass("hidden");                
         ga('send', 'event', 'layers', 'age of pocket');
         if (!clickedLayer) {
             ga('send', 'event', 'at least one layer', 'changed');
@@ -429,8 +430,7 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[2].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");
-        $('.scene6-next-asithandile, .scene6-next-zukiswa').removeClass("disabled");
+        $('.scene6-next-asithandile').removeClass("disabled");
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0%",
             right: "100%",
@@ -450,7 +450,7 @@ window.onload = function() {
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
-        $('#click-layer').addClass("hidden");
+        $('#click-layer-asithandile').addClass("hidden");
         ga('send', 'event', 'layers', 'temporary toilets');
         if (!clickedLayer) {
             ga('send', 'event', 'at least one layer', 'changed');
@@ -467,8 +467,8 @@ window.onload = function() {
         sublayers[4].hide();
         sublayers[5].hide();
         sublayers[3].show();
+        $('.scene6-next-zukiswa').removeClass("disabled");
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             title: "Test",
@@ -501,6 +501,7 @@ window.onload = function() {
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
+        $('#click-layer-zukiswa').addClass("hidden");        
         ga('send', 'event', 'layers', 'upgrade category');
         if (!clickedLayer) {
             ga('send', 'event', 'at least one layer', 'changed');
@@ -517,7 +518,6 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[4].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");
         var densityLegend = new cdb.geo.ui.Legend.Density({
             left: "0",
             right: "465",
@@ -559,7 +559,7 @@ window.onload = function() {
         $(".basemap-select > .btn").removeClass("active");
         $(this).addClass("active");
     });
-    
+    // Add button events Sublayer 5 - Boundaries    
     var sublayer5Shown = true;
     $(".select-sublayer5").on('click', function() {
         sublayers[0].hide();
@@ -569,7 +569,6 @@ window.onload = function() {
         sublayers[4].hide();
         sublayers[5].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.click-layer').addClass("hidden");
         $('#infoBoundary').removeClass("hidden").show();
         $('#infoDensity').addClass("hidden").hide();
         $('#infoUpgrade').addClass("hidden").hide();
@@ -668,7 +667,9 @@ window.onload = function() {
     $(".scene3-btn").on('click', function() {
     map_object.setView([-34.017147, 18.631967], 12);
     $("#layer-select").addClass("hidden");
-    $("#click-layer").addClass("hidden"); 
+    $("#click-layer-asithandile").addClass("hidden"); 
+    $("#click-layer-zukiswa").addClass("hidden"); 
+    $("#click-layer-zukiswa-age").addClass("hidden"); 
     $(".cartodb-legend").addClass("hidden"); 
     $("#dashboard").addClass("hidden"); 
     $(".scene8-next").addClass("disabled");                
@@ -685,20 +686,19 @@ window.onload = function() {
     $("#bm-map").click();
     });
 
-    // scene 4 -- zoomed to pocket Asithandile
+    // scene 4a -- zoomed to pocket Asithandile
     $(".scene4-btn-asithandile").on('click', function() {
-    map_object.setView([-34.018532, 18.586795], 16);
+    map_object.setView([-34.017396, 18.587218], 16);
     $("#layer-select").addClass("hidden");
-    $(".select-sublayer5").click();    
-    $("#click-layer").addClass("hidden");
+    $("#click-layer-asithandile").addClass("hidden");
     $(".select-sublayer2").addClass("disabled");    
 
     $(".scene-btn").addClass("hidden");
     $(".scene3-back").removeClass("hidden");
-    $(".scene5-next-asithandile").removeClass("hidden");
+    $(".scene4b-next-asithandile").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene4-text-asithandile").removeClass("hidden");  
+    $(".scene4a-text-asithandile").removeClass("hidden");  
     $("#bm-sat").click();  
 
     $("#mapcontainer").addClass("mapstart");
@@ -706,62 +706,133 @@ window.onload = function() {
     $('#dashboard').addClass("hidden");     
     $('#footer').addClass("hidden");
     $('#logos').addClass("hidden");
+    $(".select-sublayer5").click();    
+    });
 
-    });    
+    // scene 4b -- zoomed to pocket Asithandile
+    $(".scene4b-btn-asithandile").on('click', function() { 
 
-    // scene 4 -- zoomed to pocket Zukiswa
-    $(".scene4-btn-zukiswa").on('click', function() {
-    map_object.setView([-34.017447, 18.661056], 16);
+    $(".scene-btn").addClass("hidden");
+    $(".scene4-back-asithandile").removeClass("hidden");
+    $(".scene4c-next-asithandile").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene4b-text-asithandile").removeClass("hidden");  
+    });
+
+    // scene 4c -- zoomed to pocket Asithandile
+    $(".scene4c-btn-asithandile").on('click', function() { 
+    map_object.setView([-34.017396, 18.587218], 16);
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene4b-back-asithandile").removeClass("hidden");
+    $(".scene5-next-asithandile").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene4c-text-asithandile").removeClass("hidden");  +
+
+
     $("#layer-select").addClass("hidden");
-    $(".select-sublayer5").click();
-    $("#click-layer").addClass("hidden");    
+    $("#click-layer-asithandile").addClass("hidden");
+    $(".select-sublayer2").addClass("disabled");    
+
+    $(".select-sublayer5").click();    
+    });
+ 
+    // scene 4a -- zoomed to pocket Zukiswa
+    $(".scene4-btn-zukiswa").on('click', function() {
+    map_object.setView([-34.016949, 18.660423], 16);
+    $("#layer-select").addClass("hidden");
+    $("#click-layer-zukiswa").addClass("hidden");
     $(".select-sublayer2").addClass("disabled");    
 
     $(".scene-btn").addClass("hidden");
     $(".scene3-back").removeClass("hidden");
+    $(".scene4b-next-zukiswa").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene4a-text-zukiswa").removeClass("hidden");  
+    $("#bm-sat").click();  
+
+    $("#mapcontainer").addClass("mapstart");
+    $("#mapcontainer").removeClass("mapdashboard"); 
+    $('#dashboard').addClass("hidden");     
+    $('#footer').addClass("hidden");
+    $('#logos').addClass("hidden");
+    $(".select-sublayer5").click();    
+    });
+
+    // scene 4b -- zoomed to pocket Zukiswa
+    $(".scene4b-btn-zukiswa").on('click', function() { 
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene4-back-zukiswa").removeClass("hidden");
+    $(".scene4c-next-zukiswa").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene4b-text-zukiswa").removeClass("hidden");  
+    });
+
+    // scene 4c -- zoomed to pocket Zukiswa
+    $(".scene4c-btn-zukiswa").on('click', function() { 
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene4b-back-zukiswa").removeClass("hidden");
+    $(".scene4d-next-zukiswa").removeClass("hidden");
+
+    $(".text").addClass("hidden");
+    $(".scene4c-text-zukiswa").removeClass("hidden");  
+    });    
+
+    // scene 4d -- zoomed to pocket Zukiswa
+    $(".scene4d-btn-zukiswa").on('click', function() { 
+    map_object.setView([-34.016949, 18.660423], 16);
+
+    $(".scene-btn").addClass("hidden");
+    $(".scene4c-back-zukiswa").removeClass("hidden");
     $(".scene5-next-zukiswa").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene4-text-zukiswa").removeClass("hidden"); 
-    $("#bm-sat").click();
+    $(".scene4d-text-zukiswa").removeClass("hidden");
 
-    $("#mapcontainer").addClass("mapstart");
-    $("#mapcontainer").removeClass("mapdashboard");
-    $('#dashboard').addClass("hidden"); 
-    $('#footer').addClass("hidden");
-    $('#logos').addClass("hidden");
+    $("#layer-select").addClass("hidden");
+    $("#click-layer-zukiswa").addClass("hidden");
+    $(".select-sublayer3").addClass("disabled");    
+    $(".select-sublayer5").click();    
     });
 
     // scene 5 -- with change layer buttons Asithandile
     $(".scene5-btn-asithandile").on('click', function() {
     $(".select-sublayer5").click();
     $("#layer-select").removeClass("hidden");
-    $("#click-layer").removeClass("hidden");    
+    $("#click-layer-asithandile").removeClass("hidden");    
     $(".select-sublayer2").removeClass("disabled");
     $(".scene6-next-asithandile").addClass("disabled");
 
     $(".scene-btn").addClass("hidden");
-    $(".scene4-back-asithandile").removeClass("hidden");
+    $(".scene4c-back-asithandile").removeClass("hidden");
     $(".scene6-next-asithandile").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene5-text").removeClass("hidden");            
+    $(".scene5-text-asithandile").removeClass("hidden");            
     });
 
     // scene 5 -- with change layer buttons Zukiswa
     $(".scene5-btn-zukiswa").on('click', function() {
     $(".select-sublayer5").click();
     $("#layer-select").removeClass("hidden");
-    $("#click-layer").removeClass("hidden");    
-    $(".select-sublayer2").removeClass("disabled");
+    $("#click-layer-zukiswa").removeClass("hidden");
+    $("#click-layer-zukiswa-age").addClass("hidden");        
+    $(".select-sublayer3").removeClass("disabled");
     $(".scene6-next-zukiswa").addClass("disabled");
+    $(".select-sublayer1").addClass("disabled");    
 
     $(".scene-btn").addClass("hidden");
-    $(".scene4-back-zukiswa").removeClass("hidden");
+    $(".scene4d-back-zukiswa").removeClass("hidden");
     $(".scene6-next-zukiswa").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene5-text").removeClass("hidden");            
+    $(".scene5-text-zukiswa").removeClass("hidden");            
     });
 
     // scene 6 -- changed text Asithandile
@@ -771,19 +842,25 @@ window.onload = function() {
     $(".scene-btn").addClass("hidden");
     $(".scene5-back-asithandile").removeClass("hidden");
     $(".scene7-next-asithandile").removeClass("hidden");
+    $(".scene7-next-zukiswa").addClass("disabled");    
 
     $(".text").addClass("hidden");
     $(".scene6-text-asithandile").removeClass("hidden"); 
-    $("#click-pocket").addClass("hidden");                                
+    $("#click-pocket").addClass("hidden");    
     });
 
     // scene 6 -- changed text Zukiswa
     $(".scene6-btn-zukiswa").on('click', function() {
+    $(".select-sublayer3").click();                                            
     $("#layer-select").removeClass("hidden");
 
     $(".scene-btn").addClass("hidden");
     $(".scene5-back-zukiswa").removeClass("hidden");
     $(".scene7-next-zukiswa").removeClass("hidden");
+
+    $("#layer-select").removeClass("hidden");
+    $("#click-layer-zukiswa-age").removeClass("hidden");    
+    $(".select-sublayer1").removeClass("disabled");    
 
     $(".text").addClass("hidden");
     $(".scene6-text-zukiswa").removeClass("hidden"); 
@@ -807,7 +884,7 @@ window.onload = function() {
     // scene 7 -- clickable pocket Zukiswa
     $(".scene7-btn-zukiswa").on('click', function() {
     $("#layer-select").removeClass("hidden");
-    $(".select-sublayer2").removeClass("disabled");
+    $(".select-sublayer3").removeClass("disabled");
 
     $(".scene-btn").addClass("hidden");
     $(".scene6-back-zukiswa").removeClass("hidden");
@@ -852,14 +929,14 @@ window.onload = function() {
     $(".text").addClass("hidden");
     $(".scene8-text").removeClass("hidden");
     $("#click-pocket").addClass("hidden");    
-    $("#map").removeClass("col-sm-9");   
     $("#map").addClass("col-sm-12");
+    $("#map").removeClass("col-sm-8");       
     $("#storyboard").remove();
     map_object.dragging.enable();
     map_object.touchZoom.enable();
     map_object.keyboard.enable();
     $(".leaflet-control-zoom").removeClass("hidden"); 
-    map_object.setView([-34.017147, 18.631967], 12); 
+    map_object.setView([-33.99943, 18.61679], 12); 
     $(".ssub").removeClass("disabled");
     $("#mapGradient").addClass("hidden");
     $("#bm-map").click();                        
