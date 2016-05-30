@@ -467,6 +467,7 @@ h3 {
     overflow-x: hidden;
     float: left;
     height: 100%;
+    padding-left: 0;
 }
 
 #start-overlay {
@@ -505,6 +506,7 @@ background-color:#333
     color: #333!important;
     background-color: #EFEFEF!important;
     border-color: #efefef!important;
+
 }
 
 #mapGradient {
@@ -526,9 +528,9 @@ background-color:#333
 }
 
 .text {
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 10px;
+    padding-left: 1%;
+    padding-right: 2%;
+    padding-top: 2%;
 }
 
 .story-buttons {
