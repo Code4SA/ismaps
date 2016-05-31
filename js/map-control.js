@@ -940,11 +940,13 @@ window.onload = function() {
     map_object.touchZoom.enable();
     map_object.keyboard.enable();
     $(".leaflet-control-zoom").removeClass("hidden"); 
-    map_object.setView([-33.99943, 18.61679], 10); 
+    map_object.setView([-33.99943, 18.61679], 12); 
     $(".ssub").removeClass("disabled");
     $("#mapGradient").addClass("hidden");
     $("#bm-map").click();    
-    $(".layer-info").removeClass("hidden");                        
+    $(".layer-info").removeClass("hidden"); 
+    $("#layer-select-tiny").removeClass("hidden");                        
+    $("#layer-select-mobile").removeClass("hidden");                                                   
     });
 
     $(".leaflet-control-zoom").addClass("hidden");    

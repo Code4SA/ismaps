@@ -563,9 +563,10 @@ h1 {
 
 .startStory {
     font-size: 1.3em;
-    width: 10%;
     text-align: center;
     padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .skiptomap {
@@ -604,13 +605,12 @@ h1 {
   border-right: 20px solid transparent;
   border-top: 20px solid #333;
   position: absolute;
-  left:50%;
+  left: 25%;
   top:0;
   z-index: 9000;
 }
 
 .close-layertext {
-    font-family: 'Open Sans', sans-serif !important;
     position: absolute;
     right: 0;
     top: 0;
