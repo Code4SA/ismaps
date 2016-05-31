@@ -804,6 +804,7 @@ window.onload = function() {
     // scene 5 -- with change layer buttons Asithandile
     $(".scene5-btn-asithandile").on('click', function() {
     $(".select-sublayer5").click();
+    $("#bm-map").click();                        
     $("#layer-select").removeClass("hidden");
     $("#click-layer-asithandile").removeClass("hidden");  
     $(".ssub").addClass("disabled");      
@@ -821,6 +822,7 @@ window.onload = function() {
     // scene 5 -- with change layer buttons Zukiswa
     $(".scene5-btn-zukiswa").on('click', function() {
     $(".select-sublayer5").click();
+    $("#bm-map").click();                        
     $("#layer-select").removeClass("hidden");
     $("#click-layer-zukiswa").removeClass("hidden");
     $("#click-layer-zukiswa-age").addClass("hidden");
@@ -941,7 +943,8 @@ window.onload = function() {
     map_object.setView([-33.99943, 18.61679], 10); 
     $(".ssub").removeClass("disabled");
     $("#mapGradient").addClass("hidden");
-    $("#bm-map").click();                        
+    $("#bm-map").click();    
+    $(".layer-info").removeClass("hidden");                        
     });
 
     $(".leaflet-control-zoom").addClass("hidden");    
@@ -950,9 +953,6 @@ window.onload = function() {
     $("#mapOverlay").fadeOut("slow");
     $("#layer-select").removeClass("hidden");
     $(".select-sublayer5").click();
-    $(".layer-info").removeClass("hidden");
-    $(".layer-select-mobile").removeClass("hidden");
-    $(".layer-select-tiny").removeClass("hidden");
     });
 
     $(".close-layertext").on('click', function() {
