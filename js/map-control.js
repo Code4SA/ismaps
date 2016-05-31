@@ -1,8 +1,8 @@
 window.onload = function() {
 
-    $(".startStory, .skiptomap").on('click', function() {
+    $(".startStory").on('click', function() {
         $("#mapOverlay").fadeOut("slow")
-    });    
+    });
     
     // Instantiate new map object, place it in 'map' element -- Uses Leaflet.js
     var map_object = new L.Map('map',{
@@ -89,7 +89,7 @@ window.onload = function() {
         });
     
 
-        $('.scene7-btn').click(function() {
+        $('.scene7-btn, .skiptomap').click(function() {
         
         for (var i = 0; i < 6; i++) {
             sublayer = layer.getSubLayer(i);
@@ -805,7 +805,8 @@ window.onload = function() {
     $(".scene5-btn-asithandile").on('click', function() {
     $(".select-sublayer5").click();
     $("#layer-select").removeClass("hidden");
-    $("#click-layer-asithandile").removeClass("hidden");    
+    $("#click-layer-asithandile").removeClass("hidden");  
+    $(".ssub").addClass("disabled");      
     $(".select-sublayer2").removeClass("disabled");
     $(".scene6-next-asithandile").addClass("disabled");
 
@@ -822,7 +823,8 @@ window.onload = function() {
     $(".select-sublayer5").click();
     $("#layer-select").removeClass("hidden");
     $("#click-layer-zukiswa").removeClass("hidden");
-    $("#click-layer-zukiswa-age").addClass("hidden");        
+    $("#click-layer-zukiswa-age").addClass("hidden");
+    $(".ssub").addClass("disabled");          
     $(".select-sublayer3").removeClass("disabled");
     $(".scene6-next-zukiswa").addClass("disabled");
     $(".select-sublayer1").addClass("disabled");    
@@ -929,21 +931,39 @@ window.onload = function() {
     $(".text").addClass("hidden");
     $(".scene8-text").removeClass("hidden");
     $("#click-pocket").addClass("hidden");    
-    $("#map").addClass("col-sm-12");
-    $("#map").removeClass("col-sm-8");       
+    $("#map").addClass("col-xs-12");
+    $("#map").removeClass("col-xs-8");       
     $("#storyboard").remove();
     map_object.dragging.enable();
     map_object.touchZoom.enable();
     map_object.keyboard.enable();
     $(".leaflet-control-zoom").removeClass("hidden"); 
-    map_object.setView([-33.99943, 18.61679], 12); 
+    map_object.setView([-33.99943, 18.61679], 10); 
     $(".ssub").removeClass("disabled");
     $("#mapGradient").addClass("hidden");
     $("#bm-map").click();                        
     });
 
-    $(".leaflet-control-zoom").addClass("hidden");
+    $(".leaflet-control-zoom").addClass("hidden");    
 
+    $(".skiptomap").on('click', function() {
+    $("#mapOverlay").fadeOut("slow");
+    $("#layer-select").removeClass("hidden");
+    $(".select-sublayer5").click();
+    $(".layer-info").removeClass("hidden");
+    $(".layer-select-mobile").removeClass("hidden");
+    $(".layer-select-tiny").removeClass("hidden");
+    });
+
+    $(".close-layertext").on('click', function() {
+    $(".layer-info").addClass("hidden");
+    $(".open-layertext").removeClass("hidden");
+    });
+
+    $(".open-layertext").on('click', function() {
+    $(".layer-info").removeClass("hidden");
+    $(".open-layertext").addClass("hidden");
+    });
 }
 //closes function
 

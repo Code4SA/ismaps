@@ -380,7 +380,6 @@ div.cartodb-legend.custom ul li .bullet {
 }
 
 .arrow-down {
-  width: 10; 
   height: 0; 
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
@@ -487,7 +486,7 @@ left: 0;
 right: 0;
 background-color:#333
 }
-#mapOverlay h1 {
+h1 {
     font-family: 'Lato', sans-serif;
     text-align: center;
     font-size: 3em;
@@ -544,7 +543,7 @@ background-color:#333
 }
 
 .mapdashboard {
-    height: 85%;
+    height: 80%;
 }
 
 #load{
@@ -597,4 +596,22 @@ background-color:#333
 
 .next-btn {
     text-align: right;
+}
+
+.open-layertext {
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #333;
+  position: absolute;
+  left:50%;
+  top:0;
+  z-index: 9000;
+}
+
+.close-layertext {
+    font-family: 'Open Sans', sans-serif !important;
+    position: absolute;
+    right: 0;
+    top: 0;
 }

@@ -21,19 +21,10 @@
         <p><a href="#" class="btn btn-default startStory">Start</a></p>
         <p><a href="#" class="explore-map skiptomap">Skip to map</a></p>
       </div>
-  <div class="row intro-text hidden">
-    <div class="col-lg-8 col-lg-offset-2">
-        <h1>INFORMAL SETTLEMENTS MAP<br>CAPE TOWN</h1>
-        <p>There are around 146,000 households in 437 informal settlement pockets in Cape Town. Many were established before democracy but are still not recognised as permanent with occupation rights and security of tenure. We need an honest conversation about what is possible and effective budgets, policy and plans to tackle the constraints that do exist so that the City can provide progressive access to shelter and equitable services. Can data help? Explore the map to find more information about individual pockets.</p>
-    </div>
-  </div>
 
-  <div class="row hidden">
+  <div class="row hidden layer-info">
     <div class="col-lg-8 col-lg-offset-2" id="infoDisplay"> <!-- Contextual SubLayer Information Start -->
-
-    <h3>Using the interactive map</h3>
-    <p>Explore the map to find individual pockets. Click on a pocket to see more information. Click on the layers to see trends. Toggle between map and satellite view.</p>
-
+    <div class="btn btn-default close-layertext"><i class="fa fa-times" aria-hidden="true"></i> Close infobox</div>
 
     <div id="infoDefault">
     <h3>Boundary</h3>
@@ -74,7 +65,7 @@
     </div> <!-- Contextual SubLayer Information End -->
 </div>
 
-<ul id="layer-select-tiny" class="hidden-md hidden-lg hidden-sm hidden">
+<ul id="layer-select layer-select-tiny" class="hidden-md hidden-lg hidden-sm hidden">
   <li class="btn btn-block btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li class="btn btn-block btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
   <li class="btn btn-block btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
@@ -84,7 +75,7 @@
 </ul>
 
 <div class="position:relative">
-<ul id="layer-select-mobile" class="hidden-md hidden-lg hidden-xs hidden">
+<ul id="layer-select layer-select-mobile" class="hidden-md hidden-lg hidden-xs hidden">
   <li class="btn btn-default select-sublayer0"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Households</li>
   <li id="story-layer" class="btn btn-default select-sublayer1"><i class="fa fa-history fa-fw" aria-hidden="true"></i> Age</li>
   <li class="btn btn-default select-sublayer2"><i class="fa fa-tint" aria-hidden="true"></i> Temporary toilets</li>
@@ -96,7 +87,8 @@
 
     <!-- Map Start -->
   <div id="mapcontainer" class="row mapstart">
-    <div id="map" class="col-sm-8">
+    <div id="map" class="col-xs-8">
+<a href="#"><div class="open-layertext hidden"></div></a>
 <button class="btn btn-default tooltip-name tt-small hidden hidden-lg hidden-md" style="font-weight: 800"></button>
 <img class="hidden" src="img/tap.svg" id="click-layer-asithandile"></img>
 <img class="hidden" src="img/tap.svg" id="click-layer-zukiswa"></img>
@@ -132,7 +124,7 @@
 
     </div>
     <!-- Map End -->
-<div id="storyboard" class="col-sm-4">
+<div id="storyboard" class="col-xs-4">
 
  <div class="scene1-text text"><p>Click the next button to explore the interactive options on the map</p></div>
  <div class="scene2-text text hidden"><p>The black boundaries on the map are the borders of the informal settlements within the City of Cape Town. A informal settlement pocket is a cluster or grouping of tin shack housing which can vary in size from a few shacks to a few thousand. Pockets are grouped by the City of Cape Town to make up Informal Settlements.</p><p>Click next to follow the stories of two informal settlement residents. It will guide you on how you can use the tool to explore the data on the map.</p></div>
