@@ -1,3 +1,11 @@
+
+body {
+	background-color: #333;
+}
+.row {
+	color:#efefef;
+}
+
 .mobile-image {
 	width: 100%
 }
@@ -15,7 +23,9 @@ img {
 	padding-left: 10px;
 	padding-right: 10px;
 }
-
+.centerBtn {
+	text-align: center;
+}
 .mobile-story-title {
 	text-align: center;
 	margin-top: 0;
@@ -24,4 +34,28 @@ img {
 	padding-bottom: 20px;
 	color: #FFF;
 	background-color: #333;
+	text-shadow: 2px 2px 0px #555555;
+	text-transform: capitalize;
+	font-family: 'Lato', sans-serif;
+}
+.mobile-story-asithandile {
+	border-bottom-width: 3px;
+    border-color: #ADADAD;
+}
+.mobile-story-zukiswa {
+	border-bottom-width: 3px;
+    border-color: #ADADAD;
+}
+.explore-pre-story {
+	border-bottom-width: 3px;
+    border-color: #ADADAD;
+}
+.explore-post-story {
+	border-bottom-width: 3px;
+    border-color: #ADADAD;
+}
+
+#asithandile h2, #zukiswa h2 {
+	text-shadow: 2px 2px 0px #555555;
+	font-family: 'Lato', sans-serif;
 }
