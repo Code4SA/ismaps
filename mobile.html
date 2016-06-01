@@ -26,10 +26,14 @@
 </div>
 </div>
 
+<a href="#top" id="top-link"><img src="img/up-arrow.png" /></a>
+
 <div class="row hidden" id="asithandile">
 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 
 <h2>Asithandile's Story</h2>
+
+ 
 
 <img src="img/asithandile1.jpg">
 
@@ -193,5 +197,45 @@ $(".explore-post-story").on('click', function() {
 ga('create', 'UA-48399585-39', 'auto');
 ga('send', 'pageview');
 </script>
+
+<script type="text/javascript">
+    // scroll to top thing
+//plugin
+jQuery.fn.topLink = function(settings) {
+  settings = jQuery.extend({
+    min: 1,
+    fadeSpeed: 100
+  }, settings);
+  return this.each(function() {
+    //listen for scroll
+    var el = jQuery(this);
+    el.hide(); //in case the user forgot
+    jQuery(window).scroll(function() {
+      if(jQuery(window).scrollTop() >= settings.min)
+      {
+        el.fadeIn(settings.fadeSpeed);
+      }
+      else
+      {
+        el.fadeOut(settings.fadeSpeed);
+      }
+    });
+  });
+};
+
+//usage w/ smoothscroll
+jQuery(document).ready(function() {
+  //set the link
+  jQuery('#top-link').topLink({
+    min: 500,
+    fadeSpeed: 100
+  });
+  //smoothscroll
+  jQuery('#top-link').click(function(r) {    
+    jQuery("html, body").animate({ scrollTop: 0 }, 300);
+  });
+});
+</script>
+
 </body>
 </html>

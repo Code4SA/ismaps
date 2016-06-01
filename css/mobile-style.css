@@ -5,11 +5,9 @@ body {
 .row {
 	color:#efefef;
 }
-
 .mobile-image {
 	width: 100%
 }
-
 img {
 	width: 100%
 }
@@ -18,7 +16,6 @@ img {
 	padding-left: 0;
 	padding-right: 0;
 }
-
 .col-xs-12 p {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -54,8 +51,28 @@ img {
 	border-bottom-width: 3px;
     border-color: #ADADAD;
 }
-
 #asithandile h2, #zukiswa h2 {
 	text-shadow: 2px 2px 0px #555555;
 	font-family: 'Lato', sans-serif;
+	text-align: center;
 }
+
+#top-link  {
+	display:none; 
+	position:fixed; 
+	left:50%; 
+	margin-left:200px; 
+	bottom:2px; 
+	font-weight:bold; 
+	text-decoration:none; 
+	padding:10px; 
+	opacity:1;
+	z-index: 9000;
+}
+#top-link img {
+	background-color: #eee;
+    padding: 5px;
+    border-radius: 50px;
+}
+
+
