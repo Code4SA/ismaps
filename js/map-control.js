@@ -3,8 +3,6 @@ window.onload = function() {
     $(".startStory").on('click', function() {
         $("#mapOverlay").fadeOut("slow")
         ga('send', 'event', 'start-button', 'clicked');
-        $("#map").removeClass("col-xs-12");
-        $("#map").addClass("col-xs-8");       
     });
     
     // Instantiate new map object, place it in 'map' element -- Uses Leaflet.js
@@ -952,7 +950,8 @@ window.onload = function() {
     $(".layer-info").removeClass("hidden"); 
     $("#layer-select-tiny").removeClass("hidden");                        
     $("#layer-select-mobile").removeClass("hidden"); 
-    ga('send', 'event', 'explore-map', 'clicked');                                                                  
+    ga('send', 'event', 'explore-map', 'clicked');
+    map_object.invalidateSize(true);
     });
 
     $(".leaflet-control-zoom").addClass("hidden");    
