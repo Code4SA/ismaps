@@ -2,6 +2,7 @@ window.onload = function() {
 
     $(".startStory").on('click', function() {
         $("#mapOverlay").fadeOut("slow")
+        ga('send', 'event', 'start-button', 'clicked');        
     });
     
     // Instantiate new map object, place it in 'map' element -- Uses Leaflet.js
@@ -706,7 +707,8 @@ window.onload = function() {
     $('#dashboard').addClass("hidden");     
     $('#footer').addClass("hidden");
     $('#logos').addClass("hidden");
-    $(".select-sublayer5").click();    
+    $(".select-sublayer5").click();  
+    ga('send', 'event', 'story', 'asithandile');                
     });
 
     // scene 4b -- zoomed to pocket Asithandile
@@ -759,7 +761,8 @@ window.onload = function() {
     $('#dashboard').addClass("hidden");     
     $('#footer').addClass("hidden");
     $('#logos').addClass("hidden");
-    $(".select-sublayer5").click();    
+    $(".select-sublayer5").click();
+    ga('send', 'event', 'story', 'zukiswa');                    
     });
 
     // scene 4b -- zoomed to pocket Zukiswa
@@ -946,7 +949,8 @@ window.onload = function() {
     $("#bm-map").click();    
     $(".layer-info").removeClass("hidden"); 
     $("#layer-select-tiny").removeClass("hidden");                        
-    $("#layer-select-mobile").removeClass("hidden");                                                   
+    $("#layer-select-mobile").removeClass("hidden"); 
+    ga('send', 'event', 'explore-map', 'clicked');                                                                  
     });
 
     $(".leaflet-control-zoom").addClass("hidden");    
@@ -965,6 +969,7 @@ window.onload = function() {
     $(".open-layertext").on('click', function() {
     $(".layer-info").removeClass("hidden");
     $(".open-layertext").addClass("hidden");
+    ga('send', 'event', 'skip-to-map', 'clicked');            
     });
 }
 //closes function
