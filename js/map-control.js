@@ -2,7 +2,9 @@ window.onload = function() {
 
     $(".startStory").on('click', function() {
         $("#mapOverlay").fadeOut("slow")
-        ga('send', 'event', 'start-button', 'clicked');        
+        ga('send', 'event', 'start-button', 'clicked');
+        $("#map").removeClass("col-xs-12");
+        $("#map").addClass("col-xs-8");       
     });
     
     // Instantiate new map object, place it in 'map' element -- Uses Leaflet.js
