@@ -5,3 +5,23 @@
 img {
 	width: 100%
 }
+
+.col-xs-12 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.col-xs-12 p {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.mobile-story-title {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #FFF;
+	background-color: #333;
+}

@@ -80,7 +80,7 @@ window.onload = function() {
                 $('#map').css('cursor', 'auto');
             }
         });
-            
+        
         for (var i = 0; i < 6; i++) {
             sublayer = layer.getSubLayer(i);
             sublayer.setInteraction(true);
@@ -90,12 +90,12 @@ window.onload = function() {
             
             sublayer.on('featureClick', function(e, latlng, pos, data, layerNumber) {
                 $("#mapcontainer").removeClass("mapstart");
-                $("#mapcontainer").addClass("mapdashboard"); 
+                $("#mapcontainer").addClass("mapdashboard");
                 $('#footer').removeClass("hidden");
-                $('#logos').removeClass("hidden");                                                               
-                $(".scene8-next").removeClass("disabled");                
+                $('#logos').removeClass("hidden");
+                $(".scene8-next").removeClass("disabled");
                 $('#back-to-map').removeClass("hidden");
-                $("#click-pocket").addClass("hidden");                                
+                $("#click-pocket").addClass("hidden");
                 $('#dashboard').removeClass("hidden");
                 $('.arrow-down').removeClass("fade-out");
                 $('.arrow-down').removeClass("hidden");
@@ -109,7 +109,7 @@ window.onload = function() {
                 $("#is_cluster").text(data.is_cluster);
                 $("#area_ha").text(data.area_ha);
                 $("#ward_id").text(data.ward_id);
-                $("#ward_councillor").text(data.ward_councillor);                
+                $("#ward_councillor").text(data.ward_councillor);
                 $("#structure_count").text(data.structure_count);
                 $("#density_dwellings_per_ha").text(data.density_dwellings_per_ha);
                 $("#age_of_pocket").text(data.age_of_pocket);
@@ -123,18 +123,18 @@ window.onload = function() {
                 }
                 clickedPocket = true;
             });
-
-
+            
+            
             sublayer.on('featureOver', function(e, latlng, pos, data, layerNumber) {
                 $(".tooltip-name").text(data.pocket_name);
                 $(".tooltip-name").removeClass("hidden");
             });
-
+            
             sublayer.on('featureOut', function(e, latlng, pos, data, layerNumber) {
                 $(".tooltip-name").text('');
                 $(".tooltip-name").addClass("hidden");
             });
-
+        
         }
         
         for (var i = 0; i < layer.getSubLayerCount(); i++) {
@@ -147,7 +147,7 @@ window.onload = function() {
         sublayers[3].hide();
         sublayers[4].hide();
         sublayers[5].show();
-
+        
         
         // define ZIndex of the CartoDB layer
         layer.setZIndex(9000);
@@ -271,14 +271,22 @@ window.onload = function() {
             },
             fontName: 'Open Sans',
             enableInteractivity: 'false',
-            vAxis: { title: "",
-                textStyle: {fontSize: 12}
-                },
+            vAxis: {
+                title: "",
+                textStyle: {
+                    fontSize: 12
+                }
+            },
             hAxis: {
                 format: '#\'%\'',
                 title: 'Area of cluster',
-                textStyle: {fontSize: 12 },
-                viewWindow: {min: 0, max: 100},
+                textStyle: {
+                    fontSize: 12
+                },
+                viewWindow: {
+                    min: 0,
+                    max: 100
+                },
                 ticks: [0, 25, 50, 75, 100]
             },
             chartArea: {
@@ -364,7 +372,7 @@ window.onload = function() {
         sublayers[5].hide();
         sublayers[1].show();
         $('.cartodb-legend').addClass("hidden");
-        $('.scene7-next-zukiswa').removeClass("disabled");        
+        $('.scene7-next-zukiswa').removeClass("disabled");
         var legend = new cdb.geo.ui.Legend({
             type: "custom",
             data: [
@@ -400,7 +408,7 @@ window.onload = function() {
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
-        $('#click-layer-zukiswa-age').addClass("hidden");                
+        $('#click-layer-zukiswa-age').addClass("hidden");
         ga('send', 'event', 'layers', 'age of pocket');
         if (!clickedLayer) {
             ga('send', 'event', 'at least one layer', 'changed');
@@ -426,8 +434,8 @@ window.onload = function() {
         });
         
         $('.legend').append(densityLegend.render().el);
-
-
+        
+        
         $('.cartodb-legend').prepend('<p class="legend-title">Percentage of toilets that are temporary</p>').show();
         $('.cartodb-legend').append('<br><div class="bullet-box"></div><p class="leg-toi-text">No toilets</p>').show();
         
@@ -489,7 +497,7 @@ window.onload = function() {
         $('#infoDensity').addClass("hidden").hide();
         $('#infoDefault').addClass("hidden").hide();
         $('#infoBoundary').addClass("hidden").hide();
-        $('#click-layer-zukiswa').addClass("hidden");        
+        $('#click-layer-zukiswa').addClass("hidden");
         ga('send', 'event', 'layers', 'upgrade category');
         if (!clickedLayer) {
             ga('send', 'event', 'at least one layer', 'changed');
@@ -616,5 +624,27 @@ window.onload = function() {
         event.preventDefault();
         $(this).parent().hide().prev().show().prev().show();
     });
+    
+    $(".mobile-story-zukiswa").on('click', function() {
+        $("#asithandile").addClass("hidden");
+        $("#zukiswa").removeClass("hidden");
+        ga('send', 'event', 'mobile-story', 'zukiswa');
+    });
+    
+    $(".mobile-story-asithandile").on('click', function() {
+        $("#zukiswa").addClass("hidden");
+        $("#asithandile").removeClass("hidden");
+        ga('send', 'event', 'mobile-story', 'asithandile');
+    });
+    
+    $(".explore-pre-story").on('click', function() {
+        ga('send', 'event', 'mobile-explore-map', 'before story');
+    });
+    
+    $(".explore-post-story").on('click', function() {
+        ga('send', 'event', 'mobile-explore-map', 'after story');
+    });
+
+
 }
 //closes function
