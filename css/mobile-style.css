@@ -56,23 +56,6 @@ img {
 	font-family: 'Lato', sans-serif;
 	text-align: center;
 }
-
-#top-link  {
-	display:none; 
-	position:fixed; 
-	left:50%; 
-	margin-left:200px; 
-	bottom:2px; 
-	font-weight:bold; 
-	text-decoration:none; 
-	padding:10px; 
-	opacity:1;
-	z-index: 9000;
+.removeMarginBottom {
+	margin-bottom: 0px!important;
 }
-#top-link img {
-	background-color: #eee;
-    padding: 5px;
-    border-radius: 50px;
-}
-
-
