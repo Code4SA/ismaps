@@ -35,13 +35,12 @@ img {
 	text-transform: capitalize;
 	font-family: 'Lato', sans-serif;
 }
-.mobile-story-asithandile {
-	border-bottom-width: 3px;
-    border-color: #ADADAD;
-}
-.mobile-story-zukiswa {
-	border-bottom-width: 3px;
-    border-color: #ADADAD;
+.btn-default {
+	border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 3px;
+    border-color: #ADADAD;    
 }
 .explore-pre-story {
 	border-bottom-width: 3px;
@@ -58,4 +57,14 @@ img {
 }
 .removeMarginBottom {
 	margin-bottom: 0px!important;
+}
+
+#logos-mobile img {
+    max-height: 130px;
+    max-width: 100%;
+    width: auto;
+}
+
+#logos-mobile .row {
+	margin-top: 10px;
 }
