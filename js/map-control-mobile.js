@@ -320,27 +320,27 @@ window.onload = function() {
             type: "custom",
             data: [
             {
-                name: "≤ 8000",
+                name: "≥ 8000",
                 value: "#a50f15"
             }, 
             {
-                name: "≤ 5000",
+                name: "≥ 5000",
                 value: "#de2d26"
             }, 
             {
-                name: "≤ 1000",
+                name: "≥ 1000",
                 value: "#fb6a4a"
             }, 
             {
-                name: "≤ 750",
+                name: "≥ 750",
                 value: "#fc9272"
             }, 
             {
-                name: "≤ 500",
+                name: "≥ 500",
                 value: "#fcbba1"
             }, 
             {
-                name: "≤ 250",
+                name: "≥ 250",
                 value: "#fee5d9"
             }
             ]
