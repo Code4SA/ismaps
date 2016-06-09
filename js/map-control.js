@@ -4,6 +4,10 @@ window.onload = function() {
         $("#mapOverlay").fadeOut("slow")
         ga('send', 'event', 'start-button', 'clicked');
     });
+
+    $("#skip-stories").on('click', function() {
+        ga('send', 'event', 'story started but skipped', 'clicked');
+    });    
     
     // Instantiate new map object, place it in 'map' element -- Uses Leaflet.js
     var map_object = new L.Map('map',{
@@ -708,7 +712,7 @@ window.onload = function() {
     $('#footer').addClass("hidden");
     $('#logos').addClass("hidden");
     $(".select-sublayer5").click();  
-    ga('send', 'event', 'story', 'asithandile');                
+    ga('send', 'event', 'story started', 'asithandile');                
     });
 
     // scene 4b -- zoomed to pocket Asithandile
@@ -762,7 +766,7 @@ window.onload = function() {
     $('#footer').addClass("hidden");
     $('#logos').addClass("hidden");
     $(".select-sublayer5").click();
-    ga('send', 'event', 'story', 'zukiswa');                    
+    ga('send', 'event', 'story started', 'zukiswa');                    
     });
 
     // scene 4b -- zoomed to pocket Zukiswa
@@ -819,7 +823,8 @@ window.onload = function() {
     $(".scene6-next-asithandile").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene5-text-asithandile").removeClass("hidden");            
+    $(".scene5-text-asithandile").removeClass("hidden"); 
+    ga('send', 'event', 'story halfway', 'asithandile');                                   
     });
 
     // scene 5 -- with change layer buttons Zukiswa
@@ -839,7 +844,8 @@ window.onload = function() {
     $(".scene6-next-zukiswa").removeClass("hidden");
 
     $(".text").addClass("hidden");
-    $(".scene5-text-zukiswa").removeClass("hidden");            
+    $(".scene5-text-zukiswa").removeClass("hidden");
+    ga('send', 'event', 'story halfway', 'zukiswa');                                                   
     });
 
     // scene 6 -- changed text Asithandile
@@ -913,6 +919,7 @@ window.onload = function() {
 
     $(".text").addClass("hidden");
     $(".scene8-text-asithandile").removeClass("hidden");
+    ga('send', 'event', 'story finished', 'asithandile');                    
     });
 
     // scene 8 -- three options Zukiswa
@@ -926,6 +933,7 @@ window.onload = function() {
 
     $(".text").addClass("hidden");
     $(".scene8-text-zukiswa").removeClass("hidden");
+    ga('send', 'event', 'story finished', 'zukiswa');                
     });    
 
     // explore map
@@ -950,6 +958,7 @@ window.onload = function() {
     $(".layer-info").removeClass("hidden"); 
     $("#layer-select-tiny").removeClass("hidden");                        
     $("#layer-select-mobile").removeClass("hidden"); 
+    $("#skip-stories").addClass("hidden");    
     ga('send', 'event', 'explore-map', 'clicked');
     map_object.invalidateSize(true);
     });
@@ -960,6 +969,7 @@ window.onload = function() {
     $("#mapOverlay").fadeOut("slow");
     $("#layer-select").removeClass("hidden");
     $(".select-sublayer5").click();
+    $("#skip-stories").addClass("hidden");
     });
 
     $(".close-layertext").on('click', function() {
