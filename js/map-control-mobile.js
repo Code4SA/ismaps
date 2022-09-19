@@ -60,7 +60,7 @@ window.onload = function () {
 
   // Basemap pull tiles
   var basemap2 = L.tileLayer(
-    "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+    "//{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
     {
       attribution: "CartoDB",
     }
