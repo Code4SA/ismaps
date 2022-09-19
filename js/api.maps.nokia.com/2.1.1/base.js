@@ -2641,7 +2641,7 @@ if (!self.__WB_pmw) {
         a = { type: "error" },
         g = (function () {
           var a = document.createElement("script");
-          a.text = "//";
+          a.text = "https://";
           return !a.cloneNode(!0).text;
         })(),
         d = ovi.browser.msie,
