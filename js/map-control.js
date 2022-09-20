@@ -27,6 +27,7 @@ window.onload = function () {
   var layerSource = {
     user_name: "adi45",
     type: "cartodb",
+    https: true,
     sublayers: [
       {
         sql: "SELECT * FROM matrix_formatted_data",
@@ -88,7 +89,7 @@ window.onload = function () {
   // Basemap function
   // Add data layer to your map
   cartodb
-    .createLayer(map_object, layerSource)
+    .createLayer(map_object, layerSource, { https: true })
     .addTo(map_object)
 
     .done(function (layer) {
